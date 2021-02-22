@@ -4,6 +4,7 @@ import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
 import Login from "./Components/Login/Login";
 import Feed from "./Components/Feed/Feed";
+import Post from "./Components/Post/Post";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" exact component={Main} />
         <Route path="/Login" component={Login} />
         <Route path="/Feed" component={Feed} />
+        <Route path="/Post" component={Post} />
         {/*<Route path='/signin' component={Auth} /> 
         <Route path="/feed" component={feed} /> */}
       </Switch>

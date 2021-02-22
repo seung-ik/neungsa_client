@@ -1,32 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import Logo from '../../img/logo_main.png'
-import './Header.css'
-
-
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Logo from "../../img/logo_main.png";
+import "./Header.css";
 
 function Header() {
-    const [click, setClick] = useState(false)
-    const handleClick = () => setClick(!click)
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
 
-    return (
-
-        <div className="header">
-            <div className="container">
-            <Link to='/' className='header__logo' onClick={handleClick}> 
-                <img src={Logo} alt='Fineapple logo' />
+  return (
+    <div className="header">
+      <div className="container">
+        <Link to="/" className="header__logo" onClick={handleClick}>
+          <img src={Logo} alt="Fineapple logo" />
+        </Link>
+        <ul className="list">
+          <li className="header__item">
+            <Link to="/Login" className="header__links" onClick={handleClick}>
+              Log in
             </Link>
-            <ul className="list">
-                <li className="header__item">
-                            <Link to='/Login' className='header__links' onClick={handleClick}>
-                                Log in
-                            </Link>
-                </li >
-            </ul>
-            </div>
-        </div>
-
-    )
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
 }
 
-export default Header
+export default Header;
