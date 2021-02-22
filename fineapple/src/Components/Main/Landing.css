@@ -43,6 +43,7 @@
     text-transform: uppercase;
     text-align: center;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .form__control {
