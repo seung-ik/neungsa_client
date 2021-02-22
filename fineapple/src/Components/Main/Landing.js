@@ -13,7 +13,7 @@ function Landing() {
                     <input type="search"
                         placeholder="어떤 분야의 전문가를 찾으시나요?"
                         className="form__control"
-                        autocomplete="off"
+                        autoComplete="off"
                     />
                     <div className="btn__search">
                         SEARCH
