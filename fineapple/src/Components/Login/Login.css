@@ -13,11 +13,11 @@
   margin-bottom: 30px;
 }
 
-img {
+.login_img {
   margin-top: 3px;
   width: 317px;
   height: 77px;
 }
-p {
+.login_bottom {
   margin-top: 50px;
 }
