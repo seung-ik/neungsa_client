@@ -24,7 +24,7 @@
     cursor: pointer;
     display: flex;
     width: 415px;
-    height: 73px;
+    height: 36px;
 }
 
 .list {
@@ -36,11 +36,12 @@
     width: 60vw;
     justify-content: end;
     margin-right: 2rem;
+
 }
 
 .header__links {
     font-weight: 400;
-    color:#323339;
+    color:#282828;
     display: flex;
     align-items: center;
     text-decoration: none;

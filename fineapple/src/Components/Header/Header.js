@@ -19,7 +19,7 @@ function Header() {
             <ul className="list">
                 <li className="header__item">
                             <Link to='/Login' className='header__links' onClick={handleClick}>
-                                Log in
+                                로그인
                             </Link>
                 </li >
             </ul>
