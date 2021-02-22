@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   return (
@@ -24,7 +25,9 @@ const Card = () => {
       </div>
       <div className="tag-container">
         <div>Lorem ipsum dolor, sit amet consectetur elit.</div>
-        <button>보기</button>
+        <Link to="/Post">
+          <button>보기</button>
+        </Link>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Post = () => {
   return (
@@ -14,16 +15,21 @@ const Post = () => {
           }}
         />
         <div>
-          <h3>content-title</h3>
+          <Link to="/Post">
+            <h3>content-title</h3>
+          </Link>
           <span>tag</span>
         </div>
         <button className="like">like</button>
       </div>
-      <div className="description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nihil a
-        blanditiis esse nam ullam eligendi omnis facilis doloribus! Obcaecati
-        libero aspernatur minima ipsa officiis expedita in nulla ab quo?
-      </div>
+      <Link to="/Post">
+        <div className="description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nihil
+          a blanditiis esse nam ullam eligendi omnis facilis doloribus!
+          Obcaecati libero aspernatur minima ipsa officiis expedita in nulla ab
+          quo?
+        </div>
+      </Link>
     </li>
   );
 };
