@@ -2,7 +2,7 @@
   border: 1px solid black;
   width: 350px;
   height: 400px;
-  position: absolute;
+  /* position: absolute; */
   right: 0;
   bottom: 0;
   margin: 10px;
