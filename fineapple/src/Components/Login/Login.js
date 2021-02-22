@@ -5,10 +5,14 @@ import './Login.css'
 
 function Login() {
     return (
-        <div className="container">
+        <div className="login">
+            <div className="container">
             <h1>Login</h1>
+
+            </div>
             <Footer />
         </div>
+        
 
         
     )
