@@ -1,4 +1,6 @@
 import React from "react";
+import Footer from '../Footer/Footer'
+
 
 const Feedpage = () => {
   return (
@@ -36,7 +38,7 @@ const Feedpage = () => {
         <button>next</button>
       </div>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

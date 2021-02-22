@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Logo from '../../img/logo_main.png'
 import './Header.css'
 
 
@@ -9,18 +10,22 @@ function Header() {
     const handleClick = () => setClick(!click)
 
     return (
-        <div>
+
+        <div className="header">
+            <div className="container">
             <Link to='/' className='header__logo' onClick={handleClick}> 
-                        Logo
+                <img src={Logo} alt='Fineapple logo' />
             </Link>
-            <ul>
+            <ul className="list">
                 <li className="header__item">
                             <Link to='/Login' className='header__links' onClick={handleClick}>
                                 Log in
                             </Link>
                 </li >
             </ul>
+            </div>
         </div>
+
     )
 }
 
