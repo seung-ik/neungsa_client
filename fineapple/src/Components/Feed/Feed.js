@@ -3,10 +3,12 @@ import Header from "../Header/Header";
 import "./Feed.css";
 import Card from "./Card";
 import Post from "./Post";
+import Footer from "../Footer/Footer";
+import Advertise from "./Advertise";
 
 const Feedpage = () => {
   return (
-    <div>
+    <div className="feed">
       <div className="cards">
         <button>prev</button>
         <Card />
@@ -23,6 +25,8 @@ const Feedpage = () => {
           <Post />
         </ul>
       </div>
+      <Advertise />
+      <Footer />
     </div>
   );
 };

@@ -23,7 +23,7 @@ const Card = () => {
         </div>
       </div>
       <div className="tag-container">
-        <div>tagname</div>
+        <div>Lorem ipsum dolor, sit amet consectetur elit.</div>
         <button>보기</button>
       </div>
     </div>
