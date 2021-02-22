@@ -1,0 +1,29 @@
+.chatting_box {
+  border: 1px solid black;
+  width: 350px;
+  height: 400px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 10px;
+}
+
+.conversation {
+  border: 1px solid black;
+  margin: 3px;
+  height: 300px;
+  padding: 5px;
+}
+
+.chat_header {
+  height: 35px;
+  display: flex;
+}
+
+.chat_you {
+  display: flex;
+}
+
+.input_send {
+  display: flex;
+}
