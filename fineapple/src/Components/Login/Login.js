@@ -27,8 +27,9 @@ function Login() {
         <Link to="/login/email">
           <img src={email} alt="google logo" />
         </Link>
+        <p>Lorem ipsum dolor sit.</p>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }
