@@ -29,8 +29,9 @@ function Login() {
                     <img className="login_img" src={email} alt="google logo" />
                 </Link>
                 <p className="login_bottom">Lorem ipsum dolor sit.</p>
-                <Footer />
+                
             </div>
+            <Footer />
         </div>
     );
 }

@@ -21,6 +21,16 @@ function Header() {
                             <Link to='/Login' className='header__links' onClick={handleClick}>
                                 로그인
                             </Link>
+                    </li >
+                    <li className="header__item">
+                            <Link to='/feed' className='header__links' onClick={handleClick}>
+                                피드
+                            </Link>
+                    </li >
+                    <li className="header__item">
+                            <Link to='/mypage' className='header__links' onClick={handleClick}>
+                                마이페이지
+                            </Link>
                 </li >
             </ul>
             </div>
