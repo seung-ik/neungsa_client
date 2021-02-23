@@ -4,7 +4,7 @@ const Comment = () => {
   return (
     <li>
       <div className="comment_info">
-        <span className="name">박지성</span>
+        <span>박지성</span>
         <span>2020-20-20</span>
       </div>
       <p>
