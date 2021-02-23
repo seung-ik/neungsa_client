@@ -6,15 +6,19 @@ import Comment from "./Comment";
 
 const Post = () => {
   return (
-    <div className="post">
-      <div className="post_container">
-        <div className="content">
-          <div className="title_container">
-            <img
-              src="https://lh3.googleusercontent.com/proxy/efq1JEAnVpcHW5V6QO12O9vwZ6_nOJ_1pUvJ67h1DWTOAZ2ZyZW5IppRrGH1Fa9fl_h1JNsMiJgWxlURerbPVaQvUa0le_Spe4pewYY-NGedJ4whFs8GHUYowciINL3T1RRPaYH5ZExj7pVVeK4SWGzcM4-FEGulQEjujPGnOQ"
-              alt=""
-              className="post_profile_img"
-            />
+
+    <div className="post_container">
+      <div className="post_content">
+        <div className="title_container">
+          <img
+            src="https://lh3.googleusercontent.com/proxy/efq1JEAnVpcHW5V6QO12O9vwZ6_nOJ_1pUvJ67h1DWTOAZ2ZyZW5IppRrGH1Fa9fl_h1JNsMiJgWxlURerbPVaQvUa0le_Spe4pewYY-NGedJ4whFs8GHUYowciINL3T1RRPaYH5ZExj7pVVeK4SWGzcM4-FEGulQEjujPGnOQ"
+            alt=""
+            className="post_profile_img"
+          />
+          <div>
+            <h2>코딩 알려줄게요</h2>
+            <span>#javascript</span>
+         skeleton
             <div>
               <h2>코딩 알려줄게요</h2>
               <span>#javascript</span>
@@ -142,21 +146,16 @@ const Post = () => {
             </Link>
           </div>
         </div>
-        <div className="comments">
-          <div>
-            <h2>Review</h2>
-            <span>좋아요👌 : 12</span>
-          </div>
-          <ul>
-            <Comment />
-            <Comment />
-            <Comment />
-            <Comment />
-            <Comment />
-          </ul>
+
+      </div>
+      <div className="post_comments">
+        <div>
+          <h2>Review</h2>
+          <span>좋아요👌 : 12</span>
+        skeleton
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
