@@ -6,9 +6,15 @@ import Login from "./Components/Login/Login";
 import Feed from "./Components/Feed/Feed";
 import Post from "./Components/Post/Post";
 import Chat from "./Components/Chat/Chat";
+import ChatBtn from "./Components/Chat/ChatBtn";
 
 function App() {
   const [onChat, setOnChat] = useState(true);
+
+  const handleChat = () => {
+    console.log("ok");
+    setOnChat((prev) => !prev);
+  };
 
   return (
     <Router>
@@ -21,7 +27,11 @@ function App() {
         {/*<Route path='/signin' component={Auth} /> 
         <Route path="/feed" component={feed} /> */}
       </Switch>
-      {onChat && <Chat />}
+      {onChat ? (
+        <Chat handleChat={handleChat} onChat={onChat} />
+      ) : (
+        <ChatBtn handleChat={handleChat} />
+      )}
     </Router>
   );
 }
