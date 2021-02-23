@@ -1,0 +1,26 @@
+.sidebarRow {
+    display: flex;
+    justify-content:space-between;
+
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sidebarRow:hover {
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+/* .Icon:hover {
+    border-left: 6px solid  #8AB77B;
+} */
+
+.sidebarrow__title {
+    margin-left: 10px;
+    margin-right: 20px;
+    font-weight: 600;
+}
+
+.Check {
+    color: #8AB77B;
+}
