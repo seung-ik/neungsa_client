@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.mypage_container {
+  margin: 60px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* profile 구역 */
+.mypage_profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 70vw;
+  border: 1px solid black;
+  min-height: 150px;
+}
+.mypage_profile > img {
+  margin: 20px;
+}
+.mypage_profile > button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.mypage_profile > div {
+  padding-bottom: 30px;
+}
+
+/* 소개구역 */
+
+.mypage_introduction {
+  padding: 20px;
+  margin-top: 60px;
+  width: 70vw;
+  border: 1px solid black;
+}
+
+.mypage_introduction_container {
+  display: flex;
+}
+.mypage_introduction_container > div {
+  margin: 30px 150px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 최근활동구역 */
+
+.mypage_service {
+  width: 70vw;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid black;
+}
+
+.service_list_item {
+  border: 1px solid black;
+  padding: 0 10px;
+}
+
+.service_list_item > h3 {
+  border-bottom: 0.1px solid rgb(145, 142, 142);
+}

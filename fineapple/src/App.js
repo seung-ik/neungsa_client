@@ -7,8 +7,9 @@ import Feed from "./Components/Feed/Feed";
 import Post from "./Components/Post/Post";
 import Chat from "./Components/Chat/Chat";
 import ChatBtn from "./Components/Chat/ChatBtn";
-import Write from './Components/Write/WriteFirst'
-import WorkTitle from './Components/Write/WriteWork_Title'
+import Write from "./Components/Write/WriteFirst";
+import WorkTitle from "./Components/Write/WriteWork_Title";
+import Mypage from "./Components/Mypage/Mypage";
 // import WorkDes from './Components/Write/Components/WorkDes'
 // import WorkTitle from './Components/Write/Components/WorkTitle'
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/Post" component={Post} />
         <Route path="/Write" component={Write} />
         <Route path="/Write/work/title" component={WorkTitle} />
+        <Route path="/Mypage" component={Mypage} />
 
         {/*<Route path='/signin' component={Auth} /> 
         <Route path="/feed" component={feed} /> */}
