@@ -2,15 +2,15 @@ import React from "react";
 import Header from "../Header/Header";
 import "./Feed.css";
 import Card from "./Card";
-import Post from "./Post";
 import Footer from "../Footer/Footer";
 import Advertise from "./Advertise";
+import Listitem from "./Listitem";
 
 const Feedpage = () => {
   return (
     <div className="feedpage">
       <div className="feed">
-        <div className="cards">
+        <div className="feed_cards ">
           <button>prev</button>
           <Card />
           <Card />
@@ -20,10 +20,10 @@ const Feedpage = () => {
         </div>
         <div className="posts">
           <ul className="post-container">
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+            <Listitem />
+            <Listitem />
+            <Listitem />
+            <Listitem />
           </ul>
         </div>
         <Advertise />
