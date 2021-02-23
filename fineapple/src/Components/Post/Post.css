@@ -1,9 +1,9 @@
 /* grid */
 .post_container {
-  height: 100vh;
+  height: auto;
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr auto;
   margin: 0 120px;
 }
 .post_content {
