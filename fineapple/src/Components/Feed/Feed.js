@@ -2,14 +2,14 @@ import React from "react";
 import Header from "../Header/Header";
 import "./Feed.css";
 import Card from "./Card";
-import Post from "./Post";
+import Listitem from "./Listitem";
 import Footer from "../Footer/Footer";
 import Advertise from "./Advertise";
 
-const Feedpage = () => {
+const Feed = () => {
   return (
-    <div className="feed">
-      <div className="cards">
+    <div className="feed_container">
+      <div className="feed_cards">
         <button>prev</button>
         <Card />
         <Card />
@@ -17,18 +17,16 @@ const Feedpage = () => {
         <Card />
         <button>next</button>
       </div>
-      <div className="posts">
-        <ul className="post-container">
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-        </ul>
-      </div>
+      <ul className="feed_posts">
+        <Listitem />
+        <Listitem />
+        <Listitem />
+        <Listitem />
+      </ul>
       <Advertise />
       <Footer />
     </div>
   );
 };
 
-export default Feedpage;
+export default Feed;
