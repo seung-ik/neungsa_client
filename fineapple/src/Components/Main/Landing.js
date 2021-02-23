@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Lady from '../../img/mockup/lady.png'
 import './Landing.css'
 
+
+
 function Landing() {
     return (
         <div className="landing">
@@ -13,7 +15,7 @@ function Landing() {
                     <input type="search"
                         placeholder="어떤 분야의 전문가를 찾으시나요?"
                         className="form__control"
-                        autocomplete="off"
+                        autoComplete="off"
                     />
                     <div className="btn__search">
                         SEARCH

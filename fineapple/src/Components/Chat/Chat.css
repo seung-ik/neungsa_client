@@ -1,0 +1,80 @@
+.chatting_box {
+  border: 1px solid black;
+  width: 350px;
+  height: 400px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 10px;
+  background: rgb(251, 216, 110);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+.chatting_btn {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 10px;
+  background: rgb(251, 216, 110);
+  z-index: 999;
+}
+.chat_header {
+  flex: 0.6;
+  display: flex;
+  justify-content: space-between;
+}
+.conversation {
+  flex: 7;
+  border: 1px solid black;
+  margin: 3px;
+  height: 300px;
+  padding: 5px;
+  overflow: scroll;
+}
+.input_send {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+.input_send > input {
+  flex: 5;
+  margin: 0 3px 3px 3px;
+}
+.input_send > button {
+  flex: 1;
+  margin: 0 3px 3px 3px;
+}
+
+.chat_you {
+  display: flex;
+  margin: 4px;
+}
+.chat_i {
+  display: flex;
+  margin: 4px;
+  flex-direction: row-reverse;
+}
+.chat_profile {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* margin: 0 auto; */
+}
+.chat_profile > span {
+  font-size: 12px;
+}
+.chat_you_text {
+  flex: 7;
+  background-color: aliceblue;
+  margin: 0 20px;
+}
+.chat_you_text > span {
+  font-size: 12px;
+  float: right;
+  margin: 3px 12px;
+}
