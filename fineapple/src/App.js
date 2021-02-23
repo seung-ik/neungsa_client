@@ -9,7 +9,7 @@ import Chat from "./Components/Chat/Chat";
 import ChatBtn from "./Components/Chat/ChatBtn";
 
 function App() {
-  const [onChat, setOnChat] = useState(true);
+  const [onChat, setOnChat] = useState(false);
 
   const handleChat = () => {
     console.log("ok");
