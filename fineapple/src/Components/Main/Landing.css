@@ -3,7 +3,7 @@
     height: 90vh;
     /* background: #FAEBE6; */
     /* background: linear-gradient(90deg, #E8617C 0%, #ECAB5C 70.31%);; */
-    background: linear-gradient(90deg, #FFE2D9 0%, #FAEBE6 90%);
+    /* background: linear-gradient(90deg, #FFE2D9 0%, #FAEBE6 90%); */
     display: flex;           /* establish flex container */
     flex-direction: row;  /* make main axis vertical */
     justify-content: center; /* center items vertically, in this case */
@@ -34,7 +34,8 @@
 
 
 .btn__search {
-    background: linear-gradient(180deg, rgba(119, 80, 228, 0.3) 0%, rgba(186, 64, 243, 0.3) 0.01%, rgba(44, 114, 196, 0.3) 100%);
+    background:  rgb(251, 216, 110);
+    /* background: linear - gradient(180deg, rgba(119, 80, 228, 0.411) 0 %, rgba(186, 64, 243, 0.411) 0.01 %, rgba(44, 114, 196, 0.411) 100 %); */
     border-radius: 0px 10px 10px 0px;
     font-size: 20px;
     line-height: 50px;
@@ -47,7 +48,8 @@
 }
 
 .btn__search:hover {
-    background: linear-gradient(180deg, rgba(119, 80, 228, 0.411) 0%, rgba(186, 64, 243, 0.411) 0.01%, rgba(44, 114, 196, 0.411) 100%);
+    background:  rgb(238, 195, 68);
+    /* background: linear-gradient(180deg, rgba(119, 80, 228, 0.3) 0%, rgba(186, 64, 243, 0.3) 0.01%, rgba(44, 114, 196, 0.3) 100%); */
     color: #ffffff;
 }
 
