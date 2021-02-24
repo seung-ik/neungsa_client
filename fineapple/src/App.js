@@ -7,7 +7,10 @@ import Feed from "./Components/Feed/Feed";
 import Post from "./Components/Post/Post";
 import Chat from "./Components/Chat/Chat";
 import ChatBtn from "./Components/Chat/ChatBtn";
-
+import Write from './Components/Write/WriteFirst'
+import WorkTitle from './Components/Write/WriteWork_Title'
+// import WorkDes from './Components/Write/Components/WorkDes'
+// import WorkTitle from './Components/Write/Components/WorkTitle'
 function App() {
   const [onChat, setOnChat] = useState(false);
 
@@ -24,6 +27,9 @@ function App() {
         <Route path="/Login" component={Login} />
         <Route path="/Feed" component={Feed} />
         <Route path="/Post" component={Post} />
+        <Route path="/Write" component={Write} />
+        <Route path="/Write/work/title" component={WorkTitle} />
+
         {/*<Route path='/signin' component={Auth} /> 
         <Route path="/feed" component={feed} /> */}
       </Switch>

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Lady from '../../img/mockup/lady.png'
 import './Landing.css'
 
+
+
 function Landing() {
     return (
         <div className="landing">

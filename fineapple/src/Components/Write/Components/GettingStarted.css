@@ -1,0 +1,61 @@
+.gettingstarted {
+    flex: 0.63;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    /* align-items: center; */
+    background: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.getting__container {
+    padding: 20px 20px;
+    border-bottom: 1px solid rgba(50, 51, 56, 0.096);
+}
+.title__header {
+    font-size: 30px;
+}
+
+.choice__container {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    border-bottom: 1px solid rgba(50, 51, 56, 0.096);
+
+}
+
+/* choice components */
+.choice__row {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.icon {
+    margin-bottom: 10px;
+}
+/* single component */
+.choice__work {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid rgba(50, 51, 56, 0.096);;
+    padding: 50px 100px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.choice__work:hover {
+    background: #F1F2F4;
+}
+
+.container__btns {
+    display: flex;
+}
+
+.writePage {
+    outline: none;
+  text-decoration: none;
+}

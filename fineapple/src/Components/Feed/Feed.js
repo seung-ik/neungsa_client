@@ -8,22 +8,24 @@ import Advertise from "./Advertise";
 
 const Feed = () => {
   return (
-    <div className="feed_container">
-      <div className="feed_cards">
-        <button>prev</button>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <button>next</button>
+    <div>
+      <div className="feed_container">
+        <div className="feed_cards">
+          <button>prev</button>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <button>next</button>
+        </div>
+        <ul className="feed_posts">
+          <Listitem />
+          <Listitem />
+          <Listitem />
+          <Listitem />
+        </ul>
+        <Advertise />
       </div>
-      <ul className="feed_posts">
-        <Listitem />
-        <Listitem />
-        <Listitem />
-        <Listitem />
-      </ul>
-      <Advertise />
       <Footer />
     </div>
   );

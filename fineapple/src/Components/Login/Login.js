@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import Footer from "../Footer/Footer";
+import Footer from "../Footer/Footer";
 import "./Login.css";
-// import Logo from "../../img/logo_main.png";
+import Logo from "../../img/logo_main.png";
 import kakao from "../../img/kakao.png";
 import google from "../../img/google.png";
 import email from "../../img/email.png";
@@ -30,6 +30,7 @@ function Login() {
         </Link>
         <p className="login_bottom">Lorem ipsum dolor sit.</p>
       </div>
+      <Footer />
     </div>
   );
 }
