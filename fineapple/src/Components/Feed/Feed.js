@@ -10,8 +10,9 @@ const Feed = () => {
   return (
     <div>
       <div className="feed_container">
+        <h2>whats popping in perth ,Australlia</h2>
+        <br />
         <div className="feed_cards">
-          <button>prev</button>
           <Card />
           <Card />
           <Card />

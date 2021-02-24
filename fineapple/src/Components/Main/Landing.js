@@ -3,10 +3,30 @@ import { Link } from "react-router-dom";
 import Lady from "../../img/mockup/lady.png";
 import "./Landing.css";
 import Slide from "./Slideshow";
+const firstColor = "linear-gradient(90deg, #ffe2d9 0%, #faebe6 90%)";
+const secondColor = "linear-gradient(90deg, #00C49F 0%, #95d4c8 90%)";
+const thirdColor = "linear-gradient(90deg, #e2eb84 0%, #eaf0ac 90%)";
 
 function Landing() {
+  const [bgColor, setBgColor] = useState(firstColor);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgColor((prev) => {
+        if (prev === firstColor) {
+          return secondColor;
+        } else if (prev === secondColor) {
+          return thirdColor;
+        } else if (prev === thirdColor) {
+          return firstColor;
+        }
+      });
+    }, 2900);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="landing">
+    <div className="landing" style={{ background: `${bgColor}` }}>
       {/* <Slide className="landing__slide"> */}
       <div className="title__container">
         <div className="title box animate fadeInDown two">

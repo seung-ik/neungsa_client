@@ -1,20 +1,17 @@
 /* Slideshow */
 
 .slideshow {
-    margin: 0 auto;
-    overflow: hidden;
+  margin: 0 auto;
+  overflow: hidden;
+}
 
-  }
-  
-  .slideshowSlider {
-    white-space: nowrap;
-    transition: ease 1000ms;
-  }
-  
-  .slide {
-    display: inline-block;
-  
-    width: 100vw;
-    height: 90vh;
-  }
-  
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+  width: 100vw;
+  height: 90vh;
+}
