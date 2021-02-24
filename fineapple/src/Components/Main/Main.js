@@ -48,9 +48,9 @@ function Main() {
                 <Inspration />
                 </section>
 
-                <section className="getstarted__container">
+                {/* <section className="getstarted__container">
                 <GetStarted />
-                </section>
+                </section> */}
             </div>
             <Footer />
         </div>

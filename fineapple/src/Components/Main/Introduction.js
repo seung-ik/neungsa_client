@@ -4,7 +4,8 @@ import './Introduction.css'
 
 function Introduction() {
     return (
-        <h1>Introduction</h1>
+       <>
+            </>
     )
 }
 

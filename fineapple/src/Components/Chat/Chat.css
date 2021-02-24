@@ -12,14 +12,36 @@
   flex-direction: column;
 }
 .chatting_btn {
-  width: 50px;
-  height: 50px;
+  /* width: 60px;
+  height: 60px; */
+  /* position: fixed;
+  border: 0;
+  outline: 0;
+  right: 0;
+  bottom: 0;
+  margin: 10px; */
+  /* background: rgb(255, 255, 255); */
+  /* background-image: url("../../img/fineapple.png"); */
+  z-index: 999;
+}
+
+.fineapple_chat {
   position: fixed;
+/* background: transparent; */
   right: 0;
   bottom: 0;
   margin: 10px;
-  background: rgb(251, 216, 110);
-  z-index: 999;
+    border: 0;
+    outline: 0;
+    width: 80px;
+   
+    /* box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2); */
+    z-index: 999;
+}
+
+.fineapple_chat:active {
+    transform: scale(1, 0.9);
+    transition: transform 0.2s color 0.2s;
 }
 .chat_header {
   flex: 0.6;

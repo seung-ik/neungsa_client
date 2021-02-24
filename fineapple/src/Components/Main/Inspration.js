@@ -4,7 +4,8 @@ import './Inspration.css'
 
 function Inspration() {
     return (
-        <h1>Inspration</h1>
+        <>
+        </>
     )
 }
 

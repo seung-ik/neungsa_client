@@ -10,7 +10,8 @@ function Landing() {
         <div className="landing">
             
             <div className="title__container">
-                <h1 className="title">우리동네 숨은 고수를 <br />소개해 드립니다</h1>
+                <div className="title box animate fadeInDown two">우리동네 숨은 고수를 <br />소개해 드립니다</div>
+                {/* <h1 className="title box animate fadeInUp one">우리동네 숨은 고수를 <br />소개해 드립니다</h1> */}
                 <div className="input__container">
                     <input type="search"
                         placeholder="어떤 분야의 전문가를 찾으시나요?"
