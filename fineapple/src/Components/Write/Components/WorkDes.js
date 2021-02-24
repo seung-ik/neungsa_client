@@ -1,9 +1,24 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+import Next from './Next'
+import Prev from './Prev'
 import './WorkDes.css'
 
 function WorkDes() {
     return (
-       <h1>test</h1>
+        <div className="workdes">
+            <h1>Description</h1>
+            <div className="container__btns">
+                    <Link className="writePage" to="/work/title">
+                        <Prev />
+                    </Link>
+                    <Link className="writePage" to="/work/budget">
+                        <Next />
+                    </Link>
+                    
+                </div>
+        </div>
+        
     )
 }
 

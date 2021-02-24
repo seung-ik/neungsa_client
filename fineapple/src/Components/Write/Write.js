@@ -6,13 +6,13 @@ import Sidebar from './Components/Sidebar'
 import WorkTitle from './Components/WorkTitle'
 import './Write.css'
 
-function WriteFirst() {
+function Write() {
     return (
         <div className="write">
             <div className="write__body">
                 <Sidebar />
-                {/* <GettingStarted /> */}
-                <WorkTitle/>
+                <GettingStarted />
+                {/* <WorkTitle/> */}
                 {/* <Description /> */}
                 {/* <Budget /> */}
                 {/* <Review /> */}
@@ -23,4 +23,4 @@ function WriteFirst() {
     )
 }
 
-export default WriteFirst
+export default Write

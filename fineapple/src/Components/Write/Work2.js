@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 import GettingStarted from './Components/GettingStarted'
 import Sidebar from './Components/Sidebar'
-import WorkTitle from './Components/WorkTitle'
+import Description from './Components/WorkDes'
 import './Write.css'
 
-function WriteFirst() {
+function Work2() {
     return (
         <div className="write">
             <div className="write__body">
                 <Sidebar />
-                <GettingStarted />
+                {/* <GettingStarted /> */}
                 {/* <WorkTitle/> */}
-                {/* <Description /> */}
+                <Description />
                 {/* <Budget /> */}
                 {/* <Review /> */}
             </div>
@@ -23,4 +23,4 @@ function WriteFirst() {
     )
 }
 
-export default WriteFirst
+export default Work2
