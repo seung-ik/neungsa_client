@@ -6,11 +6,13 @@
 li {
   list-style-type: none;
 }
-.feed {
+
+/* <Feed>component */
+.feed_container {
   display: grid;
   place-items: center;
 }
-.cards {
+.feed_cards {
   align-self: center;
   border: 1px solid black;
   width: 80%;
@@ -18,33 +20,33 @@ li {
   justify-content: space-evenly;
   margin-bottom: 50px;
 }
-.posts {
+.feed_posts {
   width: 85%;
   border: 1px solid black;
 }
-.postcard {
-  border: 1px solid black;
-  margin: 5px;
-}
+
+/* <Card>Component */
 .profile-container {
   display: flex;
   margin: 5px;
   border: 1px solid black;
 }
-
 .tag-container {
   margin: 5px;
   border: 1px solid black;
 }
-
-.intro {
+/* <Listitem>Component */
+.list_card {
+  border: 1px solid black;
+  margin: 5px;
+}
+.item_top {
   display: flex;
 }
-
-.intro > button {
+.item_top > button {
   margin-left: 400px;
 }
-
+/* <Advertise>Component */
 .advertise_list {
   margin: 50px 0px;
   padding: 5px;

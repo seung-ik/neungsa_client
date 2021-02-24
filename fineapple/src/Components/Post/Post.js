@@ -6,9 +6,9 @@ import Comment from "./Comment";
 
 const Post = () => {
   return (
-    <div className="post">
+    <div>
       <div className="post_container">
-        <div className="content">
+        <div className="post_content">
           <div className="title_container">
             <img
               src="https://lh3.googleusercontent.com/proxy/efq1JEAnVpcHW5V6QO12O9vwZ6_nOJ_1pUvJ67h1DWTOAZ2ZyZW5IppRrGH1Fa9fl_h1JNsMiJgWxlURerbPVaQvUa0le_Spe4pewYY-NGedJ4whFs8GHUYowciINL3T1RRPaYH5ZExj7pVVeK4SWGzcM4-FEGulQEjujPGnOQ"
@@ -48,11 +48,11 @@ const Post = () => {
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
               soluta iusto ratione officiis distinctio officia. Eligendi rem
-              sapiente suscipit in quaerat alias voluptatibus eveniet. Blanditiis
-              ut ducimus, tempore odit praesentium porro quae nam ea officiis amet
-              provident ab voluptatum perspiciatis aliquid eius tenetur magnam
-              dolore ipsam at, officia reprehenderit iusto.
-          </p>
+              sapiente suscipit in quaerat alias voluptatibus eveniet.
+              Blanditiis ut ducimus, tempore odit praesentium porro quae nam ea
+              officiis amet provident ab voluptatum perspiciatis aliquid eius
+              tenetur magnam dolore ipsam at, officia reprehenderit iusto.
+            </p>
             <h3>비용</h3>
             <p>5000/1h</p>
             <h3>사진 및 동영상</h3>
@@ -137,12 +137,12 @@ const Post = () => {
         <div className="message_side">
           <div className="for_message_box">
             궁금한게 있으면 메시지로 물어보세요~
-          <Link to="/chatting">
+            <Link to="/chatting">
               <button>send message</button>
             </Link>
           </div>
         </div>
-        <div className="comments">
+        <div className="post_comments">
           <div>
             <h2>Review</h2>
             <span>좋아요👌 : 12</span>
