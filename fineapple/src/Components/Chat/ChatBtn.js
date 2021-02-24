@@ -2,7 +2,7 @@ import React from "react";
 import "./Chat.css";
 
 import Fineapple from '../../img/fineapple.png'
-import Fine from '../../img/fine.svg'
+import Fine from '../../img/chat_fine.png'
 
 const ChatBtn = ({ handleChat }) => {
   return (
@@ -10,8 +10,12 @@ const ChatBtn = ({ handleChat }) => {
     //   <button onClick={handleChat}>+</button>
     // </div>
     <div className="chatting_btn" onClick={handleChat} >
-      {/* <div className="badge">1</div> */}
-          <img className ="fineapple_chat" src={Fine} alt=""/>
+      
+      <div className="chatting_btn_cover">
+        
+      </div>
+      <img className ="fineapple_chat box fade-in one" src={Fine} alt="" />
+      <div className="badge box fade-in two">1</div>
   </div>
   );
 };
