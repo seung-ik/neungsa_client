@@ -15,7 +15,7 @@ const ChatBtn = ({ handleChat }) => {
         
       </div>
       <img className ="fineapple_chat box fade-in one" src={Fine} alt="" />
-      <div className="badge box fade-in two">1</div>
+      <div className="badge box fade-in two">2</div>
   </div>
   );
 };

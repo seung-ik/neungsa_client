@@ -30,6 +30,10 @@
   font-weight: 700;
 }
 
+.badge:hover {
+  transform: scale(1.1);
+}
+
 .fineapple_chat {
   position: fixed;
 /* background: transparent; */
@@ -43,6 +47,9 @@
     z-index: 999;
 }
 
+.chatting_btn {
+  cursor: pointer;
+}
 .fineapple_chat:active {
     transform: scale(1, 0.9);
     transition: transform 0.2s color 0.2s;
@@ -123,8 +130,8 @@
 	animation-fill-mode:forwards;
 
 	-webkit-animation-duration:1s;
-	-moz-animation-duration:1s;
-	animation-duration:1s;
+	-moz-animation-duration:0.4s;
+	animation-duration:0.3s;
 }
 
 .fade-in.one {
@@ -135,7 +142,7 @@ animation-delay: 0.5s;
 
 
 .fade-in.two {
-  -webkit-animation-delay: 1.2s;
-  -moz-animation-delay:1.2s;
-  animation-delay: 1.2s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay:1s;
+  animation-delay: 1s;
   }

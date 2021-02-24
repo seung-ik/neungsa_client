@@ -46,6 +46,11 @@
     cursor: pointer;
 }
 
+.btn__search:hover {
+    background: linear-gradient(180deg, rgba(119, 80, 228, 0.411) 0%, rgba(186, 64, 243, 0.411) 0.01%, rgba(44, 114, 196, 0.411) 100%);
+    color: #ffffff;
+}
+
 .form__control {
     border: none;
     font-size: 1rem;
