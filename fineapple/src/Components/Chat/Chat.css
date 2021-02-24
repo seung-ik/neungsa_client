@@ -1,5 +1,5 @@
 .chatting_box {
-  border: 1px solid black;
+
   width: 350px;
   height: 400px;
   position: fixed;
@@ -54,7 +54,7 @@
 }
 .conversation {
   flex: 7;
-  border: 1px solid black;
+
   margin: 3px;
   height: 300px;
   padding: 5px;
