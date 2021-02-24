@@ -2,4 +2,127 @@
     margin: 50px 0px 50px 0px;
     height: 50%;
     width: 100%;
+    
 }
+
+.business {
+    display: flex;
+    background-color: #080D4A;
+    color: rgb(245, 241, 241);
+    height: 100vh;
+}
+
+.business__left {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-left: 50px;
+    align-items:baseline;
+    justify-content: center;
+}
+
+.business__left__header {
+    display: flex;
+    margin-bottom: 32px;
+    margin-left: -10px;
+}
+
+.business__left__header__logo {
+    height: 45px;
+}
+
+.business__left__header__title, .business__left__content__title__italic {
+    font-size: 35px; 
+    font-weight: 400;
+    margin-left: -8px;
+    display: flex;
+}
+
+
+
+.business__left__header__new {
+    background-color: #4E55F5;
+    height: 20px;
+    width: 45px;
+    border-radius: 50px;
+    display: flex;
+    margin-top: 15px;
+    margin-left: 10px;
+    align-items: center;
+    padding-left: 9px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.business__left__content__title {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 32px;
+    letter-spacing: 2px;
+}
+
+.business__left__details__top {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+    line-height: 32x;
+
+}
+
+.business__left__details__bottom {
+    margin-bottom: 80px;
+}
+.business__left__details__bottom__row {
+    font-size: 20px;
+    display: flex;
+    margin-bottom: 15px;
+    line-height: 40x;
+    
+}
+
+.business__left__details__bottom__row > .MuiSvgIcon-root {
+    color: gray;
+    margin-right: 10px;
+}
+
+.business__left__btn {
+    cursor: pointer;
+    padding: 15px 44px;
+    background-color: #50af70;
+    font-weight: 700;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* RIGHT  */
+
+.business__right{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.business__right__img__biz {
+    width: calc(100% + 10px);
+    margin-left: -20px;
+    /* position: absolute; */
+
+
+}
+
+/* .business__right__img__single__card__component {
+    width: calc(20% + 8px);
+    position: absolute;
+} */

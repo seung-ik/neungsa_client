@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 import './Main.css'
-
+import Slide from './Slideshow'
 import Landing from './Landing'
 import Map from '../../img/mockup/map.png'
 import Recommandation from './Recommandation'
@@ -41,16 +41,19 @@ function Main() {
                 </section>
 
                 <section className="reviews__container">
-                <Reviews />
-                </section>
-
-                <section className="inspration__container">
                 <Inspration />
                 </section>
 
-                {/* <section className="getstarted__container">
+                <section className="inspration__container">
+                <Reviews />
+                </section>
+
+                <section className="getstarted__container">
                 <GetStarted />
-                </section> */}
+                </section> 
+                <section className="getstarted__container">
+                <Slide />
+                </section> 
             </div>
             <Footer />
         </div>

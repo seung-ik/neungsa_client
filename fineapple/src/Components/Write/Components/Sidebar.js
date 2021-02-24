@@ -6,6 +6,8 @@ import DoneIcon from '@material-ui/icons/Done';
 import SidebarRow from './SidebarRow'
 import './Sidebar.css'
 
+
+
 function Sidebar() {
     return (
         <div className="sidebar">
