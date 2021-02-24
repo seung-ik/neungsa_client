@@ -13,7 +13,7 @@ function Recommandation() {
     // console.log(move);
     if (move === "left") {
       setDefaultLocation((prev) => {
-        // console.log(prev);
+        console.log(prev);
         if (prev - 260 === -1820) {
           return -780;
         }
