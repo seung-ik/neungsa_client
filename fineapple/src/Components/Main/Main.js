@@ -12,6 +12,7 @@ import Reviews from './Reviews'
 import Inspration from './Inspration'
 import GetStarted from './GetStarted'
 
+
 function Main() {
 
     const [click, setClick] = useState(false)
@@ -25,8 +26,8 @@ function Main() {
                 </section>
                 
                 <div className="map__container">
-                    
-                    <img className ="map_img"src={Map} alt='gangnam_map' />
+
+                <img className ="map_img"src={Map} alt='gangnam_map' />
                 </div>
                 
                 <section className="recommandation__container">
@@ -40,20 +41,20 @@ function Main() {
                 <Business />
                 </section>
 
-                <section className="reviews__container">
-                <Inspration />
-                </section>
-
                 <section className="inspration__container">
                 <Reviews />
+                </section>
+
+                <section className="reviews__container">
+                <Inspration />
                 </section>
 
                 <section className="getstarted__container">
                 <GetStarted />
                 </section> 
-                <section className="getstarted__container">
+                {/* <section className="getstarted__container">
                 <Slide />
-                </section> 
+                </section>  */}
             </div>
             <Footer />
         </div>
