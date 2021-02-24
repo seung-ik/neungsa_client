@@ -1,6 +1,6 @@
 .rec__header {
   margin-top: 0px;
-
+  margin-left: 4%;
   font-style: normal;
   font-weight: 600;
   font-size: 25px;
@@ -45,11 +45,11 @@
 
 .slider_wrapper {
   /* border: 1px solid black; */
-  width: 1010px;
+  width: 1270px;
   height: 370px;
   overflow: hidden;
   position: relative;
-  margin: 30px 30px;
+  margin: 30px 10px;
 }
 
 .slider__track {

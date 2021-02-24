@@ -13,7 +13,6 @@ function Recommandation() {
     // console.log(move);
     if (move === "left") {
       setDefaultLocation((prev) => {
-        console.log(prev);
         if (prev - 260 === -1820) {
           return -780;
         }
@@ -21,7 +20,6 @@ function Recommandation() {
       });
     } else if (move === "right") {
       setDefaultLocation((prev) => {
-        console.log(prev);
         if (prev + 260 === 260) {
           return -780;
         }
@@ -80,6 +78,9 @@ function Recommandation() {
             </li>
             <li className="single__slide">
               <img className="slide__img" src={Rec5} alt="" />
+            </li>
+            <li className="single__slide">
+              <img className="slide__img" src={Rec1} alt="" />
             </li>
           </ul>
         </div>
