@@ -7,11 +7,11 @@ import Feed from "./Components/Feed/Feed";
 import Post from "./Components/Post/Post";
 import Chat from "./Components/Chat/Chat";
 import ChatBtn from "./Components/Chat/ChatBtn";
-import Write from './Components/Write/Write'
-import WorkTitle from './Components/Write/Work1'
-import WorkDes from './Components/Write/Work2'
-import WorkBudget from './Components/Write/Work3'
-import Review from './Components/Write/Review'
+import Write from "./Components/Write/Write";
+import WorkTitle from "./Components/Write/Work1";
+import WorkDes from "./Components/Write/Work2";
+import WorkBudget from "./Components/Write/Work3";
+import Review from "./Components/Write/Review";
 // import WorkTitle from './Components/Write/Components/WorkTitle'
 function App() {
   const [onChat, setOnChat] = useState(false);
