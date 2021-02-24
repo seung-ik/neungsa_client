@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 import "./Main.css";
 import Slide from "./Slideshow";
 import Landing from "./Landing";
-import Map from "../../img/mockup/map.png";
+import Map from "../../img/mockup/map2.png";
 import Recommandation from "./Recommandation";
 import Introduction from "./Introduction";
 import Business from "./Business";
@@ -38,18 +38,20 @@ function Main() {
           <Business />
         </section>
 
-        <section className="reviews__container">
-          <Inspration />
-        </section>
-
         <section className="inspration__container">
           <Reviews />
+        </section>
+
+        <section className="reviews__container">
+          <Inspration />
         </section>
 
         <section className="getstarted__container">
           <GetStarted />
         </section>
-        <section className="getstarted__container">{/* <Slide /> */}</section>
+        {/* <section className="getstarted__container">
+                <Slide />
+                </section>  */}
       </div>
       <Footer />
     </div>

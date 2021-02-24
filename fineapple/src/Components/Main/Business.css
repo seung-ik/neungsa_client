@@ -94,6 +94,10 @@
     border-radius: 5px;
 }
 
+.business__left__btn:hover {
+    background-color: #399c5a;
+}
+
 
 
 
