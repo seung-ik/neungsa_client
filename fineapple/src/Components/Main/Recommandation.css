@@ -1,6 +1,6 @@
 .rec__header {
   margin-top: 0px;
-
+  margin-left: 4%;
   font-style: normal;
   font-weight: 600;
   font-size: 25px;
@@ -45,11 +45,11 @@
 
 .slider_wrapper {
   /* border: 1px solid black; */
-  width: 1010px;
+  width: 1270px;
   height: 370px;
   overflow: hidden;
   position: relative;
-  margin: 0 30px;
+  margin: 30px 10px;
 }
 
 .slider__track {
@@ -58,7 +58,7 @@
   /* border: 1px solid red; */
   position: absolute;
   top: 0;
-  transition: 0.8s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .slider__track li:not(last-child) {
   float: left;

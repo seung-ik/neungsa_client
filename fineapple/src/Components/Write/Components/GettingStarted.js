@@ -30,7 +30,7 @@ function GettingStarted() {
                     <Link className="writePage" to="/write">
                         <Prev />
                     </Link>
-                    <Link className="writePage" to="/write/work/title">
+                    <Link className="writePage" to="/work/title">
                         <Next />
                     </Link>
                     
