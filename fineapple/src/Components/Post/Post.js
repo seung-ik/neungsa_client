@@ -3,8 +3,19 @@ import "./Post.css";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import Comment from "./Comment";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
+import { makeStyles } from "@material-ui/core/styles";
+import SendIcon from "@material-ui/icons/Send";
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 
 const Post = () => {
+  const classes = useStyles();
   return (
     <div>
       <div className="post_container">
@@ -137,9 +148,16 @@ const Post = () => {
         <div className="message_side">
           <div className="for_message_box">
             궁금한게 있으면 메시지로 물어보세요~
-            <Link to="/chatting">
-              <button>send message</button>
-            </Link>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              endIcon={
+                <SendIcon onClick={() => console.log("okok")}>send</SendIcon>
+              }
+            >
+              Send
+            </Button>
           </div>
         </div>
         <div className="post_comments">

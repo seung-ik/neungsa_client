@@ -2,9 +2,9 @@
 .post_container {
   height: auto;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 1.2fr;
   grid-template-rows: 1fr auto;
-  margin: 0 120px;
+  padding: 0 250px;
 }
 .post_content {
   grid-column: 1/2;
@@ -55,6 +55,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: sticky;
+  top: 6rem;
 }
 
 /* 리뷰 */
