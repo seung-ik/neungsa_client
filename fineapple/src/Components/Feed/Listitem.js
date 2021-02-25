@@ -1,35 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Listitem = () => {
+const Listitem = (props) => {
   return (
     <li className="list_card">
-      <div className="item_top">
-        <img
-          src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2053&q=80"
-          alt=""
-          style={{
-            width: "50px",
-            heigth: "50px",
-            borderRadius: "50%",
-          }}
-        />
+      <div className="list_card_left">
         <div>
-          <Link to="/Post">
-            <h3>content-title</h3>
-          </Link>
-          <span>tag</span>
+          <img src={props.data} alt="" />
+          <span className="list_card_left_distance">12km 이내</span>
         </div>
-        <button>like</button>
+        <div className="list_card_tag_box">
+          <p>HTML</p>
+          <p>CSS</p>
+          <p>Typescript</p>
+          <p>Javascript</p>
+          <p>coffee</p>
+        </div>
       </div>
-      <Link to="/Post">
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nihil
-          a blanditiis esse nam ullam eligendi omnis facilis doloribus!
-          Obcaecati libero aspernatur minima ipsa officiis expedita in nulla ab
-          quo?
-        </div>
-      </Link>
+      <div className="list_card_right">
+        <h3>
+          javascript 알려드릴게요 공방 1:1 들어오세요 오늘 한시까지 합니다.
+        </h3>
+        <br></br>
+        <h4>한줄소개 : </h4>
+        <p>현업에서 일 안해봤고 아는만큼만 알려드릴게요</p>
+      </div>
     </li>
   );
 };
