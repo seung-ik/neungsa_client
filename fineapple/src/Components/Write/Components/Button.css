@@ -19,7 +19,8 @@
 }
 
 .next {
-    background :#8AB77B
+    background :#8AB77B;
+    text-decoration: none;
 }
 
 .btn__prev, .btn__next {
@@ -28,8 +29,25 @@
 
 .btn__next {
     color: white;
+    text-decoration: none;
+    
+}
+
+.btn__next:link {
+    color: white;
+    text-decoration: none;
+    
 }
 
 .btn__prev {
     color: #8AB77B;
+    text-decoration: none;
+}
+
+.next:hover {
+    background :#6aa058
+}
+
+.prev:hover {
+    background: rgb(235, 235, 235);
 }
