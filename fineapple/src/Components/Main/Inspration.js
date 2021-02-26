@@ -23,7 +23,7 @@ function Inspration() {
               </div>
             </div>
           </li>
-          <li>
+          <li className="insp_l_deg">
             <img src={insp2} alt="" className="insp_slide_img" />
             <div className="insp_profile_container">
               <img src={insp2} alt="프로필" className="insp_profile_img" />
@@ -33,7 +33,7 @@ function Inspration() {
               </div>
             </div>
           </li>
-          <li>
+          <li className="insp_r_deg">
             <img src={insp3} alt="" className="insp_slide_img" />
             <div className="insp_profile_container">
               <img src={insp2} alt="프로필" className="insp_profile_img" />
@@ -53,7 +53,7 @@ function Inspration() {
               </div>
             </div>
           </li>
-          <li>
+          <li className="insp_r_deg">
             <img src={insp5} alt="" className="insp_slide_img" />
             <div className="insp_profile_container">
               <img src={insp2} alt="프로필" className="insp_profile_img" />

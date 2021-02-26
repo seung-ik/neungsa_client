@@ -1,8 +1,8 @@
 import React from "react";
 import "./Chat.css";
 
-import Fineapple from '../../img/fineapple.png'
-import Fine from '../../img/chat_fine.png'
+import Fineapple from "../../img/fineapple.png";
+import Fine from "../../img/chat_fine.png";
 
 const ChatBtn = ({ handleChat }) => {
   return (

@@ -2,14 +2,11 @@
     display: flex;
     justify-content:space-between;
 
+    /* flex-direction: row; */
     padding: 10px;
-    cursor: pointer;
+
 }
 
-.sidebarRow:hover {
-    background-color: lightgray;
-    border-radius: 10px;
-}
 
 /* .Icon:hover {
     border-left: 6px solid  #8AB77B;
@@ -23,4 +20,7 @@
 
 .Check {
     color: #8AB77B;
+    margin-left: left;
+
 }
+

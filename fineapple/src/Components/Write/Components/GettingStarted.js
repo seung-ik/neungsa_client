@@ -12,9 +12,12 @@ function GettingStarted() {
         <div className="gettingstarted">
             <div className="content__container">
                 <div className="getting__container">
-                    <h1 className="title__header">Getting started</h1>
+                    <h1 className="title__header">시작하기</h1>
                 </div>
                 <div className="choice__container">
+                    <div className="choice__container__title">
+                        어떤일을 찾고있나요?
+                    </div>
                     <div className="choice__row">
                         <div className="choice__work">
                             <WorkIcon className="icon" />

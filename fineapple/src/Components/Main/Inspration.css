@@ -57,3 +57,13 @@
 .slides > li:not(last-child) {
   margin-right: 20px;
 }
+
+.slides > li:active {
+  transform: rotate(5deg);
+}
+.insp_r_deg {
+  transform: rotate(2deg);
+}
+.insp_l_deg {
+  transform: rotate(-2deg);
+}
