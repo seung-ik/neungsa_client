@@ -1,32 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = () => {
+const Card = (props) => {
   return (
-    <div>
-      <div className="profile-container">
+    <div className="feed_card">
+      <div className="feed_profile_container">
         <div>
-          <img
-            src="https://images.unsplash.com/photo-1613869810108-70f9fe0cdef5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80"
-            alt=""
-            style={{
-              width: "50px",
-              heigth: "50px",
-              borderRadius: "50%",
-            }}
-          />
-          <p>5000원</p>
+          <img src={props.data} alt="profileimg" />
+          <h4>emilyoun</h4>
         </div>
-        <div>
-          <h4>name</h4>
-          <span>내용1내용1내용1</span>
-          <p>부가설명1 부가설명 1</p>
+        <div className="feed_profile_text">
+          <p>Frontend Developer</p>
+          <p>누적좋아요: 123(7)</p>
+          <span>서울시 방배동</span>
         </div>
       </div>
-      <div className="tag-container">
-        <div>Lorem ipsum dolor, sit amet consectetur elit.</div>
+      <div className="feed_tag_container">
+        <div className="feed_tag_box">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>Typescript</span>
+          <span>Javascript</span>
+          <span>Mysql</span>
+        </div>
         <Link to="/Post">
-          <button>보기</button>
+          <button>View Profile</button>
         </Link>
       </div>
     </div>

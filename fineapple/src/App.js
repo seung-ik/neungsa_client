@@ -12,6 +12,7 @@ import WorkTitle from "./Components/Write/Work1";
 import WorkDes from "./Components/Write/Work2";
 import WorkBudget from "./Components/Write/Work3";
 import Review from "./Components/Write/Review";
+import Mypage from "./Components/Mypage/Mypage";
 // import WorkTitle from './Components/Write/Components/WorkTitle'
 function App() {
   const [onChat, setOnChat] = useState(false);
@@ -34,6 +35,7 @@ function App() {
         <Route path="/work/description" render={WorkDes} />
         <Route path="/work/budget" render={WorkBudget} />
         <Route path="/work/review" render={Review} />
+        <Route path="/mypage" component={Mypage} />
         {/*<Route path='/signin' component={Auth} /> 
         <Route path="/feed" component={feed} /> */}
       </Switch>
