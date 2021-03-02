@@ -50,9 +50,14 @@
 }
 
 .btn__search:hover {
-    /* background:  rgb(238, 195, 68); */
-    background: linear-gradient(180deg, rgba(119, 80, 228, 0.5) 0%, rgba(186, 64, 243, 0.5) 0.01%, rgba(44, 114, 196, 0.5) 100%);
-    color: #ffffff;
+  /* background:  rgb(238, 195, 68); */
+  background: linear-gradient(
+    180deg,
+    rgba(119, 80, 228, 0.5) 0%,
+    rgba(186, 64, 243, 0.5) 0.01%,
+    rgba(44, 114, 196, 0.5) 100%
+  );
+  color: #ffffff;
 }
 
 .form__control {

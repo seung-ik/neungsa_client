@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 .insparation > h1 {
   margin-bottom: 20px;
@@ -66,4 +65,10 @@
 }
 .insp_l_deg {
   transform: rotate(-2deg);
+}
+
+@media (max-width: 750px) {
+  .insparation {
+    display: none;
+  }
 }
