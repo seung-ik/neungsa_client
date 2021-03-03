@@ -40,7 +40,7 @@
   );
   border-radius: 0px 10px 10px 0px;
   font-size: 20px;
-  line-height: 50px;
+  line-height: 60px;
   width: 160px;
   height: 60px;
   text-transform: uppercase;
@@ -50,9 +50,14 @@
 }
 
 .btn__search:hover {
-    /* background:  rgb(238, 195, 68); */
-    background: linear-gradient(180deg, rgba(119, 80, 228, 0.5) 0%, rgba(186, 64, 243, 0.5) 0.01%, rgba(44, 114, 196, 0.5) 100%);
-    color: #ffffff;
+  /* background:  rgb(238, 195, 68); */
+  background: linear-gradient(
+    180deg,
+    rgba(119, 80, 228, 0.5) 0%,
+    rgba(186, 64, 243, 0.5) 0.01%,
+    rgba(44, 114, 196, 0.5) 100%
+  );
+  color: #ffffff;
 }
 
 .form__control {
@@ -144,4 +149,32 @@
 .fadeInLeft {
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
+}
+
+@media (max-width: 768px) {
+  .landing {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .input__container {
+    width: 400px;
+  }
+  /* .popular {
+    display: none;
+  } */
+  .title {
+    font-size: 50px;
+    margin-top: 50px;
+  }
+  .lady {
+    width: 400px;
+    height: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 950px) {
+  .lady {
+    display: none;
+  }
 }
