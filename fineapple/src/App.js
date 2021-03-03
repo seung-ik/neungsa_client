@@ -9,10 +9,6 @@ import Post from "./Components/Post/Post";
 import Chat from "./Components/Chat/Chat";
 import ChatBtn from "./Components/Chat/ChatBtn";
 import Write from "./Components/Write/Write";
-import WorkTitle from "./Components/Write/Work1";
-import WorkDes from "./Components/Write/Work2";
-import WorkBudget from "./Components/Write/Work3";
-import Review from "./Components/Write/Review";
 import Mypage from "./Components/Mypage/Mypage";
 // import WorkTitle from './Components/Write/Components/WorkTitle'
 function App() {
@@ -28,15 +24,15 @@ function App() {
       <Header_dark />
       <Switch>
         <Route path="/" exact component={Main} />
-        <Route path="/Login" component={Login} />
+        <Route path="/Login" exact component={Login} />
         <Route path="/Feed" component={Feed} />
         <Route path="/Post" component={Post} />
-        <Route path="/Write" component={Write} />
-        <Route path="/work/title" component={WorkTitle} />
+        <Route path="/write" component={Write} />
+        <Route path="/mypage" component={Mypage} />
+        {/* <Route path="/work/title" component={WorkTitle} />
         <Route path="/work/description" render={WorkDes} />
         <Route path="/work/budget" render={WorkBudget} />
-        <Route path="/work/review" render={Review} />
-        <Route path="/mypage" component={Mypage} />
+        <Route path="/work/review" render={Review} /> */}
         {/*<Route path='/signin' component={Auth} /> 
         <Route path="/feed" component={feed} /> */}
       </Switch>
