@@ -67,8 +67,9 @@
   transform: rotate(-2deg);
 }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .insparation {
     display: none;
+    /* overflow-x: scroll; */
   }
 }

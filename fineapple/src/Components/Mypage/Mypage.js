@@ -10,7 +10,7 @@ import CallIcon from "@material-ui/icons/Call";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
 import CheckIcon from "@material-ui/icons/Check";
 import PostAddIcon from "@material-ui/icons/PostAdd";
-import MapContents from "./MapContents";
+
 const Mypage = (props) => {
   const [onEdit, setOnEdit] = useState(false);
 
@@ -33,7 +33,7 @@ const Mypage = (props) => {
             </button>
           </div>
         </div>
-        {/* <MapContents id="map" /> */}
+
         <div className="mypage_introduction">
           {/* <div className="mypage_introduction_header">소개</div> */}
           <div className="mypage_introduction_container">

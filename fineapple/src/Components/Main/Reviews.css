@@ -39,18 +39,23 @@
   font-size: 1.5rem;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .review_listItem {
     display: flex;
     flex-direction: column;
   }
   .review {
-    height: 500px;
+    height: 490px;
   }
   .review_listItem > div > h4 {
     font-size: 1.5rem;
   }
   .review_listItem > div > p {
     font-size: 1.3rem;
+    margin-bottom: 0;
+  }
+  .review_slide_img {
+    width: 100%;
+    heigth: auto;
   }
 }
