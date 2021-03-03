@@ -30,15 +30,7 @@
     
 }
 
-.typejob__input {
-    padding: 10px 15px;
-    line-height: 1.42857;
-    width: 70%;
-    border: 1px solid #d1d1d1;
-    border-radius: 5px;
-    margin-left: 8px;
-    margin-bottom: 10px;
-}
+
 
 .worktitle__header {
     font-size: 25px;
@@ -63,6 +55,23 @@
     font-weight: 700;
     color: rgb(0, 0, 0);
 }
+
+.typejob__input {
+    padding: 10px 15px;
+    line-height: 1.42857;
+    width: 70%;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    margin-left: 8px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+
+.typejob__input:focus {
+    outline: none;
+}
+
 
 .worktitle__typejob__description {
     margin-left: 20px;
@@ -139,12 +148,21 @@
     padding: 10px 15px;
     line-height: 1.42857;
     width: 70%;
-    border: 1px solid #d1d1d1;
+    /* border: 1px solid #d1d1d1; */
     border-radius: 5px;
     margin-left: 8px;
     margin-bottom: 40px;
     margin-top: 20px;
 }
+
+
+
+
+.job__hashtag__inputbox:focus {
+    outline: none;
+}
+
+
 
 .container__btns {
     display: flex;
