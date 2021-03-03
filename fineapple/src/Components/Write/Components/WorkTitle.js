@@ -1,10 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './WorkTitle.css'
 import { Link } from "react-router-dom";
 import Next from './Next'
 import Prev from './Prev'
+import './Tagging.scss'
+import TagsInput from './TagsInput'
 
 function WorkTitle() {
+
+    const [tags, setTags] = useState([]);
+    const [emails, setEmails] = useState([]);
+    const [errors, setErrors] = useState({});
+  
+    const changeHandler = (name, value) => {
+      if(name === 'tags') {
+        setTags(value);
+        if(value.length > 0 && errors.tags) {
+          setErrors(prev => {
+            const prevErrors = {...prev};
+            delete prevErrors.tags;
+            return prevErrors;
+          });
+        }
+      }else if(name === 'emails') {
+        setEmails(value);
+        if(value.length > 0 && errors.emails) {
+          setErrors(prev => {
+            const prevErrors = {...prev};
+            delete prevErrors.emails;
+            return prevErrors;
+          });
+        }
+      }
+    }
+  
+    const submitHandler = e => {
+      e.preventDefault();
+  
+      if(tags.length === 0) {
+        setErrors(prev => ({
+          ...prev,
+          tags: 'Please add at least one tag'
+        }));
+      }
+      if(emails.length === 0) {
+        setErrors(prev => ({
+          ...prev,
+          emails: 'Please add at least one email'
+        }));
+      }
+  
+      if(tags.length > 0 && emails.length > 0) {
+        console.log(tags, emails);
+        // Submit form
+      }
+    }
+    
     return (
         <div className="worktitle">
             <div className="worktitle__container">
@@ -49,7 +100,20 @@ function WorkTitle() {
                     <div className="job__hashtag__container">
                         <h3 className="job__hashtag__title">서비스 키워드</h3>
                         <p>하는 일을 가장 잘 설명해주는 카테고리에 관련된 테그를 입력해 주세요. 테그는 쉼표 ( , ) 단위로 구별됩니다. </p>
-                        <input className="job__hashtag__inputbox" placeholder="e.g. 영상 디자인" type="text" autoComplete="none" />
+                        {/* <input className="job__hashtag__inputbox" placeholder="e.g. 영상 디자인" type="text" autoComplete="none" /> */}
+                        <div className="job__hashtag__inputbox">
+
+      <form onSubmit={submitHandler}>
+        <TagsInput 
+          id="tags"
+          name="tags"
+          placeholder="e.g. 영상 디자인"
+          onChange={changeHandler}
+          error={errors.tags}
+          defaultTags={tags}
+        />
+      </form>
+    </div>
                     </div>
                     <div className="container__btns">
                         <Link className="writePage" to="/write">

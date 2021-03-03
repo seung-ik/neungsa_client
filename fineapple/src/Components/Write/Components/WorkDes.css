@@ -10,7 +10,7 @@
 
 /* ! templete ! */
 .workdes__container {
-    background: white;
+    background: white; outline: none;
     border: 1px solid #d1d1d1;
     margin-top: 20px;
     margin-bottom: 40px;
@@ -42,9 +42,11 @@
 
 .description__input:hover {
     border : solid 2px #8AB77B;
-    outline:0px !important;
-    -webkit-appearance:none;
     box-shadow: none !important;
+}
+
+.description__input:focus {
+    outline: none;
 }
 
 

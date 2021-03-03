@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer'
 import GettingStarted from './Components/GettingStarted'
 import Sidebar from './Components/Sidebar'
 import Budget from './Components/WorkBudget'
+
 import './Write.css'
 
 function Work3() {
