@@ -11,10 +11,16 @@ import Business from "./Business";
 import Reviews from "./Reviews";
 import Inspration from "./Inspration";
 import GetStarted from "./GetStarted";
+import MapContents from "./MapContents";
 
 function Main() {
   const [click, setClick] = useState(false);
+  const [location, setLocation] = useState(null);
+
   const handleClick = () => setClick(!click);
+  const handleMap = (location) => {
+    setLocation(location);
+  };
 
   return (
     <div className="main">
@@ -24,11 +30,11 @@ function Main() {
         </section>
 
         <div className="map__container">
-          <img className="map_img" src={Map} alt="gangnam_map" />
+          <MapContents handleMap={handleMap} />
         </div>
 
         <section className="recommandation__container">
-          <Recommandation />
+          <Recommandation location={location} />
         </section>
         <section className="introduction__container">
           <Introduction />
