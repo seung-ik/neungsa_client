@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import "./Feed.css";
 import Card from "./Card";
@@ -8,9 +8,10 @@ import Advertise from "./Advertise";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import face1 from "../../img/mockup/face1.jpg";
 import face2 from "../../img/mockup/face2.jpg";
-import FeedSideBar from './FeedSideBar'
-import Profile from '../../img/mockup/profile.png';
+import FeedSideBar from "./FeedSideBar";
+import Profile from "../../img/mockup/profile.png";
 import { Avatar } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const Feed = () => {
   const [slideData, setSlideData] = useState(face1);
@@ -26,53 +27,57 @@ const Feed = () => {
         <h2>우리동네 소능력자</h2>
       </div>
 
-
       <div className="feed_cards">
         <Card data={slideData} className="single__card" />
         <Card data={slideData} className="single__card" />
         <Card data={slideData} className="single__card" />
         <Card data={slideData} className="single__card" />
-        <PlayArrowIcon className="feed__cards__next"
+        <PlayArrowIcon
+          className="feed__cards__next"
           onClick={handleSlideBtn}
-        // style={{
-        //   color: "white",
-        //   backgroundColor: "a2b493",
-        //   width: "50px",
-        //   height: "50px",
-        //   position: "relative",
-        //   right: "4%",
-        // }}
+          // style={{
+          //   color: "white",
+          //   backgroundColor: "a2b493",
+          //   width: "50px",
+          //   height: "50px",
+          //   position: "relative",
+          //   right: "4%",
+          // }}
         />
       </div>
       <div className="feed_container">
-
         <FeedSideBar />
         <div className="feed__wrapper">
           <div className="feed__wrapper__header">
             <h2>일산 3동에는 이런일이 있어요!</h2>
             <div className="feed__wrapper__search">
-              <input type="text" placeholder="검색하기" className="feed__wrapper__search__input" />
+              <input
+                type="text"
+                placeholder="검색하기"
+                className="feed__wrapper__search__input"
+              />
               <div className="feed__wrapper__search__btn">search</div>
             </div>
           </div>
 
-
           <ul className="feed_posts">
-
-            <div >
-              <Listitem data={slideData} />
-              <Listitem data={slideData} />
-              <Listitem data={slideData} />
-              <Listitem data={slideData} />
-              <div className="see__more__container">
-                더보기
-              </div>
+            <div>
+              <Link className="writePage" to="/feed/63">
+                <Listitem data={slideData} />
+              </Link>
+              <Link className="writePage" to="/feed/65">
+                <Listitem data={slideData} />
+              </Link>
+              <Link className="writePage" to="/feed/66">
+                <Listitem data={slideData} />
+              </Link>
+              <Link className="writePage" to="/feed/67">
+                <Listitem data={slideData} />
+              </Link>
+              <div className="see__more__container">더보기</div>
             </div>
-
           </ul>
-
         </div>
-
       </div>
       <Advertise />
       <Footer />

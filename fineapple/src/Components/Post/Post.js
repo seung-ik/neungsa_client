@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./Post.css";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ import ExploreIcon from "@material-ui/icons/Explore";
 import CallIcon from "@material-ui/icons/Call";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
 import CheckIcon from "@material-ui/icons/Check";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -21,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Post = () => {
+const Post = ({ match }) => {
+  console.log(match.params.id);
   const classes = useStyles();
   const refReview = useRef(null);
   const refImage = useRef(null);
@@ -35,6 +37,15 @@ const Post = () => {
     if (refName === refImage) setScrollState("image");
     window.scrollTo(0, refName.current.offsetTop - 100);
   };
+
+  useEffect(() => {
+    let obj = { id: 66 };
+    console.log(obj);
+    axios
+      .get("https://localhost:5000/postPage", obj)
+      .then((res) => console.log("ok", res))
+      .catch((err) => console.log(err));
+  });
   return (
     <div>
       <div className="post_container">
