@@ -21,7 +21,7 @@ function WorkReview({ writeData, handlecomplete }) {
       group_category: data.type,
       profileimage: "profileimage",
       title: data.title,
-      category: "data.tags",
+      category: data.tags,
       content: data.content,
       images: "data.file",
       location: data.region,
@@ -35,7 +35,7 @@ function WorkReview({ writeData, handlecomplete }) {
 
     axios({
       method: "post",
-      url: "http://localhost:5000/write/friend",
+      url: "https://localhost:5000/write/friend",
       data: submitObj,
     }).then((res) => console.log("ok", res));
   };
