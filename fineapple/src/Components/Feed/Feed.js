@@ -64,6 +64,9 @@ const Feed = () => {
               <Listitem data={slideData} />
               <Listitem data={slideData} />
               <Listitem data={slideData} />
+              <div className="see__more__container">
+                더보기
+              </div>
             </div>
 
           </ul>

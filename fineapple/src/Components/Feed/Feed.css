@@ -381,3 +381,11 @@ li {
 .feed_posts {
   display: flex;
 }
+
+
+.see__more__container {
+  text-align: center;
+  margin: 10px 0 10px 0;
+  font-weight: 700;
+  cursor: pointer;
+}
