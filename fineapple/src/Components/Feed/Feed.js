@@ -8,78 +8,70 @@ import Advertise from "./Advertise";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import face1 from "../../img/mockup/face1.jpg";
 import face2 from "../../img/mockup/face2.jpg";
+import FeedSideBar from './FeedSideBar'
+import Profile from '../../img/mockup/profile.png';
+import { Avatar } from "@material-ui/core";
 
 const Feed = () => {
   const [slideData, setSlideData] = useState(face1);
 
   const handleSlideBtn = () => {
     console.log("ok");
-    setSlideData((prev) => (prev === face1 ? face2 : face1));
+    setSlideData((prev) => (prev === Profile ? face2 : face1));
   };
 
   return (
-    <div>
+    <div className="feed">
+      <div className="feed__container__header">
+        <h2>우리동네 소능력자</h2>
+      </div>
+
+
+      <div className="feed_cards">
+        <Card data={slideData} className="single__card" />
+        <Card data={slideData} className="single__card" />
+        <Card data={slideData} className="single__card" />
+        <Card data={slideData} className="single__card" />
+        <PlayArrowIcon className="feed__cards__next"
+          onClick={handleSlideBtn}
+        // style={{
+        //   color: "white",
+        //   backgroundColor: "a2b493",
+        //   width: "50px",
+        //   height: "50px",
+        //   position: "relative",
+        //   right: "4%",
+        // }}
+        />
+      </div>
       <div className="feed_container">
-        <h2
-          style={{
-            marginBottom: "15px",
-            marginLeft: "8%",
-            justifySelf: "flex-start",
-          }}
-        >
-          우리동네 소능력자
-        </h2>
-        <br />
-        <div className="feed_cards">
-          <Card data={slideData} />
-          <Card data={slideData} />
-          <Card data={slideData} />
-          <Card data={slideData} />
-          <PlayArrowIcon
-            onClick={handleSlideBtn}
-            style={{
-              color: "white",
-              backgroundColor: "a2b493",
-              width: "50px",
-              height: "50px",
-              position: "relative",
-              right: "4%",
-              opacity: "0.7",
-              borderRadius: "50%",
-            }}
-          />
-        </div>
-        <h2
-          style={{
-            marginBottom: "15px",
-            marginLeft: "8%",
-            justifySelf: "flex-start",
-          }}
-        >
-          일산 3동에는 이런일이 있어요
-        </h2>
-        <ul className="feed_posts">
-          <div style={{ width: "50%" }}>
-            <Listitem data={slideData} />
-            <Listitem data={slideData} />
-            <Listitem data={slideData} />
-            <Listitem data={slideData} />
+
+        <FeedSideBar />
+        <div className="feed__wrapper">
+          <div className="feed__wrapper__header">
+            <h2>일산 3동에는 이런일이 있어요!</h2>
+            <div className="feed__wrapper__search">
+              <input type="text" placeholder="검색하기" className="feed__wrapper__search__input" />
+              <div className="feed__wrapper__search__btn">search</div>
+            </div>
           </div>
 
-          <div
-            style={{
-              width: "50%",
-              borderLeft: "2px solid #D1CECE",
-            }}
-          >
-            <Listitem data={slideData} />
-            <Listitem data={slideData} />
-            <Listitem data={slideData} />
-            <Listitem data={slideData} />
-          </div>
-        </ul>
-        <Advertise />
+
+          <ul className="feed_posts">
+
+            <div >
+              <Listitem data={slideData} />
+              <Listitem data={slideData} />
+              <Listitem data={slideData} />
+              <Listitem data={slideData} />
+            </div>
+
+          </ul>
+
+        </div>
+
       </div>
+      <Advertise />
       <Footer />
     </div>
   );
