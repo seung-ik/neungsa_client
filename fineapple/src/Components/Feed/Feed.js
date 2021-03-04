@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import "./Feed.css";
 import Card from "./Card";
@@ -8,6 +8,7 @@ import Advertise from "./Advertise";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import face1 from "../../img/mockup/face1.jpg";
 import face2 from "../../img/mockup/face2.jpg";
+import axios from "axios";
 
 const Feed = () => {
   const [slideData, setSlideData] = useState(face1);
