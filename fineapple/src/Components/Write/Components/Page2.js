@@ -1,9 +1,8 @@
-/*global kakao*/
 import React, { useState, useEffect } from "react";
-import "./WorkTitle.css";
+import "./Page2.css";
 import { Link } from "react-router-dom";
-import Next from "./Next";
-import Prev from "./Prev";
+import Next from "./BtnNext";
+import Prev from "./BtnPrev";
 import "./Tagging.scss";
 import TagsInput from "./TagsInput";
 import axios from "axios";
@@ -170,14 +169,20 @@ function WorkTitle({ handleWriteData }) {
               </form>
             </div>
             <h3 className="job__hashtag__title">위치 등록</h3>
-            <p>원하시는 위치를 설정해주세요(구 까지만 입력하시면 됩니다.)</p>
+            <p>
+              해당 위치를 기반으로 노출됩니다.
+              <br />
+              원하시는 위치를 설정해주세요(구 까지만 입력하시면 됩니다.)
+            </p>
 
-            <div className="job__hashtag__inputbox">
+            <div className="job__location__inputbox">
               <form>
-                <button onClick={submitLocation}>현위치 등록</button>
+                <button onClick={submitLocation}>현재위치</button>
                 <input
+                  className="write_location_button"
                   type="text"
                   value={locationInput}
+                  placeholder="ex.서울시 서초구"
                   onChange={(e) => setLocationInput(e.target.value)}
                 />
               </form>

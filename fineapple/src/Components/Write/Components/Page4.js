@@ -1,8 +1,8 @@
-import React, { useState, setState } from "react";
-import Next from "./Next";
-import Prev from "./Prev";
+import React, { useState } from "react";
+import Next from "./BtnNext";
+import Prev from "./BtnPrev";
 import { Link } from "react-router-dom";
-import "./WorkBudget.css";
+import "./Page4.css";
 import AccessAlarmOutlinedIcon from "@material-ui/icons/AccessAlarmOutlined";
 import GroupOutlinedIcon from "@material-ui/icons/GroupOutlined";
 

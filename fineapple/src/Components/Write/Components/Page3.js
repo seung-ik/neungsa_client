@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Next from "./Next";
-import Prev from "./Prev";
-import "./WorkDes.css";
+import Next from "./BtnNext";
+import Prev from "./BtnPrev";
+import "./Page3.css";
 
 function WorkDes({ handleWriteData }) {
   const [description, setDescription] = useState("");

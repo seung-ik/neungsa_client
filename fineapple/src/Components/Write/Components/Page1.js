@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./GettingStarted.css";
+import "./Page1.css";
 import WorkIcon from "@material-ui/icons/Work";
 import GroupIcon from "@material-ui/icons/Group";
-import Next from "./Next";
-import Prev from "./Prev";
+import Next from "./BtnNext";
+import Prev from "./BtnPrev";
 
 function GettingStarted({ handleWriteData }) {
   const [select, setSelect] = useState("");

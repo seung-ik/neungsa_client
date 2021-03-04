@@ -12,11 +12,40 @@
 
 .sidebarrow__title {
   margin-left: 10px;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   font-weight: 600;
 }
 
 .Check {
   color: #8ab77b;
-  margin-left: left;
+  margin-right: 10px;
+}
+
+.noneCheck {
+  color: rgb(185, 110, 110);
+  margin-right: 10px;
+}
+.sidebar {
+  position: sticky;
+  top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  height: 250px;
+}
+.sidebar__container {
+  width: 220px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    display: none;
+  }
 }
