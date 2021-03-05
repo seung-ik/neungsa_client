@@ -62,13 +62,13 @@ const Feed = () => {
 
           <ul className="feed_posts">
             <div>
-              <Link className="writePage" to="/feed/63">
+              <Link className="writePage" to="/feed/72">
                 <Listitem data={slideData} />
               </Link>
-              <Link className="writePage" to="/feed/65">
+              <Link className="writePage" to="/feed/71">
                 <Listitem data={slideData} />
               </Link>
-              <Link className="writePage" to="/feed/66">
+              <Link className="writePage" to="/feed/69">
                 <Listitem data={slideData} />
               </Link>
               <Link className="writePage" to="/feed/67">
