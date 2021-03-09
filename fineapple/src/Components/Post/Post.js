@@ -142,79 +142,20 @@ const Post = ({ match }) => {
             </p>
             <h2 ref={refImage}>사진 및 동영상</h2>
             <div className="post_img_container">
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
+              {postData.images &&
+                postData.images.split(",").map((photo) => {
+                  return (
+                    <img
+                      key={photo}
+                      src={photo}
+                      alt=""
+                      style={{
+                        width: "150px",
+                        height: "150px",
+                      }}
+                    />
+                  );
+                })}
             </div>
           </div>
         </div>

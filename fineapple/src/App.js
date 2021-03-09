@@ -9,6 +9,7 @@ import ChatBtn from "./Components/Chat/ChatBtn";
 import Write from "./Components/Write/Write";
 import Mypage from "./Components/Mypage/Mypage";
 import FeedAndPost from "./Components/FeedandPost/FeedandPost";
+import MypageUpdate from "./Components/Write/Components/PageUpdateMy";
 // import WorkTitle from './Components/Write/Components/WorkTitle'
 function App() {
   const [onChat, setOnChat] = useState(false);
@@ -27,7 +28,9 @@ function App() {
         <Route path="/feed" component={FeedAndPost} />
         {/* <Route path="/Post" component={Post} /> */}
         <Route path="/write" component={Write} />
-        <Route path="/mypage" component={Mypage} />
+        <Route path="/mypage/update" component={MypageUpdate} />
+        <Route path="/mypage" exact component={Mypage} />
+
         {/* <Route path="/work/title" component={WorkTitle} />
         <Route path="/work/description" render={WorkDes} />
         <Route path="/work/budget" render={WorkBudget} />
