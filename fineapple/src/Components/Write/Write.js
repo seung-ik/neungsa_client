@@ -6,11 +6,11 @@ import Page2 from "./Components/Page2";
 import Page3 from "./Components/Page3";
 import Page4 from "./Components/Page4";
 import Page5 from "./Components/Page5";
+import PageUpdateMy from "./Components/PageUpdateMy";
 import { Route } from "react-router-dom";
 import "./Write.css";
 
 function Write({ match }) {
-  let complete = {};
   const [saveWriteData, setSaveWriteData] = useState({});
 
   const [completePage2, setCompletePage2] = useState(false);
@@ -35,9 +35,9 @@ function Write({ match }) {
       };
     });
   };
-  const savePage3 = (content, file) => {
+  const savePage3 = (content, file, toForm) => {
     setSaveWriteData((prev) => {
-      return { ...prev, content, file };
+      return { ...prev, content, file, toForm };
     });
   };
   const savePage4 = (cost, payment) => {

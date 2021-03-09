@@ -4,12 +4,12 @@ import Header from "./Components/Header/Header";
 import Header_dark from "./Components/Header/DarkHeader";
 import Main from "./Components/Main/Main";
 import Login from "./Components/Login/Login";
-import Feed from "./Components/Feed/Feed";
-import Post from "./Components/Post/Post";
 import Chat from "./Components/Chat/Chat";
 import ChatBtn from "./Components/Chat/ChatBtn";
 import Write from "./Components/Write/Write";
 import Mypage from "./Components/Mypage/Mypage";
+import FeedAndPost from "./Components/FeedandPost/FeedandPost";
+import MypageUpdate from "./Components/Write/Components/PageUpdateMy";
 // import WorkTitle from './Components/Write/Components/WorkTitle'
 function App() {
   const [onChat, setOnChat] = useState(false);
@@ -25,10 +25,12 @@ function App() {
       <Switch>
         <Route path="/" exact component={Main} />
         <Route path="/Login" exact component={Login} />
-        <Route path="/Feed" component={Feed} />
-        <Route path="/Post" component={Post} />
+        <Route path="/feed" component={FeedAndPost} />
+        {/* <Route path="/Post" component={Post} /> */}
         <Route path="/write" component={Write} />
-        <Route path="/mypage" component={Mypage} />
+        <Route path="/mypage/update" component={MypageUpdate} />
+        <Route path="/mypage" exact component={Mypage} />
+
         {/* <Route path="/work/title" component={WorkTitle} />
         <Route path="/work/description" render={WorkDes} />
         <Route path="/work/budget" render={WorkBudget} />

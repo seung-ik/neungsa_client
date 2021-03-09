@@ -10,27 +10,45 @@ import CallIcon from "@material-ui/icons/Call";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
 import CheckIcon from "@material-ui/icons/Check";
 import PostAddIcon from "@material-ui/icons/PostAdd";
+import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 const Mypage = (props) => {
   const [onEdit, setOnEdit] = useState(false);
+  const [yourSelf, setYourSelf] = useState(true);
+  const [myData, setMyData] = useState({});
+  const [feedDatas, setFeedDatas] = useState([]);
 
   const handleProfile = () => {
     console.log("a");
-    setOnEdit((prev) => !prev);
     props.history.push("/mypage/update");
   };
+
+  useEffect(() => {
+    axios
+      .post("https://localhost:5000/myPage", {
+        email: "email@email.com",
+      })
+      .then((res) => {
+        let filterData = res.data.find_feed.slice(-5);
+        setMyData(res.data.mypagepost);
+        setFeedDatas(filterData);
+      });
+  }, []);
 
   return (
     <div>
       <div className="mypage_container">
         <div className="mypage_profile">
-          <img src={face1} alt="" />
+          <img src={myData.image ? myData.image : face1} alt="" />
           <div>
-            <div className="mypage_profile_name">오필승코리아</div>
+            <div className="mypage_profile_name">{myData.nickname}</div>
             <span className="mypage_profile_good">누적 좋아요👌 : 800</span>
-            <button onClick={handleProfile}>
-              {!onEdit ? "프로필 등록/수정" : "완료"}
-            </button>
+            {yourSelf ? (
+              <button onClick={handleProfile}>"프로필 등록/수정"</button>
+            ) : (
+              ""
+            )}
           </div>
         </div>
 
@@ -49,11 +67,11 @@ const Mypage = (props) => {
               </p>
               <p>
                 <ExploreIcon />
-                서울시 강남구
+                {myData.location}
               </p>
               <p>
                 <CallIcon />
-                연락가능 시간:1시
+                연락시간: {myData.ContactTime}
               </p>
               <p>
                 <LocalAtmIcon />
@@ -64,7 +82,7 @@ const Mypage = (props) => {
               <h2>추가정보</h2>
               <p>
                 <CheckIcon />
-                사업자
+                관련사업: {myData.Entrepreneur}
               </p>
               <p>
                 <CheckIcon />
@@ -72,15 +90,11 @@ const Mypage = (props) => {
               </p>
               <p>
                 <CheckIcon />
-                직장
+                직장: {myData.Job}
               </p>
               <p>
                 <CheckIcon />
-                학교
-              </p>
-              <p>
-                <CheckIcon />
-                경력
+                기타: {myData.Career}
               </p>
             </div>
           </div>
@@ -98,10 +112,9 @@ const Mypage = (props) => {
             <PostAddIcon />
           </h2>
           <ul style={{ paddingBottom: "30px" }}>
-            <ServiceItem />
-            <ServiceItem />
-            <ServiceItem />
-            <ServiceItem />
+            {feedDatas.map((feedData, key) => {
+              return <ServiceItem key={key} feedData={feedData} />;
+            })}
           </ul>
         </div>
       </div>
