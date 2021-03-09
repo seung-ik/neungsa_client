@@ -118,6 +118,10 @@
   width: 95%;
   cursor: pointer;
 }
+.ondrag {
+  border: dashed 2px rgb(100, 100, 209);
+  background-color: rgb(247, 216, 125);
+}
 
 .workdes__imgDrop__dropZone > span {
   color: #8ab77b;
@@ -136,6 +140,29 @@
   margin-bottom: 20px;
 }
 
+.filebox input[type="file"] {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  outline: none;
+}
+.filebox label {
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  color: black;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: rgb(247, 216, 125);
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: 0.25em;
+}
 /* 
 .job__hashtag__container {
     

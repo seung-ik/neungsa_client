@@ -14,9 +14,28 @@ function WorkReview({ writeData, handlecomplete }) {
   };
 
   const handleSubmit = (data) => {
-    console.log(data);
+    console.log("ok", data.toForm);
+    const formData = new FormData();
+    if (data.toForm) {
+      data.toForm.forEach((el) => formData.append("image", el));
+      axios(
+        {
+          method: "post",
+          url: "https://localhost:5000/uploadFiles",
+          data: { formData: formData },
+        },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+    }
+
     handlecomplete();
+
     let submitObj = {
+      // email: "email@email.com",
       userid: "1",
       group_category: data.type,
       profileimage: "profileimage",
@@ -24,21 +43,45 @@ function WorkReview({ writeData, handlecomplete }) {
       category: "data.category",
       tag: data.tags,
       content: data.content,
-      images: "data.file",
+      images: data.file,
       location: data.region,
       latitude: data.lat,
       longitude: data.lon,
       serviceId: "12312",
       chatroom: "123123",
       cost: data.cost,
+      form: formData,
     };
     console.log(submitObj);
 
-    axios({
-      method: "post",
-      url: "https://localhost:5000/write/friend",
-      data: submitObj,
-    }).then((res) => console.log("ok", res));
+    axios(
+      {
+        method: "post",
+        url: "https://localhost:5000/write/friend",
+        data: submitObj,
+      },
+      {
+        headers: {
+          "x-device-id": "stuff",
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    ).then((res) => console.log("ok", res));
+  };
+
+  const renderPhotos = (photos) => {
+    if (photos) {
+      return photos.map((photo) => {
+        return (
+          <img
+            src={photo}
+            key={photo}
+            alt=""
+            style={{ width: "70px", margin: "10px" }}
+          />
+        );
+      });
+    }
   };
   return (
     <div className="workreview">
@@ -79,6 +122,8 @@ function WorkReview({ writeData, handlecomplete }) {
           <div className="workreview__container">
             <h1>상세 설명</h1>
             <p>{writeData.content}</p>
+            <h1>첨부 이미지</h1>
+            {renderPhotos(writeData.file)}
           </div>
         </div>
         <div className="workrevview__budget">
