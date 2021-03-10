@@ -46,9 +46,11 @@ function Business() {
               있어요! <br /> 지역상권의 핵심 고객층과 같기 때문에 지역광고
               효과가 좋아요.
             </div>
-            <div className="business__left__btn">
-              파인애플 동네 광고 문의하기
-            </div>
+            <Link to="/business">
+              <div className="business__left__btn">
+                파인애플 동네 광고 문의하기
+              </div>
+            </Link>
           </div>
         </div>
       </div>

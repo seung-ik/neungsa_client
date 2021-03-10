@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import Next from "./BtnNext";
 import Prev from "./BtnPrev";
 import { Link } from "react-router-dom";
+import ReactS3 from "react-s3";
+import * as configfile from "../../../config";
 import "./Page5.css";
 
 function WorkReview({ writeData, handlecomplete }) {
+  const config = {
+    bucketName: configfile.bucketName,
+    dirName: configfile.dirName,
+    region: configfile.region,
+    accessKeyId: configfile.accessKeyId,
+    secretAccessKey: configfile.secretAccessKey,
+  };
+
   const addCommas = (num) => {
     if (num) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -13,29 +23,26 @@ function WorkReview({ writeData, handlecomplete }) {
     return;
   };
 
-  const handleSubmit = (data) => {
-    console.log("ok", data.toForm);
-    const formData = new FormData();
-    if (data.toForm) {
-      data.toForm.forEach((el) => formData.append("image", el));
-      axios(
-        {
-          method: "post",
-          url: "https://localhost:5000/uploadFiles",
-          data: { formData: formData },
-        },
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+  async function uploadS3(uploadS3Files) {
+    let s3Objects = [];
+
+    for (let file of uploadS3Files) {
+      await ReactS3.uploadFile(file, config).then((data) => {
+        console.log(1);
+        s3Objects.push(data.location);
+      });
     }
 
-    handlecomplete();
+    return s3Objects;
+  }
+
+  async function handleSubmit(data) {
+    const uploadS3Files = data.toForm;
+    const s3 = await uploadS3(uploadS3Files);
+    console.log(s3);
 
     let submitObj = {
-      // email: "email@email.com",
+      email: "email@email.com",
       userid: "1",
       group_category: data.type,
       profileimage: "profileimage",
@@ -43,31 +50,25 @@ function WorkReview({ writeData, handlecomplete }) {
       category: "data.category",
       tag: data.tags,
       content: data.content,
-      images: data.file,
+      images: s3,
       location: data.region,
       latitude: data.lat,
       longitude: data.lon,
       serviceId: "12312",
       chatroom: "123123",
       cost: data.cost,
-      form: formData,
     };
-    console.log(submitObj);
 
-    axios(
-      {
-        method: "post",
-        url: "https://localhost:5000/write/friend",
-        data: submitObj,
-      },
-      {
-        headers: {
-          "x-device-id": "stuff",
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    ).then((res) => console.log("ok", res));
-  };
+    axios({
+      method: "post",
+      url: "https://localhost:3000/write/friend",
+      data: submitObj,
+    })
+      .then((res) => console.log("2", res))
+      .catch((err) => console.log(err));
+
+    handlecomplete();
+  }
 
   const renderPhotos = (photos) => {
     if (photos) {

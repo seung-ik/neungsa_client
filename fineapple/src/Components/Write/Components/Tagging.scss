@@ -7,21 +7,6 @@ $ff-primary: 'Roboto', 'sans-serif';
 
 
 
-body {
-  
-  font-size: 16px;
-  line-height: 1.5;
-  color: $primary-text-color;
-}
-
-
-.header {
-  background-color: $primary-bg-color;
-  padding: 50px 0;
-  // text-align: center;
-  margin-bottom: 50px;
-}
-
 form {
   max-width: 600px;
   margin: 0 auto;
@@ -60,7 +45,7 @@ form {
 
       .tag {
         background-color: $primary-bg-color;
-        // padding: 5px 10px;
+        padding: 5px 10px;
         border-radius: 4px;
         font-size: 12px;
         margin-right: 5px;
