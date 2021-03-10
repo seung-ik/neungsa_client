@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Header_dark from "./Components/Header/DarkHeader";
@@ -10,11 +10,18 @@ import Write from "./Components/Write/Write";
 import Mypage from "./Components/Mypage/Mypage";
 import FeedAndPost from "./Components/FeedandPost/FeedandPost";
 import MypageUpdate from "./Components/Write/Components/PageUpdateMy";
-// import Business from "./Components/Others/Business/Business";
 import Team from "./Components/Others/TeamPage/TheTeam";
 
 // import WorkTitle from './Components/Write/Components/WorkTitle'
 function App() {
+  // const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   setLoading(true)
+  //   setTimeout(() => {
+  //     setLoading(false)
+  //   }, 4000)
+  // },[])
   const [onChat, setOnChat] = useState(false);
 
   const handleChat = () => {
@@ -34,7 +41,6 @@ function App() {
         <Route path="/mypage/update" component={MypageUpdate} />
         <Route path="/mypage" exact component={Mypage} />
         <Route path="/theteam" exact component={Team} />
-        {/* <Route path="/business" component={Business} /> */}
         {/* <Route path="/work/title" component={WorkTitle} />
         <Route path="/work/description" render={WorkDes} />
         <Route path="/work/budget" render={WorkBudget} />
@@ -42,6 +48,7 @@ function App() {
         {/*<Route path='/signin' component={Auth} /> 
         <Route path="/feed" component={feed} /> */}
       </Switch>
+
       {onChat ? (
         <Chat handleChat={handleChat} onChat={onChat} />
       ) : (
