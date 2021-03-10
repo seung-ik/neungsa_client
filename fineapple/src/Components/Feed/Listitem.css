@@ -1,12 +1,16 @@
 .listitem {
     border-bottom: 1px solid #d1d1d1;
 }
+.listsitem__list {
+    margin-left: 5px;
+}
 .listitem__list__top {
     display: flex;
+    margin-top: 10px;
 }
 
 .listitem__list__top__left {
-    margin-left: 10px;
+    margin-left: 5px;
     margin-top: 20px;
 }
 
@@ -18,11 +22,17 @@
 .listitem__list__top__left > h3 {
     font-size: 18px;
     margin-top: -4px;
+    color: black;
+}
+
+.listitem__list__top__left > h3:active, .listitem__list__top__left > h3:hover{
+    text-decoration: none;
+    color: rgb(53, 53, 53);
 }
 
 .listitem__list__top__left > p {
     font-size: 12px;
-    margin-top: -2px;
+    margin-top: -10px;
     font-weight: 500;
     color: gray;
 }
@@ -33,12 +43,32 @@
     font-size: 16px;
 }
 
-.lisstitem__list__bottom {
+.listitem__list__bottom {
     margin-left: 20px;
     font-size: 14px;
+    margin-top: 10px;
     margin-right: 20px;
+    color: black;
 }
 
+.listitem__list__bottom:active, .listitem__list__bottom:active {
+    color: rgb(53, 53, 53);
+}
+
+
 .list_card_tag_box {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+
+.listitem__list__top__img__container p{
+    font-size: 12px;
+    margin-top: -15px;
+    font-weight: 500;
+    color: rgb(66, 66, 66);
+    margin-left: 20px;
+}
+
+.listitem__list__top__img__container {
+    margin-top: -10px;
 }
