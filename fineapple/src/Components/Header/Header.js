@@ -2,10 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/logo_main.png";
 import "./Header.css";
+import axios from "axios";
 
 function Header() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+  const handleLogin = () => {
+    console.log("login");
+    axios.get("https://localhost:3000/login").then((res) => {
+      console.log(res);
+    });
+  };
 
   return (
     <div className="header">
@@ -15,9 +22,9 @@ function Header() {
         </Link>
         <ul className="list">
           <li className="header__item">
-            <Link to="/Login" className="header__links" onClick={handleClick}>
+            <div className="header__links" onClick={handleLogin}>
               로그인
-            </Link>
+            </div>
           </li>
           <li className="header__item">
             <Link to="/feed" className="header__links" onClick={handleClick}>
