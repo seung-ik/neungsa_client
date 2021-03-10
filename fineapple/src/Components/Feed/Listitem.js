@@ -36,9 +36,9 @@ const Listitem = (props) => {
 
           </div>
           <div className="listitem__list__top__left">
-            <h4>승딱</h4>
-            <h3> javascript 알려드릴게요 공방 1:1 들어오세요 오늘 한시까지 합니다. </h3>
             <p>1.4km 이내  <span>·</span> 시급 13000원 </p>  
+            <h3> javascript 알려드릴게요 공방 1:1 들어오세요 오늘 한시까지 합니다. </h3>
+            <h4>승딱</h4>
           </div>
         </div>
         <div className="listitem__list__middle">
