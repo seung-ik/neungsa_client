@@ -10,6 +10,9 @@ import Write from "./Components/Write/Write";
 import Mypage from "./Components/Mypage/Mypage";
 import FeedAndPost from "./Components/FeedandPost/FeedandPost";
 import MypageUpdate from "./Components/Write/Components/PageUpdateMy";
+// import Business from "./Components/Others/Business/Business";
+import Team from "./Components/Others/TeamPage/TheTeam";
+
 // import WorkTitle from './Components/Write/Components/WorkTitle'
 function App() {
   const [onChat, setOnChat] = useState(false);
@@ -30,7 +33,8 @@ function App() {
         <Route path="/write" component={Write} />
         <Route path="/mypage/update" component={MypageUpdate} />
         <Route path="/mypage" exact component={Mypage} />
-
+        <Route path="/theteam" exact component={Team} />
+        {/* <Route path="/business" component={Business} /> */}
         {/* <Route path="/work/title" component={WorkTitle} />
         <Route path="/work/description" render={WorkDes} />
         <Route path="/work/budget" render={WorkBudget} />

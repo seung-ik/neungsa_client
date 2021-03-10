@@ -2,17 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/logo_main.png";
 import "./Header.css";
-import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Header() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
-  const handleLogin = () => {
-    console.log("login");
-    axios.get("https://localhost:3000/login").then((res) => {
-      console.log(res);
-    });
-  };
+  const { loginWithRedirect } = useAuth0();
+  const { logout } = useAuth0();
 
   return (
     <div className="header">
@@ -22,8 +18,16 @@ function Header() {
         </Link>
         <ul className="list">
           <li className="header__item">
-            <div className="header__links" onClick={handleLogin}>
+            <div className="header__links" onClick={() => loginWithRedirect()}>
               로그인
+            </div>
+          </li>
+          <li className="header__item">
+            <div
+              className="header__links"
+              onClick={() => logout({ returnTo: "http://localhost:8000" })}
+            >
+              로그아웃
             </div>
           </li>
           <li className="header__item">
