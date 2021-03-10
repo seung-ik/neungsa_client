@@ -1,11 +1,13 @@
 import React from "react";
 import "./TheTeam.css";
 
-import emily_front from "../../../img/Team/emily_front.png";
-import emily_back from "../../../img/Team/emily_back.png";
-import seung_front from "../../../img/Team/seung_front.png";
-import seung_back from "../../../img/Team/seung_back.png";
-import go_front from "../../../img/Team/go_front.png";
+
+import emily_front from '../../../img/Team/emily_front.png'
+import emily_back from '../../../img/Team/emily_back.png'
+import seung_front from '../../../img/Team/seung_front.png'
+import seung_back from '../../../img/Team/seung_back.png'
+import go_front from '../../../img/Team/go_front.png'
+import go_back from '../../../img/Team/go_back.jpg'
 
 function TheTeam() {
   return (
@@ -124,7 +126,7 @@ function TheTeam() {
               <div className="card-back">
                 <div className="team-member__image">
                   <figure className="img-holder">
-                    <img src={seung_back} alt="" />
+                  <img src={go_back} alt="" />
                   </figure>
                 </div>
                 <div className="team-member__body">
