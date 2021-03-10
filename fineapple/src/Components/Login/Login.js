@@ -3,37 +3,64 @@ import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import "./Login.css";
 import Logo from "../../img/logo_main.png";
-import kakao from "../../img/kakao.png";
-import google from "../../img/google.png";
-import email from "../../img/email.png";
+import kakao from "../../img/login/kakao.png";
+import google from "../../img/login/google.png";
+import email from "../../img/login/email.png";
+import facebook from "../../img/login/facebook.png";
+import bounce from "./bounce.gif";
 
 function Login() {
-    return (
-        <div>
-            <div className="login_container">
-                {/* <img src={Logo} alt="Fineapple logo" className="login_head" /> */}
-                <Link to="/login/kakao">
-                    <img className="login_img" src={kakao} alt="kakao logo" />
-                </Link>
-                <Link to="/login/facebook">
-                    <img
-                        className="login_img"
-                        src="https://scontent-gmp1-1.xx.fbcdn.net/v/t39.2365-6/17639236_1785253958471956_282550797298827264_n.png?_nc_cat=105&ccb=3&_nc_sid=ad8a9d&_nc_ohc=_6Fp3lI7VH0AX9Wg3-p&_nc_ht=scontent-gmp1-1.xx&oh=527c41862928e6c53b8ad9b37f6b17b4&oe=605A9496"
-                        alt="facebook logo"
-                    />
-                </Link>
-                <Link to="/login/google">
-                    <img className="login_img" src={google} alt="google logo" />
-                </Link>
-                <Link to="/login/email">
-                    <img className="login_img" src={email} alt="google logo" />
-                </Link>
-                <p className="login_bottom">Lorem ipsum dolor sit.</p>
-                
-            </div>
-            <Footer />
+  return (
+    <div>
+      <div className="login_page">
+        <div className="login_container">
+          <div className="login_header">
+            <span>
+              <img
+                src={bounce}
+                alt=""
+                style={{ width: "80px", height: "80px" }}
+              />
+            </span>
+            <h1>Fineapple</h1>
+          </div>
+          <Link to="/login/google" className="login__links">
+            <button className="login_button">
+              <span>
+                <img src={google} alt="" className="login_logo" />
+              </span>
+              <span>Continue with google</span>
+            </button>
+          </Link>
+          <Link to="/login/facebook" className="login__links">
+            <button className="login_button">
+              <span>
+                <img src={facebook} alt="" className="login_logo" />
+              </span>
+              <span>Continue with Facebook</span>
+            </button>
+          </Link>
+          <Link to="/login/kakao" className="login__links">
+            <button className="login_button">
+              <span>
+                <img src={kakao} alt="" className="login_logo" />
+              </span>
+              <span>Continue with Kakao</span>
+            </button>
+          </Link>
+          <Link to="/login/email" className="login__links">
+            <button className="login_button">
+              <span>
+                <img src={email} alt="" className="login_logo" />
+              </span>
+              <span>Continue with Email</span>
+            </button>
+          </Link>
         </div>
-    );
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 export default Login;

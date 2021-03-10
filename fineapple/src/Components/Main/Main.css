@@ -7,23 +7,12 @@
 } */
 
 .map_img {
-    /* position: absolute;
+  /* position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0; */
-    margin: 50px 0px 50px 0px;
-    height: 60%;
-    width: 100%;
+  margin: 50px 0px 50px 0px;
+  height: 60%;
+  width: 100%;
 }
-/* .landing__container {
-    width: 100vw;
-        height: 100vh;
-        background: #FAEBE6
-} */
-
-/* h1 {
-    margin-top: 0px;
-} */
-
-

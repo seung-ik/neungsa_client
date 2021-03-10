@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Chat.css";
+import socketio from "socket.io-client";
 
 const Chat = ({ handleChat }) => {
+  const socket = socketio.connect("http://localhost:4000");
+  const [state, setState] = useState({ message: "", name: "tmddlr" });
+  const [chat, setChat] = useState([]);
+
+  useEffect(() => {
+    socket.on("message", ({ name, message }) => {
+      setChat([...chat, { name, message }]);
+    });
+  }, []);
+
+  const onMessageSubmit = (e) => {
+    e.preventDefault();
+    const { message, name } = state;
+    socket.emit("message", { name, message });
+    setState({ message: "", name });
+  };
+
+  const onTextChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
   return (
     <div className="chatting_box">
       <div className="chat_header">
@@ -125,8 +146,13 @@ const Chat = ({ handleChat }) => {
         </ul>
       </div>
       <div className="input_send">
-        <input type="text" />
-        <button>전송</button>
+        <input
+          name="message"
+          type="text"
+          value={state.message}
+          onChange={(e) => onTextChange(e)}
+        />
+        <button onClick={() => onMessageSubmit}>전송</button>
       </div>
     </div>
   );
