@@ -16,13 +16,6 @@ function WorkBudget() {
     const removeNonNumeric = num => num.toString().replace(/[^0-9]/g, "");
     const handleChange = event =>
       setValue(addCommas(removeNonNumeric(event.target.value)));
-
-      const [value2, setValue2] = useState(0);
-      const addCommas2 = num2 => num2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      const removeNonNumeric2 = num2 => num2.toString().replace(/[^0-9]/g, "");
-      const handleChange2 = event2 =>
-        setValue2(addCommas2(removeNonNumeric2(event2.target.value2)));
-    
     
   
 
@@ -45,7 +38,7 @@ function WorkBudget() {
                     </div>
             <div className="workbudget__row__box">
             <GroupOutlinedIcon className="budget__emoji"/>          
-                        <h3>만나서 결정</h3> 
+                        <h3>협의가능</h3> 
                     </div>
                 </div>
                 
