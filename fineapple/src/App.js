@@ -39,7 +39,7 @@ function App() {
         <Route path="/feed" component={FeedAndPost} />
         {/* <Route path="/Post" component={Post} /> */}
         <Route path="/write" component={Write} />
-        <Route path="/mypage/update" component={MypageUpdate} />
+        <Route path="/mypage/update" exact component={MypageUpdate} />
         <Route path="/mypage" exact component={Mypage} />
         <Route path="/theteam" exact component={Team} />
         <Route path="/business" exact component={Business} />

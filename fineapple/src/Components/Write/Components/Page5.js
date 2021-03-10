@@ -23,23 +23,23 @@ function WorkReview({ writeData, handlecomplete }) {
     return;
   };
 
-  useEffect(() => {
-    console.log(writeData);
-  }, []);
+  async function uploadS3(uploadS3Files) {
+    let s3Objects = [];
 
-  const handleSubmit = (data) => {
+    for (let file of uploadS3Files) {
+      await ReactS3.uploadFile(file, config).then((data) => {
+        console.log(1);
+        s3Objects.push(data.location);
+      });
+    }
+
+    return s3Objects;
+  }
+
+  async function handleSubmit(data) {
     const uploadS3Files = data.toForm;
-    uploadS3Files.forEach((file) => {
-      console.log(file);
-      // ReactS3.uploadFile(e.target.files[0], config)
-      //   .then((data) => {
-      //     console.log(data);
-      //   })
-      //   .catch((err) => {
-      //     alert(err);
-      //   });
-    });
-    handlecomplete();
+    const s3 = await uploadS3(uploadS3Files);
+    console.log(s3);
 
     let submitObj = {
       email: "email@email.com",
@@ -50,7 +50,7 @@ function WorkReview({ writeData, handlecomplete }) {
       category: "data.category",
       tag: data.tags,
       content: data.content,
-      images: data.file,
+      images: s3,
       location: data.region,
       latitude: data.lat,
       longitude: data.lon,
@@ -58,22 +58,17 @@ function WorkReview({ writeData, handlecomplete }) {
       chatroom: "123123",
       cost: data.cost,
     };
-    console.log(submitObj);
 
-    axios(
-      {
-        method: "post",
-        url: "https://localhost:5000/write/friend",
-        data: submitObj,
-      },
-      {
-        headers: {
-          "x-device-id": "stuff",
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    ).then((res) => console.log("ok", res));
-  };
+    axios({
+      method: "post",
+      url: "https://localhost:3000/write/friend",
+      data: submitObj,
+    })
+      .then((res) => console.log("2", res))
+      .catch((err) => console.log(err));
+
+    handlecomplete();
+  }
 
   const renderPhotos = (photos) => {
     if (photos) {
