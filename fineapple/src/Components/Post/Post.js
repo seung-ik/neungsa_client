@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./Post.css";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ import ExploreIcon from "@material-ui/icons/Explore";
 import CallIcon from "@material-ui/icons/Call";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
 import CheckIcon from "@material-ui/icons/Check";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -21,11 +22,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Post = () => {
+const Post = ({ match }) => {
   const classes = useStyles();
   const refReview = useRef(null);
   const refImage = useRef(null);
   const refProfile = useRef(null);
+  const [postData, setPostData] = useState({});
 
   const [scrollState, setScrollState] = useState("profile");
 
@@ -35,6 +37,16 @@ const Post = () => {
     if (refName === refImage) setScrollState("image");
     window.scrollTo(0, refName.current.offsetTop - 100);
   };
+
+  useEffect(() => {
+    axios
+      .get(`https://localhost:5000/postPage/${match.params.id}`)
+      .then((res) => {
+        console.log(res.data.find_feedid);
+        setPostData(res.data.find_feedid);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div>
       <div className="post_container">
@@ -42,11 +54,12 @@ const Post = () => {
           <div className="title_container">
             <img src={rec4} alt="" className="post_profile_img" />
             <div>
-              <h1>피아노 알려드릴게요</h1>
+              <h1>{postData.title}</h1>
               <div className="post_tag_box">
-                <span> keyword1 </span>
-                <span> keyword2 </span>
-                <span> keyword3 </span>
+                {postData.tag &&
+                  postData.tag.split(",").map((tagEl, idx) => {
+                    return <span key={idx}>{tagEl}</span>;
+                  })}
               </div>
             </div>
           </div>
@@ -120,88 +133,29 @@ const Post = () => {
           </div>
           <div className="text_container">
             <h2>서비스 상세설명</h2>
-            <p>
-              실용음악과 탑학교 작곡전공 졸업했습니다 레슨경력 8년
-              피아노(가요반주,ccm,화성학,작곡) 알려드릴 수 있습니다 Pt,
-              필라테스, 요가 전문가 선생님께 배우고싶습니다 카톡 asdasd
-            </p>
+            <p>{postData.content}</p>
             <h2>비용</h2>
-            <p>5000/1h</p>
+            <p>
+              {postData.cost === 0 || !postData.cost
+                ? "무료"
+                : `${postData.cost} 원 /1H`}
+            </p>
             <h2 ref={refImage}>사진 및 동영상</h2>
             <div className="post_img_container">
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
-              <img
-                alt=""
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundColor: "aquamarine",
-                }}
-              />
+              {postData.images &&
+                postData.images.split(",").map((photo) => {
+                  return (
+                    <img
+                      key={photo}
+                      src={photo}
+                      alt=""
+                      style={{
+                        width: "150px",
+                        height: "150px",
+                      }}
+                    />
+                  );
+                })}
             </div>
           </div>
         </div>

@@ -2,9 +2,16 @@
 .post_container {
   height: auto;
   display: grid;
-  grid-template-columns: 3fr 1.2fr;
+  grid-template-columns: 60vw 20vw;
   grid-template-rows: 1fr auto;
-  padding: 0 250px;
+  padding: 0 15%;
+}
+@media (max-width: 950px) {
+  .for_message_box {
+    display: flex;
+    background-color: black;
+    flex-direction: column;
+  }
 }
 .post_content {
   grid-column: 1/2;
@@ -14,6 +21,8 @@
   grid-column: 1/2;
 }
 .message_side {
+  min-width: 240px;
+  margin-right: 50px;
   grid-column: 2/3;
   grid-row: 1/3;
 }
@@ -100,11 +109,12 @@
 /* 우측 채팅연결 유도박스 */
 
 .for_message_box {
+  width: 100%;
   padding: 15px;
   border-radius: 10px;
   background-color: rgb(237, 235, 235);
-  margin: 70px auto;
-  margin-left: 50px;
+  /* margin: 70px auto; */
+  /* margin-right: 50px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
