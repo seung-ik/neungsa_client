@@ -21,7 +21,7 @@ function App() {
 
   return (
     <Router>
-      <Header_dark />
+      <Header />
       <Switch>
         <Route path="/" exact component={Main} />
         <Route path="/Login" exact component={Login} />
