@@ -11,6 +11,7 @@ import Mypage from "./Components/Mypage/Mypage";
 import FeedAndPost from "./Components/FeedandPost/FeedandPost";
 import MypageUpdate from "./Components/Write/Components/PageUpdateMy";
 import Team from "./Components/Others/TeamPage/TheTeam";
+import Business from "./Components/Others/BusinessPage/BusinessPage";
 
 // import WorkTitle from './Components/Write/Components/WorkTitle'
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/mypage/update" component={MypageUpdate} />
         <Route path="/mypage" exact component={Mypage} />
         <Route path="/theteam" exact component={Team} />
+        <Route path="/business" exact component={Business} />
         {/* <Route path="/work/title" component={WorkTitle} />
         <Route path="/work/description" render={WorkDes} />
         <Route path="/work/budget" render={WorkBudget} />

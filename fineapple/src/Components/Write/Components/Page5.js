@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import Next from "./BtnNext";
 import Prev from "./BtnPrev";
@@ -13,7 +13,12 @@ function WorkReview({ writeData, handlecomplete }) {
     return;
   };
 
+  useEffect(() => {
+    console.log(writeData);
+  }, []);
+
   const handleSubmit = (data) => {
+    console.log(data);
     console.log("ok", data.toForm);
     const formData = new FormData();
     if (data.toForm) {
