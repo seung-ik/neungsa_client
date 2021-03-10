@@ -55,6 +55,7 @@ const MapContents = ({ handleMap }) => {
             )
             .then((address) => {
               handleMap(address.data.documents[1].region_2depth_name);
+              console.log(address.data.documents[1]);
             });
         });
       },
