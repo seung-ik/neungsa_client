@@ -3,9 +3,19 @@ import axios from "axios";
 import Next from "./BtnNext";
 import Prev from "./BtnPrev";
 import { Link } from "react-router-dom";
+import ReactS3 from "react-s3";
+import * as configfile from "../../../config";
 import "./Page5.css";
 
 function WorkReview({ writeData, handlecomplete }) {
+  const config = {
+    bucketName: configfile.bucketName,
+    dirName: configfile.dirName,
+    region: configfile.region,
+    accessKeyId: configfile.accessKeyId,
+    secretAccessKey: configfile.secretAccessKey,
+  };
+
   const addCommas = (num) => {
     if (num) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -18,29 +28,21 @@ function WorkReview({ writeData, handlecomplete }) {
   }, []);
 
   const handleSubmit = (data) => {
-    console.log(data);
-    console.log("ok", data.toForm);
-    const formData = new FormData();
-    if (data.toForm) {
-      data.toForm.forEach((el) => formData.append("image", el));
-      axios(
-        {
-          method: "post",
-          url: "https://localhost:5000/uploadFiles",
-          data: { formData: formData },
-        },
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-    }
-
+    const uploadS3Files = data.toForm;
+    uploadS3Files.forEach((file) => {
+      console.log(file);
+      // ReactS3.uploadFile(e.target.files[0], config)
+      //   .then((data) => {
+      //     console.log(data);
+      //   })
+      //   .catch((err) => {
+      //     alert(err);
+      //   });
+    });
     handlecomplete();
 
     let submitObj = {
-      // email: "email@email.com",
+      email: "email@email.com",
       userid: "1",
       group_category: data.type,
       profileimage: "profileimage",
@@ -55,7 +57,6 @@ function WorkReview({ writeData, handlecomplete }) {
       serviceId: "12312",
       chatroom: "123123",
       cost: data.cost,
-      form: formData,
     };
     console.log(submitObj);
 
