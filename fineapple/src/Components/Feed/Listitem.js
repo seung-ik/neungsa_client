@@ -33,12 +33,12 @@ const Listitem = (props) => {
         <div className="listitem__list__top">
           <div className="listitem__list__top__img__container">
             <Avatar className='card__top__left__img' style={{ height: "60px", width: "60px" }} src={Profile} />
-            <p>시급 13000원</p>
+
           </div>
           <div className="listitem__list__top__left">
             <h4>승딱</h4>
             <h3> javascript 알려드릴게요 공방 1:1 들어오세요 오늘 한시까지 합니다. </h3>
-            <p>1.4km 이내</p>
+            <p>1.4km 이내  <span>·</span> 시급 13000원 </p>  
           </div>
         </div>
         <div className="listitem__list__middle">
@@ -47,7 +47,7 @@ const Listitem = (props) => {
           </div> */}
         </div>
         <div className="listitem__list__bottom">
-          현업에서 일 안해봤고 아는만큼만 알려드릴게요 지금 리액트 배우고 있고 mysql, javascript, css, html 중에 원하시는거 가르쳐드려요. 한시간 생각하고 있는데 보고 더 길어질 수 도 있습니다. 선착순 10명입니다 빨리오세요 열명 넘으면 앞으로도 가끔 할테니까 다음에 오세요
+          {/* 현업에서 일 안해봤고 아는만큼만 알려드릴게요 지금 리액트 배우고 있고 mysql, javascript, css, html 중에   (....) */}   
           <div className="list_card_tag_box">
           <p>HTML</p>
           <p>CSS</p>

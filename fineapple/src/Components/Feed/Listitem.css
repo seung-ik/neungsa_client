@@ -1,5 +1,6 @@
 .listitem {
     border-bottom: 1px solid #d1d1d1;
+    width: 123%;
 }
 .listsitem__list {
     margin-left: 5px;
@@ -11,7 +12,7 @@
 
 .listitem__list__top__left {
     margin-left: 5px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .listitem__list__top__left > h4 {
