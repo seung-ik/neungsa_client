@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/logo_main.png";
 import "./Header.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Header() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+  const { loginWithRedirect } = useAuth0();
+  const { logout } = useAuth0();
 
   return (
     <div className="header">
@@ -15,9 +18,17 @@ function Header() {
         </Link>
         <ul className="list">
           <li className="header__item">
-            <Link to="/Login" className="header__links" onClick={handleClick}>
+            <div className="header__links" onClick={() => loginWithRedirect()}>
               로그인
-            </Link>
+            </div>
+          </li>
+          <li className="header__item">
+            <div
+              className="header__links"
+              onClick={() => logout({ returnTo: "http://localhost:8000" })}
+            >
+              로그아웃
+            </div>
           </li>
           <li className="header__item">
             <Link to="/feed" className="header__links" onClick={handleClick}>
