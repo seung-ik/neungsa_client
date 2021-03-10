@@ -82,7 +82,7 @@ function TheTeam() {
               <div className="card-front">
                 <div className="team-member__image">
                   <figure className="img-holder">
-                  <img src={seung_back} alt="" />
+                    <img src={seung_back} alt="" />
                   </figure>
                 </div>
                 <div className="team-member__body">
@@ -95,7 +95,7 @@ function TheTeam() {
               <div className="card-back">
                 <div className="team-member__image">
                   <figure className="img-holder">
-                  <img src={seung_back} alt="" />
+                    <img src={seung_back} alt="" />
                   </figure>
                 </div>
                 <div className="team-member__body">
@@ -113,7 +113,7 @@ function TheTeam() {
               <div className="card-front">
                 <div className="team-member__image">
                   <figure className="img-holder">
-                  <img src={go_front} alt="" />
+                    <img src={go_front} alt="" />
                   </figure>
                 </div>
                 <div className="team-member__body">
