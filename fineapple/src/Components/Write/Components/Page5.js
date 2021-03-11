@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import Next from "./BtnNext";
 import Prev from "./BtnPrev";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import ReactS3 from "react-s3";
 import * as configfile from "../../../config";
 import "./Page5.css";
 
-function WorkReview({ writeData, handlecomplete }) {
+function WorkReview({ writeData, handlecomplete, history }) {
   const config = {
     bucketName: configfile.bucketName,
     dirName: configfile.dirName,
@@ -38,8 +38,10 @@ function WorkReview({ writeData, handlecomplete }) {
 
   async function handleSubmit(data) {
     const uploadS3Files = data.toForm;
-    const s3 = await uploadS3(uploadS3Files);
-    console.log(s3);
+    let s3;
+    if (uploadS3Files) {
+      s3 = await uploadS3(uploadS3Files);
+    }
 
     let submitObj = {
       email: "email@email.com",
@@ -50,7 +52,7 @@ function WorkReview({ writeData, handlecomplete }) {
       category: "data.category",
       tag: data.tags,
       content: data.content,
-      images: s3,
+      images: s3 || [],
       location: data.region,
       latitude: data.lat,
       longitude: data.lon,
@@ -68,6 +70,7 @@ function WorkReview({ writeData, handlecomplete }) {
       .catch((err) => console.log(err));
 
     handlecomplete();
+    history.push("/feed");
   }
 
   const renderPhotos = (photos) => {
@@ -146,13 +149,9 @@ function WorkReview({ writeData, handlecomplete }) {
             <Link className="writePage" to="/write/4">
               <Prev />
             </Link>
-            <Link
-              className="writePage"
-              to="/Login"
-              onClick={() => handleSubmit(writeData)}
-            >
+            <div className="writePage" onClick={() => handleSubmit(writeData)}>
               <Next />
-            </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -160,4 +159,4 @@ function WorkReview({ writeData, handlecomplete }) {
   );
 }
 
-export default WorkReview;
+export default withRouter(WorkReview);
