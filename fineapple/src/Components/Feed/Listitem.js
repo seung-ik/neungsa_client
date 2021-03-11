@@ -20,9 +20,11 @@ function Listitem({feed}) {
 
           </div>
           <div className="listitem__list__top__left">
+
             <p>1.4km 이내  <span>·</span> 시급 {cost}원 </p>  
             <h3>{title} </h3>
             <h4>{nickname}</h4>
+
           </div>
         </div>
         <div className="listitem__list__middle">
