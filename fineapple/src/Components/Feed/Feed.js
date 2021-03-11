@@ -13,7 +13,6 @@ import FeedSideBar from "./FeedSideBar";
 import Profile from "../../img/mockup/profile.png";
 import { Avatar } from "@material-ui/core";
 
-
 const Feed = () => {
   const [slideData, setSlideData] = useState(face1);
 
@@ -43,9 +42,7 @@ const Feed = () => {
         <FeedSideBar />
         <div className="feed__wrapper">
           <div className="feed__wrapper__header">
-
             <h2>일산 3동에는 이런일이 있어요!</h2>
-
 
             <div className="feed__wrapper__top__container">
               <div className="feed__wrapper__search">
@@ -56,12 +53,11 @@ const Feed = () => {
                 />
                 <div className="feed__wrapper__search__btn">검색</div>
               </div>
-              <Link to="/write/1" className="feed__btn__write" >
+              <Link to="/write/1" className="feed__btn__write">
                 글 작성
-            </Link>
+              </Link>
             </div>
           </div>
-
 
           <ul className="feed_posts">
             <div>
