@@ -4,20 +4,13 @@ import Logo from "../../img/logo_main.png";
 import "./Header.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
-function Header() {
+function Header({ handleLogin, Login }) {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const [login, setLogin] = useState(false);
 
-  useEffect(() => {
-    if (isAuthenticated) setLogin(true);
-    if (!isAuthenticated) setLogin(false);
-  }, [isAuthenticated]);
-
-  console.log(user, isAuthenticated, isLoading);
   return (
     <div className="header">
       <div className="container">
@@ -25,7 +18,7 @@ function Header() {
           <img src={Logo} alt="Fineapple logo" />
         </Link>
         <ul className="list">
-          {!login ? (
+          {!isAuthenticated ? (
             <li className="header__item">
               <div
                 className="header__links"
@@ -51,7 +44,7 @@ function Header() {
             </Link>
           </li>
           <li className="header__item">
-            {!login ? (
+            {!isAuthenticated ? (
               <Link
                 to="/theteam"
                 className="header__links"
