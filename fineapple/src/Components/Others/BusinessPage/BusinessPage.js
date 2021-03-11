@@ -10,7 +10,10 @@ const Business = () => {
         <div className="business_view_box">
           <div className="business_marketor_header">
             <img src={pine} alt="" />
-            <div>파인애플의 비지니스</div>
+            <div className="business_marketor_header_container">
+                          <div>파인애플의 비지니스</div>
+            </div>
+
           </div>
           <div className="business_marketor_content">
             <p>
