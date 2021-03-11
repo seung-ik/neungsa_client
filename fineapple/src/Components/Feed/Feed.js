@@ -25,6 +25,7 @@ function Feed({ handleFeedData }) {
   const [inputValue, setInputValue] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [cost, setCost] = useState(null);
+  const [selectedGroup, setSelectedGroup] = useState(null);
   
   useEffect(function () {
     let data = feeds;
@@ -49,6 +50,16 @@ function Feed({ handleFeedData }) {
     
   }, [selectedCategory]);
 
+  useEffect(function () {
+    const queryGroup = selectedGroup ? `?group_category=${selectedGroup}` : '';
+    axios.get(`https://localhost:3000/feedpage${queryGroup}`)
+      .then((response) => {
+        setFeeds(response.data.find_feed)
+        
+      })
+    
+  }, [selectedGroup]);
+
 
 
   return (
@@ -66,7 +77,7 @@ function Feed({ handleFeedData }) {
         />
       </div> */}
       <div className="feed_container">
-        <FeedSideBar setCategory={setSelectedCategory} setCost={setCost}/>
+        <FeedSideBar setCategory={setSelectedCategory} setCost={setCost} setGroup={ setSelectedGroup }/>
         <div className="feed__wrapper">
           <div className="feed__wrapper__header">
 
@@ -81,7 +92,7 @@ function Feed({ handleFeedData }) {
                   placeholder="e.g. 딸기농장 일손구함"
                   className="feed__wrapper__search__input"
                 />
-                <div   onClick={() => setInputValue(inputRef.current.value)} className="feed__wrapper__search__btn">검색</div>
+                <div onClick={() => setInputValue(inputRef.current.value)} className="feed__wrapper__search__btn">검색</div>
               </div>
               <Link to="/write/1" className="feed__btn__write" >
                 글 작성
