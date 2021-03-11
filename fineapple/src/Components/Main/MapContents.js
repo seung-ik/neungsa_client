@@ -54,8 +54,18 @@ const MapContents = ({ handleMap }) => {
               }
             )
             .then((address) => {
-              handleMap(address.data.documents[1].region_2depth_name);
-              console.log(address.data.documents[1]);
+              const last = address.data.documents[1].region_1depth_name.slice(
+                -1
+              );
+              if (last === "도") {
+                handleMap(address.data.documents[1].region_2depth_name);
+              } else {
+                let regionName =
+                  address.data.documents[1].region_1depth_name +
+                  " " +
+                  address.data.documents[1].region_2depth_name;
+                handleMap(regionName);
+              }
             });
         });
       },

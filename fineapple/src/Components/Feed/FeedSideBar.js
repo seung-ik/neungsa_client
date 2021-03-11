@@ -3,9 +3,21 @@ import SearchIcon from '@material-ui/icons/Search';
 import './FeedSideBar.css';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import BudgetSlider from './BudgetSlider'
+import BudgetSlider from './BudgetSlider';
 
-function FeedSideBar() {
+const category = [
+    '교육',
+    '친구',
+    '육아',
+    '뷰티',
+    '스포츠 / 레저',
+    '반려동물',
+    '언어',
+    '컴퓨터',
+    '요리 / 예체능'
+]
+
+function FeedSideBar({setCategory, setCost}) {
     return (
         <div className="feedsidebar">
             <h1 className="feedsidebar__header">
@@ -14,15 +26,9 @@ function FeedSideBar() {
             <ul className="feedsidebar__ul">
             <ExpandMoreIcon className="feedsidebar__close"/>
                 <h3 className="feedsidebar__ul__title">카테고리로 찾기</h3>
-                <li className="feedsidebar__list">교육</li>
-                <li className="feedsidebar__list">친구</li>
-                <li className="feedsidebar__list">유아</li>
-                <li className="feedsidebar__list">뷰티</li>
-                <li className="feedsidebar__list">스포츠 / 레저</li>
-                <li className="feedsidebar__list">반려동물</li>
-                <li className="feedsidebar__list">언어</li>
-                <li className="feedsidebar__list">컴퓨터</li>
-                <li className="feedsidebar__list">요리 / 예체능</li>
+                {category.map(item => (
+                    <li className="feedsidebar__list" onClick={()=>setCategory(item)} key={item}>{ item }</li>
+                ))} 
             </ul>
 
             <ul className="feedsidebar__ul">
@@ -44,7 +50,7 @@ function FeedSideBar() {
             <ul className="feedsidebar__ul">
             <ExpandMoreIcon className="feedsidebar__close"/>
                 <h3 className="feedsidebar__ul__title">시급으로 찾기</h3>
-                <BudgetSlider />
+                <BudgetSlider setCost={setCost}/>
             </ul>
             
         </div>
