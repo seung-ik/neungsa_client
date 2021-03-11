@@ -33,13 +33,14 @@ const Mypage = (props) => {
       })
       .then((res) => {
         let filterData = res.data.find_feed.slice(-5);
+        console.log(res.data.mypagepost);
         setMyData(res.data.mypagepost);
         setFeedDatas(filterData);
       });
   }, []);
 
   useEffect(() => {
-    console.log(user);
+    // console.log(user);
     console.log(myData);
   }, [myData]);
 

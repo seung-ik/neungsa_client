@@ -3,13 +3,35 @@ import { Link } from "react-router-dom";
 import Logo from "../../img/logo_main.png";
 import "./Header.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
 
 function Header({ handleLogin, Login }) {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
+  const [tryLogin, setTryLogin] = useState(false);
   const { user, isAuthenticated, isLoading } = useAuth0();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      console.log(user);
+      axios
+        .post("https://localhost:3000", {
+          email: user.email,
+          nickname: user.nickname,
+          image: user.picture,
+          sub: user.sub,
+        })
+        .then((res) => {
+          console.log("login", res);
+        })
+        .catch((err) => {
+          logout({ returnTo: "https://localhost:8000" });
+          alert("이미 가입된 상태 입니다.");
+        });
+    }
+  });
 
   return (
     <div className="header">
@@ -22,7 +44,10 @@ function Header({ handleLogin, Login }) {
             <li className="header__item">
               <div
                 className="header__links"
-                onClick={() => loginWithRedirect()}
+                onClick={() => {
+                  loginWithRedirect();
+                  setTryLogin((prev) => !prev);
+                }}
               >
                 로그인
               </div>

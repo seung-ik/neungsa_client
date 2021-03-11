@@ -45,11 +45,11 @@ function WorkReview({ writeData, handlecomplete, history }) {
     }
 
     let submitObj = {
-      email: user.email,
+      email: "email@email.com",
       group_category: data.type,
       profileimage: "profileimage",
       title: data.title,
-      category: "data.category",
+      category: "컴퓨터",
       tag: data.tags,
       content: data.content,
       images: s3 || [],
