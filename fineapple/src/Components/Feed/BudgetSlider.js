@@ -29,8 +29,7 @@ class BudgetSlider extends React.Component {
                     onChange={e => this.onUpdate(e)}
                     step={1000}
                     type="range"
-                    value={this.state.value}
-                />
+                    value={this.state.value}/>
             </div>
         )
     }

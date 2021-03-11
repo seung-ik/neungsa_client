@@ -15,8 +15,9 @@
 
 .budgetslider__range:active,
 .budgetslider__range:focus {
-  background-color: #00000065;
   outline: none;
+  background-color: #00000065;
+
 }
 
 .budgetslider__range::-webkit-slider-thumb {

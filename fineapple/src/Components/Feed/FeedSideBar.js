@@ -22,7 +22,7 @@ const group_category = [
     '레슨 찾기'
 ]
 
-function FeedSideBar({setCategory, setCost, setGroup}) {
+function FeedSideBar({ setCategory, setCost, setGroup}) {
     return (
         <div className="feedsidebar">
             <h1 className="feedsidebar__header">
@@ -32,8 +32,8 @@ function FeedSideBar({setCategory, setCost, setGroup}) {
             <ExpandMoreIcon className="feedsidebar__close"/>
                 <h3 className="feedsidebar__ul__title">카테고리로 찾기</h3>
                 {category.map(item => (
-                    <li className="feedsidebar__list" onClick={()=>setCategory(item)} key={item}>{ item }</li>
-                ))} 
+                    <li className="feedsidebar__list" onClick={() => setCategory(item)} key={item}>{item}</li>
+                ))}
             </ul>
 
             <ul className="feedsidebar__ul">

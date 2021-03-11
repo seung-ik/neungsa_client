@@ -34,8 +34,7 @@ function GettingStarted({ handleWriteData }) {
               className={
                 select === "친구 구하기" ? "choice__work select" : "choice__work"
               }
-              onClick={() => handleSelect("친구 구하기")}
-            >
+              onClick={() => handleSelect("친구 구하기")}>
               <GroupIcon className="icon" />
               <h3 className="choice__desc">친구 구하기</h3>
             </div>
