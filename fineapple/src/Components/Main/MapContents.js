@@ -6,20 +6,16 @@ import Map from "../../img/mockup/map2.png";
 import ClipLoader from "react-spinners/BeatLoader";
 
 const override = css`
-
-
-  padding-top:150px;
+  padding-top: 150px;
   display: flex;
   justify-content: center;
   align-item: center;
 `;
 
-
 const MapContents = ({ handleMap }) => {
-// Loading effect
+  // Loading effect
   let [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#fbd86e");
-
 
   const [allowLocation, setAllowLocation] = useState(true);
   useEffect(() => {
@@ -58,7 +54,18 @@ const MapContents = ({ handleMap }) => {
               }
             )
             .then((address) => {
-              handleMap(address.data.documents[1].region_2depth_name);
+              const last = address.data.documents[1].region_1depth_name.slice(
+                -1
+              );
+              if (last === "도") {
+                handleMap(address.data.documents[1].region_2depth_name);
+              } else {
+                let regionName =
+                  address.data.documents[1].region_1depth_name +
+                  " " +
+                  address.data.documents[1].region_2depth_name;
+                handleMap(regionName);
+              }
             });
         });
       },
@@ -68,10 +75,6 @@ const MapContents = ({ handleMap }) => {
     );
   }, []);
 
-
-
-
-
   return (
     <div>
       {allowLocation ? (
@@ -80,9 +83,13 @@ const MapContents = ({ handleMap }) => {
           style={{ width: "100%", height: "375px", margin: "50px 0" }}
         >
           <div className="sweet-loading">
-
-      <ClipLoader color={color} loading={loading} css={override} size={15} />
-    </div>
+            <ClipLoader
+              color={color}
+              loading={loading}
+              css={override}
+              size={15}
+            />
+          </div>
         </div>
       ) : (
         <img className="map_img" src={Map} alt="gangnam_map" />
