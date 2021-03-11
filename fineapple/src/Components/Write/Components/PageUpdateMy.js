@@ -83,7 +83,7 @@ function PageUpdateMy({ handleWriteData, history }) {
         if (myData.Entrepreneur) setEntrepreneur(myData.Entrepreneur);
         if (myData.location) setLocationInput(myData.location);
 
-        console.log(myData);
+        // console.log(myData);
       });
   }, []);
 
@@ -137,7 +137,7 @@ function PageUpdateMy({ handleWriteData, history }) {
     axios
       .put("https://localhost:3000/myPage/update", updateObj)
       .then((res) => {
-        console.log(res, "ok");
+        console.log("ok");
         history.push("/mypage");
       })
       .catch((err) => console.log(err));

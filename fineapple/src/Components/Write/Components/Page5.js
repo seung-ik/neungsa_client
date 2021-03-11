@@ -45,7 +45,7 @@ function WorkReview({ writeData, handlecomplete, history }) {
     }
 
     let submitObj = {
-      email: "email@email.com",
+      email: user.email,
       group_category: data.type,
       profileimage: "profileimage",
       title: data.title,

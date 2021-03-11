@@ -10,6 +10,7 @@ class BudgetSlider extends React.Component {
     }
 
     onUpdate(e) {
+        this.props.setCost(e.target.value);
         this.setState({
             value: e.target.value
         })

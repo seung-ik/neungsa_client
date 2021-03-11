@@ -12,11 +12,19 @@
   padding: 1.8vw;
   margin-bottom: 30px;
   border: 0.8px solid rgb(211, 209, 209);
+  margin-top: 30px;
+  border-radius: 5px;
 }
 
 .business_marketor_header > img {
   width: 100%;
   height: auto;
+}
+
+.business_marketor_header_container {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
 }
 .business_marketor_header > div {
   margin: 10px;
