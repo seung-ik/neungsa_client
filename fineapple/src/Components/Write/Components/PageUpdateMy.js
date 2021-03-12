@@ -5,6 +5,7 @@ import "./Tagging.scss";
 import TagsInput from "./TagsInput";
 import axios from "axios";
 import UpdateSidebar from "./UpdateSidebar";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function PageUpdateMy({ handleWriteData, history }) {
   const [tags, setTags] = useState([]);
@@ -17,6 +18,7 @@ function PageUpdateMy({ handleWriteData, history }) {
   const [contactTime, setContactTime] = useState("");
   const [trade, setTrade] = useState("");
   const [Entrepreneur, setEntrepreneur] = useState("");
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   const changeHandler = (name, value) => {
     if (name === "tags") {
@@ -71,7 +73,7 @@ function PageUpdateMy({ handleWriteData, history }) {
   useEffect(() => {
     axios
       .post("https://localhost:3000/myPage", {
-        email: "email@email.com",
+        email: user.email,
       })
       .then((res) => {
         let myData = res.data.mypagepost;
@@ -81,7 +83,7 @@ function PageUpdateMy({ handleWriteData, history }) {
         if (myData.Entrepreneur) setEntrepreneur(myData.Entrepreneur);
         if (myData.location) setLocationInput(myData.location);
 
-        console.log(myData);
+        // console.log(myData);
       });
   }, []);
 
@@ -123,7 +125,7 @@ function PageUpdateMy({ handleWriteData, history }) {
 
   const updateBtn = () => {
     let updateObj = {
-      email: "email@email.com",
+      email: user.email,
       nickname: nickName,
       ContactTime: contactTime,
       trade: trade, //trade 로 수정예정

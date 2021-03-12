@@ -178,14 +178,14 @@ const Post = ({ match }) => {
           <div>
             <h2 ref={refReview}>Review</h2>
           </div>
-          <ul>
+          {/* <ul>
             <Comment />
             <Comment />
             <Comment />
             <Comment />
             <Comment />
             <button className="post_review_more_btn">더보기</button>
-          </ul>
+          </ul> */}
         </div>
       </div>
       <Footer />

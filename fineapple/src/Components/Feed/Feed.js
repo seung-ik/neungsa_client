@@ -7,24 +7,19 @@ import Advertise from "./Advertise";
 import FeedSideBar from "./FeedSideBar";
 import { Avatar } from "@material-ui/core";
 import axios from "axios";
-import MapContents from '../Main/MapContents'
-
+import MapContents from "../Main/MapContents";
 
 function Feed() {
-
-
-  const inputRef = useRef(null)
+  const inputRef = useRef(null);
   const [feeds, setFeeds] = useState([]);
   const [filtredFeeds, setFiltredFeeds] = useState([]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [cost, setCost] = useState(null);
   const [selectedGroup, setSelectedGroup] = useState(null);
-  const [searchLocation, setSearchLocation] = useState(null)
+  const [searchLocation, setSearchLocation] = useState(null);
 
-
-
-  //location 
+  //location
   const [location, setLocation] = useState(null);
   const [defaultLocation, setDefaultLocation] = useState(-780);
   const handleButton = (move) => {
@@ -46,20 +41,24 @@ function Feed() {
     }
   };
 
+  useEffect(
+    function () {
+      let data = feeds;
+      if (inputValue) {
+        data = data.filter(
+          (item) =>
+            item.title.includes(inputValue) || item.content.includes(inputValue)
+        );
+      }
 
-  useEffect(function () {
-    let data = feeds;
-    if (inputValue) {
-      data = data.filter(item => item.title.includes(inputValue) || item.content.includes(inputValue))
-    }
+      if (cost) {
+        data = data.filter((item) => item.cost <= cost);
+      }
 
-    if (cost) {
-      data = data.filter(item => item.cost <= cost)
-    }
-
-    setFiltredFeeds(data);
-  }, [feeds, cost, inputValue]);
-
+      setFiltredFeeds(data);
+    },
+    [feeds, cost, inputValue]
+  );
 
   // localhost:3000/feedpage?category=asdfsadf
   // localhost:3000/feedback?group_catgory=kl;kjljk
@@ -84,43 +83,46 @@ function Feed() {
   //   // })
 
   //   // 2. make request to back end
-  // }, [selectedCategory, selectedGroup, searchLocation]) // selectedLocation  
+  // }, [selectedCategory, selectedGroup, searchLocation]) // selectedLocation
 
-  useEffect(function () {
-    const query = selectedCategory ? `?category=${selectedCategory}` : '';
-    axios.get(`https://localhost:3000/feedpage${query}`)
-      .then((response) => {
-        setFeeds(response.data.find_feed)
+  useEffect(
+    function () {
+      const query = selectedCategory ? `?category=${selectedCategory}` : "";
+      axios.get(`https://localhost:3000/feedpage${query}`).then((response) => {
+        setFeeds(response.data.find_feed);
+      });
+    },
+    [selectedCategory]
+  );
 
-      })
+  useEffect(
+    function () {
+      const queryGroup = selectedGroup
+        ? `?group_category=${selectedGroup}`
+        : "";
+      axios
+        .get(`https://localhost:3000/feedpage${queryGroup}`)
+        .then((response) => {
+          setFeeds(response.data.find_feed);
+        });
+    },
+    [selectedGroup]
+  );
 
-  }, [selectedCategory]);
-
-  useEffect(function () {
-    const queryGroup = selectedGroup ? `?group_category=${selectedGroup}` : '';
-    axios.get(`https://localhost:3000/feedpage${queryGroup}`)
-      .then((response) => {
-        setFeeds(response.data.find_feed)
-
-      })
-
-  }, [selectedGroup]);
-
-  useEffect(function () {
-    const queryGroup = searchLocation ? `?search=${searchLocation}` : '';
-    axios.get(`https://localhost:3000/feedpage${queryGroup}`)
-      .then((response) => {
-        setFeeds(response.data.find_feed)
-
-      })
-
-  }, [searchLocation]);
-
-
+  useEffect(
+    function () {
+      const queryGroup = searchLocation ? `?search=${searchLocation}` : "";
+      axios
+        .get(`https://localhost:3000/feedpage${queryGroup}`)
+        .then((response) => {
+          setFeeds(response.data.find_feed);
+        });
+    },
+    [searchLocation]
+  );
 
   return (
     <div className="feed">
-
       {/* <div className="feed_cards">
         <Card data={slideData} className="single__card" />
         <Card data={slideData} className="single__card" />
@@ -129,16 +131,18 @@ function Feed() {
         <PlayArrowIcon
           className="feed__cards__next"
           onClick={handleSlideBtn}
-        
         />
       </div> */}
       <div className="feed_container">
-        <FeedSideBar setCategory={setSelectedCategory} setCost={setCost} setGroup={setSelectedGroup} setSearchLocation={setSearchLocation} />
+        <FeedSideBar
+          setCategory={setSelectedCategory}
+          setCost={setCost}
+          setGroup={setSelectedGroup}
+          setSearchLocation={setSearchLocation}
+        />
         <div className="feed__wrapper">
           <div className="feed__wrapper__header">
-
             <h2> {location ? location : "파인애플"}에는 이런일이 있어요!</h2>
-
 
             <div className="feed__wrapper__top__container">
               <div className="feed__wrapper__search">
@@ -147,30 +151,37 @@ function Feed() {
                   type="text"
                   placeholder="e.g. 딸기농장 일손구함"
                   className="feed__wrapper__search__input"
-                  onKeyPress={event => event.key === 'Enter' && setInputValue(event.target.value)}
+                  onKeyPress={(event) =>
+                    event.key === "Enter" && setInputValue(event.target.value)
+                  }
                 />
                 <div
-                  onClick={() => setInputValue(inputRef.current.value)} className="feed__wrapper__search__btn">검색</div>
+                  onClick={() => setInputValue(inputRef.current.value)}
+                  className="feed__wrapper__search__btn"
+                >
+                  검색
+                </div>
               </div>
-              <Link to="/write/1" className="feed__btn__write" >
+              <Link to="/write/1" className="feed__btn__write">
                 글 작성
-            </Link>
+              </Link>
             </div>
           </div>
 
-
-
           <div className="feed_posts">
-            {filtredFeeds.length > 0
-              ? filtredFeeds.map(feed => (
-                <Link className="writePage" key={feed.id} to={`/feed/${feed.id}`}>
+            {filtredFeeds.length > 0 ? (
+              filtredFeeds.map((feed) => (
+                <Link
+                  className="writePage"
+                  key={feed.id}
+                  to={`/feed/${feed.id}`}
+                >
                   <Listitem feed={feed} />
-                </Link>))
-              :
+                </Link>
+              ))
+            ) : (
               <div className="noresults">no results</div>
-            }
-
-
+            )}
           </div>
 
           <div className="see__more__container">더보기</div>
@@ -180,6 +191,5 @@ function Feed() {
       <Footer />
     </div>
   );
-};
-
+}
 export default Feed;

@@ -5,13 +5,11 @@ import WorkIcon from "@material-ui/icons/Work";
 import GroupIcon from "@material-ui/icons/Group";
 import Next from "./BtnNext";
 import Prev from "./BtnPrev";
-
 function GettingStarted({ handleWriteData }) {
   const [select, setSelect] = useState("");
   const handleSelect = (target) => {
     setSelect(target);
   };
-
   return (
     <div className="gettingstarted">
       <div className="content__container">
@@ -32,9 +30,12 @@ function GettingStarted({ handleWriteData }) {
             </div>
             <div
               className={
-                select === "친구 구하기" ? "choice__work select" : "choice__work"
+                select === "친구 구하기"
+                  ? "choice__work select"
+                  : "choice__work"
               }
-              onClick={() => handleSelect("친구 구하기")}>
+              onClick={() => handleSelect("친구 구하기")}
+            >
               <GroupIcon className="icon" />
               <h3 className="choice__desc">친구 구하기</h3>
             </div>
@@ -56,5 +57,4 @@ function GettingStarted({ handleWriteData }) {
     </div>
   );
 }
-
 export default GettingStarted;
