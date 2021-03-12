@@ -15,7 +15,7 @@ function Header({ handleLogin, Login }) {
 
   useEffect(() => {
     if (isAuthenticated) {
-      console.log(user);
+      // console.log(user);
       axios
         .post("https://localhost:3000", {
           email: user.email,
@@ -23,9 +23,7 @@ function Header({ handleLogin, Login }) {
           image: user.picture,
           sub: user.sub,
         })
-        .then((res) => {
-          console.log("login", res);
-        })
+        .then((res) => {})
         .catch((err) => {
           logout({ returnTo: "https://localhost:8000" });
           alert("이미 가입된 상태 입니다.");

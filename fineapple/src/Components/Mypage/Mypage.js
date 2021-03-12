@@ -21,6 +21,7 @@ const Mypage = (props) => {
   const [feedDatas, setFeedDatas] = useState([]);
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [modalOpen, setModalOpen] = useState(false);
+  const { logout } = useAuth0();
 
   const handleProfile = () => {
     props.history.push("/mypage/update");
