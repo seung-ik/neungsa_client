@@ -13,6 +13,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.1",
     "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "install": "^0.13.0",
     "npm": "^7.6.2",
     "react": "^17.0.1",
@@ -28,8 +29,8 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "export PORT=8000 && HTTPS=true SSL_CRT_FILE=../../../auth/cert.pem SSL_KEY_FILE=../../../auth/key.pem react-scripts start",
-    "build": "react-scripts build",
+    "start": "export PORT=8000 && HTTPS=true SSL_CRT_FILE=../../../auth/cert.pem SSL_KEY_FILE=../../../auth/key.pem  react-scripts start",
+    "build": "refact-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

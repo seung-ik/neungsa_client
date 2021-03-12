@@ -9,6 +9,7 @@ li {
 
 /* <Feed>component */
 .feed_container {
+  padding-top: 50px;
   background: #f1f2f4;
   display: flex;
   justify-content: center;
@@ -29,7 +30,7 @@ li {
 }
 
 .feed__wrapper {
-  flex: 0.52;
+  flex: 0.57;
   flex-direction: column;
   justify-content: center;
   display: flex;
@@ -80,7 +81,7 @@ li {
   font-size: 14px;
   border-right: none;
   padding: 10px 15px;
-  width: 400px;
+  width: 600px;
   text-align: start;
 }
 .feed__wrapper__top__container {
@@ -120,6 +121,11 @@ li {
   border: 1.5px solid rgb(251, 216, 110);
   border-radius: 0px 5px 5px 0px;
   color: white;
+  cursor: pointer;
+}
+
+.feed__wrapper__search__btn:hover {
+  background-color: rgb(248, 208, 89);
 }
 
 /* <Card>Component */
@@ -396,14 +402,16 @@ li {
   transform: rotateZ(180deg);
 }
 /* 구조연습? */
-.feed_posts {
-  display: flex;
-}
+
 
 .see__more__container {
   text-align: center;
-  margin: 10px 0 10px 0;
+  padding: 10px 0 10px 0;
   font-weight: 700;
   cursor: pointer;
-  width: 123%;
 }
+
+.see__more__container:hover {
+  background-color: #f1f1f1;
+}
+

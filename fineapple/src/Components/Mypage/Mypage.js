@@ -12,22 +12,35 @@ import CheckIcon from "@material-ui/icons/Check";
 import PostAddIcon from "@material-ui/icons/PostAdd";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Mypage = (props) => {
   const [onEdit, setOnEdit] = useState(false);
   const [yourSelf, setYourSelf] = useState(true);
   const [myData, setMyData] = useState({});
   const [feedDatas, setFeedDatas] = useState([]);
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleProfile = () => {
-    console.log("a");
     props.history.push("/mypage/update");
+  };
+  const deleteProfile = () => {
+    axios
+      .post("https://localhost:3000/myPage", {
+        email: user.email,
+      })
+      .then((res) => console.log("ok", res));
+    openModal();
+  };
+  const openModal = () => {
+    setModalOpen((prev) => !prev);
   };
 
   useEffect(() => {
     axios
       .post("https://localhost:3000/myPage", {
-        email: "email@email.com",
+        email: user.email,
       })
       .then((res) => {
         let filterData = res.data.find_feed.slice(-5);
@@ -38,14 +51,28 @@ const Mypage = (props) => {
 
   return (
     <div>
+      <section
+        className={modalOpen ? "modal-container show" : "modal-container"}
+      >
+        <div className="modal">
+          <button className="close-modal" onClick={openModal}></button>
+          <div className="modal_text_container">
+            <div>글목록 및 이용내역이 사라집니다.</div>
+            <button onClick={deleteProfile}>삭제</button>
+          </div>
+        </div>
+      </section>
       <div className="mypage_container">
         <div className="mypage_profile">
-          <img src={myData.image ? myData.image : face1} alt="" />
+          <img src={user.picture ? user.picture : face1} alt="" />
           <div>
             <div className="mypage_profile_name">{myData.nickname}</div>
-            <span className="mypage_profile_good">누적 좋아요👌 : 800</span>
+            {/* <span className="mypage_profile_good">누적 좋아요👌 : 800</span> */}
             {yourSelf ? (
-              <button onClick={handleProfile}>"프로필 등록/수정"</button>
+              <div>
+                <button onClick={handleProfile}>"프로필 등록/수정"</button>
+                <button onClick={openModal}>"프로필 삭제"</button>
+              </div>
             ) : (
               ""
             )}
@@ -61,13 +88,13 @@ const Mypage = (props) => {
                 <AccountCircleIcon />
                 본인인증
               </p>
-              <p>
+              {/* <p>
                 <FaceIcon />
                 30회 누적사용
-              </p>
+              </p> */}
               <p>
                 <ExploreIcon />
-                {myData.location}
+                위치: {myData.location}
               </p>
               <p>
                 <CallIcon />
@@ -75,7 +102,7 @@ const Mypage = (props) => {
               </p>
               <p>
                 <LocalAtmIcon />
-                계좌이체&현금가능
+                {myData.trade ? myData.trade : "계좌이체&현금가능"}
               </p>
             </div>
             <div>

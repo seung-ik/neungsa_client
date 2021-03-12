@@ -4,18 +4,19 @@ import Next from "./BtnNext";
 import Prev from "./BtnPrev";
 import { Link, withRouter } from "react-router-dom";
 import ReactS3 from "react-s3";
-import * as configfile from "../../../config";
 import "./Page5.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function WorkReview({ writeData, handlecomplete, history }) {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const config = {
-    bucketName: configfile.bucketName,
-    dirName: configfile.dirName,
-    region: configfile.region,
-    accessKeyId: configfile.accessKeyId,
-    secretAccessKey: configfile.secretAccessKey,
+    bucketName: process.env.REACT_APP_BUCKETNAME,
+    dirName: process.env.REACT_APP_DIRNAME,
+    region: process.env.REACT_APP_REGION,
+    accessKeyId: process.env.REACT_APP_ACCESSKEYID,
+    secretAccessKey: process.env.REACT_APP_SECRETACCESSKEY,
   };
-
+  console.log(user, isAuthenticated);
   const addCommas = (num) => {
     if (num) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -42,14 +43,14 @@ function WorkReview({ writeData, handlecomplete, history }) {
     if (uploadS3Files) {
       s3 = await uploadS3(uploadS3Files);
     }
+    console.log(user);
 
     let submitObj = {
-      email: "email@email.com",
-      userid: "1",
+      email: user.email,
       group_category: data.type,
       profileimage: "profileimage",
       title: data.title,
-      category: "data.category",
+      category: "육아",
       tag: data.tags,
       content: data.content,
       images: s3 || [],

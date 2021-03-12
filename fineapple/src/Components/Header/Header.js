@@ -3,21 +3,36 @@ import { Link } from "react-router-dom";
 import Logo from "../../img/logo_main.png";
 import "./Header.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
 
-function Header() {
+function Header({ handleLogin, Login }) {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
+  const [tryLogin, setTryLogin] = useState(false);
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const [login, setLogin] = useState(false);
 
   useEffect(() => {
-    if (isAuthenticated) setLogin(true);
-    if (!isAuthenticated) setLogin(false);
-  }, [isAuthenticated]);
+    if (isAuthenticated) {
+      console.log(user);
+      axios
+        .post("https://localhost:3000", {
+          email: user.email,
+          nickname: user.nickname,
+          image: user.picture,
+          sub: user.sub,
+        })
+        .then((res) => {
+          console.log("login", res);
+        })
+        .catch((err) => {
+          logout({ returnTo: "https://localhost:8000" });
+          alert("이미 가입된 상태 입니다.");
+        });
+    }
+  });
 
-  console.log(user, isAuthenticated, isLoading);
   return (
     <div className="header">
       <div className="container">
@@ -25,11 +40,14 @@ function Header() {
           <img src={Logo} alt="Fineapple logo" />
         </Link>
         <ul className="list">
-          {!login ? (
+          {!isAuthenticated ? (
             <li className="header__item">
               <div
                 className="header__links"
-                onClick={() => loginWithRedirect()}
+                onClick={() => {
+                  loginWithRedirect();
+                  setTryLogin((prev) => !prev);
+                }}
               >
                 로그인
               </div>
@@ -51,7 +69,7 @@ function Header() {
             </Link>
           </li>
           <li className="header__item">
-            {!login ? (
+            {!isAuthenticated ? (
               <Link
                 to="/theteam"
                 className="header__links"
