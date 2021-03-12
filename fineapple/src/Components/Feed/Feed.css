@@ -32,7 +32,7 @@ li {
 .feed__wrapper {
   flex: 0.57;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   display: flex;
   background: white;
   border: 1px solid #d1d1d1;
@@ -56,7 +56,7 @@ li {
   border-bottom: 1px solid #d1d1d1;
   display: flex;
   flex-direction: column;
-  justify-items: center;
+  justify-items:center;
 
 }
 .feed__wrapper__search {
@@ -404,11 +404,15 @@ li {
 /* 구조연습? */
 
 
+
+
 .see__more__container {
   text-align: center;
   padding: 10px 0 10px 0;
   font-weight: 700;
   cursor: pointer;
+  margin-top: auto;
+  border-top: 1px solid #d1d1d1;
 }
 
 .see__more__container:hover {
