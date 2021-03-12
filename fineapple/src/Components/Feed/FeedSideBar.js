@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import "./FeedSideBar.css";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -15,7 +15,21 @@ const category = [
   "요리 / 예체능",
 ];
 const group_category = ["친구 구하기", "레슨 찾기"];
-function FeedSideBar({ setCategory, setCost, setGroup }) {
+function FeedSideBar({ setCategory, setCost, setGroup, setSearchLocation }) {
+  const geoRef = useRef(null);
+  const [feeds, setFeeds] = useState([]);
+  const [filtredGeo, setFiltredGeo] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  useEffect(
+    function () {
+      let data = feeds;
+      if (inputValue) {
+        data = data.filter((item) => item.location.includes(inputValue));
+      }
+      setFiltredGeo(data);
+    },
+    [feeds, inputValue]
+  );
   return (
     <div className="feedsidebar">
       <h1 className="feedsidebar__header">맞춤 검색</h1>
@@ -42,6 +56,9 @@ function FeedSideBar({ setCategory, setCost, setGroup }) {
             autoComplete="none"
             placeholder="e.g. 서울시 서초구"
             className="feedsidebar__search__input"
+            onKeyPress={(event) =>
+              event.key === "Enter" && setSearchLocation(event.target.value)
+            }
           />
         </div>
       </ul>
