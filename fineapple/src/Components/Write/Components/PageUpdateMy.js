@@ -18,6 +18,8 @@ function PageUpdateMy({ handleWriteData, history }) {
   const [contactTime, setContactTime] = useState("");
   const [trade, setTrade] = useState("");
   const [Entrepreneur, setEntrepreneur] = useState("");
+  const [addOne, setAddOne] = useState("");
+  const [addTwo, setAddTwo] = useState("");
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   const changeHandler = (name, value) => {
@@ -77,11 +79,16 @@ function PageUpdateMy({ handleWriteData, history }) {
       })
       .then((res) => {
         let myData = res.data.mypagepost;
+        console.log(myData);
         setNickName(myData.nickname);
         if (myData.ContactTime) setContactTime(myData.ContactTime);
         if (myData.descrition) setTrade(myData.descrition); //descrition > trade 로 벼경 예정
         if (myData.Entrepreneur) setEntrepreneur(myData.Entrepreneur);
         if (myData.location) setLocationInput(myData.location);
+        if (myData.trade) setTrade(myData.trade);
+        if (myData.Certificate) setTags(myData.Certificate.split(","));
+        if (myData.Job) setAddOne(myData.Job);
+        if (myData.school) setAddTwo(myData.school);
 
         // console.log(myData);
       });
@@ -95,8 +102,6 @@ function PageUpdateMy({ handleWriteData, history }) {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
 
-        // console.log(lat, lon);
-
         axios
           .get(
             `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lon}&y=${lat}`,
@@ -107,19 +112,34 @@ function PageUpdateMy({ handleWriteData, history }) {
             }
           )
           .then((address) => {
-            let locationName = address.data.documents[1].region_2depth_name;
-            // console.log(locationName);
-            setLocationInput(locationName);
-            setCoords({
-              lat: lat,
-              lon: lon,
-              region: locationName,
-            });
+            const last = address.data.documents[1].region_1depth_name.slice(-1);
+            if (last === "도") {
+              let locationName = address.data.documents[1].region_2depth_name;
+              setLocationInput(locationName);
+              setCoords({
+                lat: lat,
+                lon: lon,
+                region: locationName,
+              });
+            } else {
+              let regionName =
+                address.data.documents[1].region_1depth_name +
+                " " +
+                address.data.documents[1].region_2depth_name;
+              let locationName = regionName;
+              setLocationInput(locationName);
+              setCoords({
+                lat: lat,
+                lon: lon,
+                region: locationName,
+              });
+            }
           });
       },
       () => {
-        alert("위치정보 접근을 허용해주세요");
-      }
+        console.log("위치정보 접근을 허용해주세요");
+      },
+      { timeout: 6000 }
     );
   };
 
@@ -131,6 +151,9 @@ function PageUpdateMy({ handleWriteData, history }) {
       trade: trade, //trade 로 수정예정
       location: coords.region,
       Entrepreneur: Entrepreneur,
+      Certificate: tags,
+      Job: addOne,
+      school: addTwo,
     };
     console.log(updateObj);
 
@@ -250,6 +273,7 @@ function PageUpdateMy({ handleWriteData, history }) {
                         placeholder="e.g. 영상 디자인"
                         onChange={changeHandler}
                         error={errors.tags}
+                        value={tags}
                         defaultTags={tags}
                       />
                     </form>
@@ -262,9 +286,9 @@ function PageUpdateMy({ handleWriteData, history }) {
                     type="text"
                     autoComplete="none"
                     className="update_input"
-                    value={title}
-                    placeholder="ex.개인취향"
-                    onChange={(e) => setTitle(e.target.value)}
+                    value={addOne}
+                    placeholder="ex.기타: 개인취향"
+                    onChange={(e) => setAddOne(e.target.value)}
                   />
                 </div>
                 <div className="update_inner">
@@ -273,9 +297,9 @@ function PageUpdateMy({ handleWriteData, history }) {
                     type="text"
                     autoComplete="none"
                     className="update_input"
-                    value={title}
-                    placeholder="ex.관련경험"
-                    onChange={(e) => setTitle(e.target.value)}
+                    value={addTwo}
+                    placeholder="ex.기타: 관련경험"
+                    onChange={(e) => setAddTwo(e.target.value)}
                   />
                 </div>
               </div>

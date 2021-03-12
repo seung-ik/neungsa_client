@@ -13,6 +13,7 @@ import PostAddIcon from "@material-ui/icons/PostAdd";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 const Mypage = (props) => {
   const [onEdit, setOnEdit] = useState(false);
@@ -28,10 +29,13 @@ const Mypage = (props) => {
   };
   const deleteProfile = () => {
     axios
-      .post("https://localhost:3000/myPage", {
+      .post("https://localhost:3000/myPagedelete", {
         email: user.email,
       })
-      .then((res) => console.log("ok", res));
+      .then((res) => {
+        logout({ returnTo: "https://localhost:8000" });
+        props.history.push("/");
+      });
     openModal();
   };
   const openModal = () => {
@@ -71,8 +75,8 @@ const Mypage = (props) => {
             {/* <span className="mypage_profile_good">누적 좋아요👌 : 800</span> */}
             {yourSelf ? (
               <div>
-                <button onClick={handleProfile}>"프로필 등록/수정"</button>
-                <button onClick={openModal}>"프로필 삭제"</button>
+                <button onClick={handleProfile}>프로필 등록/수정</button>
+                <button onClick={openModal}>프로필 삭제</button>
               </div>
             ) : (
               ""
@@ -109,20 +113,20 @@ const Mypage = (props) => {
             <div>
               <h2>추가정보</h2>
               <p>
-                <CheckIcon />
+                <AddCircleOutlineIcon />
                 관련사업: {myData.Entrepreneur}
               </p>
               <p>
-                <CheckIcon />
-                자격증
+                <AddCircleOutlineIcon />
+                자격증 : {myData.authentication}
               </p>
               <p>
-                <CheckIcon />
-                직장: {myData.Job}
+                <AddCircleOutlineIcon />
+                {myData.Job}
               </p>
               <p>
-                <CheckIcon />
-                기타: {myData.Career}
+                <AddCircleOutlineIcon />
+                {myData.school}
               </p>
             </div>
           </div>

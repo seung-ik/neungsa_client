@@ -16,7 +16,8 @@ function WorkReview({ writeData, handlecomplete, history }) {
     accessKeyId: process.env.REACT_APP_ACCESSKEYID,
     secretAccessKey: process.env.REACT_APP_SECRETACCESSKEY,
   };
-  console.log(user, isAuthenticated);
+  console.log(config);
+
   const addCommas = (num) => {
     if (num) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -50,7 +51,7 @@ function WorkReview({ writeData, handlecomplete, history }) {
       group_category: data.type,
       profileimage: "profileimage",
       title: data.title,
-      category: "육아",
+      category: "뷰티",
       tag: data.tags,
       content: data.content,
       images: s3 || [],

@@ -67,9 +67,12 @@ function WorkTitle({ handleWriteData }) {
           });
       },
       () => {
-        alert("위치정보 접근을 허용해주세요");
-      }
+        console.log("위치정보 접근을 허용해주세요");
+      },
+      { timeout: 10000 }
     );
+
+    console.log(2);
   };
 
   const changeHandler = (name, value) => {
