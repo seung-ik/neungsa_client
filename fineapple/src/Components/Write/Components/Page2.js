@@ -1,3 +1,4 @@
+/*global kakao*/
 import React, { useState, useEffect } from "react";
 import "./Page2.css";
 import { Link } from "react-router-dom";
@@ -23,13 +24,13 @@ function WorkTitle({ handleWriteData }) {
 
   const submitLocation = (e) => {
     e.preventDefault();
-
+    console.log("1");
     navigator.geolocation.getCurrentPosition(
       (position) => {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
-
-        // console.log(lat, lon);
+        console.log("2");
+        console.log(lat, lon);
 
         axios
           .get(

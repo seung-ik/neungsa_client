@@ -13,7 +13,6 @@ import FeedSideBar from "./FeedSideBar";
 import Profile from "../../img/mockup/profile.png";
 import { Avatar } from "@material-ui/core";
 import axios from "axios";
-
 function Feed({ handleFeedData }) {
   //feed is array and initally needs to put empty array
   const inputRef = useRef(null);
@@ -22,7 +21,7 @@ function Feed({ handleFeedData }) {
   const [inputValue, setInputValue] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [cost, setCost] = useState(null);
-
+  const [selectedGroup, setSelectedGroup] = useState(null);
   useEffect(
     function () {
       let data = feeds;
@@ -32,16 +31,13 @@ function Feed({ handleFeedData }) {
             item.title.includes(inputValue) || item.content.includes(inputValue)
         );
       }
-
       if (cost) {
         data = data.filter((item) => item.cost <= cost);
       }
-
       setFiltredFeeds(data);
     },
     [feeds, cost, inputValue]
   );
-
   useEffect(
     function () {
       const query = selectedCategory ? `?category=${selectedCategory}` : "";
@@ -51,7 +47,19 @@ function Feed({ handleFeedData }) {
     },
     [selectedCategory]
   );
-
+  useEffect(
+    function () {
+      const queryGroup = selectedGroup
+        ? `?group_category=${selectedGroup}`
+        : "";
+      axios
+        .get(`https://localhost:3000/feedpage${queryGroup}`)
+        .then((response) => {
+          setFeeds(response.data.find_feed);
+        });
+    },
+    [selectedGroup]
+  );
   return (
     <div className="feed">
       {/* <div className="feed_cards">
@@ -62,15 +70,17 @@ function Feed({ handleFeedData }) {
         <PlayArrowIcon
           className="feed__cards__next"
           onClick={handleSlideBtn}
-        
         />
       </div> */}
       <div className="feed_container">
-        <FeedSideBar setCategory={setSelectedCategory} setCost={setCost} />
+        <FeedSideBar
+          setCategory={setSelectedCategory}
+          setCost={setCost}
+          setGroup={setSelectedGroup}
+        />
         <div className="feed__wrapper">
           <div className="feed__wrapper__header">
             <h2>일산 3동에는 이런일이 있어요!</h2>
-
             <div className="feed__wrapper__top__container">
               <div className="feed__wrapper__search">
                 <input
@@ -91,14 +101,12 @@ function Feed({ handleFeedData }) {
               </Link>
             </div>
           </div>
-
           <div className="feed_posts">
             {filtredFeeds.map((feed) => (
               <Link className="writePage" key={feed.id} to={`/feed/${feed.id}`}>
                 <Listitem feed={feed} />
               </Link>
             ))}
-
             <div className="see__more__container">더보기</div>
           </div>
         </div>
@@ -108,5 +116,4 @@ function Feed({ handleFeedData }) {
     </div>
   );
 }
-
 export default Feed;

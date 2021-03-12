@@ -43,13 +43,14 @@ function WorkReview({ writeData, handlecomplete, history }) {
     if (uploadS3Files) {
       s3 = await uploadS3(uploadS3Files);
     }
+    console.log(user);
 
     let submitObj = {
       email: user.email,
       group_category: data.type,
       profileimage: "profileimage",
       title: data.title,
-      category: "컴퓨터",
+      category: "육아",
       tag: data.tags,
       content: data.content,
       images: s3 || [],

@@ -20,10 +20,21 @@ const Mypage = (props) => {
   const [myData, setMyData] = useState({});
   const [feedDatas, setFeedDatas] = useState([]);
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleProfile = () => {
-    console.log("a");
     props.history.push("/mypage/update");
+  };
+  const deleteProfile = () => {
+    axios
+      .post("https://localhost:3000/myPage", {
+        email: user.email,
+      })
+      .then((res) => console.log("ok", res));
+    openModal();
+  };
+  const openModal = () => {
+    setModalOpen((prev) => !prev);
   };
 
   useEffect(() => {
@@ -38,14 +49,19 @@ const Mypage = (props) => {
       });
   }, []);
 
-  useEffect(() => {
-    // console.log(user);
-    console.log(feedDatas);
-    console.log(myData);
-  }, [myData]);
-
   return (
     <div>
+      <section
+        className={modalOpen ? "modal-container show" : "modal-container"}
+      >
+        <div className="modal">
+          <button className="close-modal" onClick={openModal}></button>
+          <div className="modal_text_container">
+            <div>글목록 및 이용내역이 사라집니다.</div>
+            <button onClick={deleteProfile}>삭제</button>
+          </div>
+        </div>
+      </section>
       <div className="mypage_container">
         <div className="mypage_profile">
           <img src={user.picture ? user.picture : face1} alt="" />
@@ -53,7 +69,10 @@ const Mypage = (props) => {
             <div className="mypage_profile_name">{myData.nickname}</div>
             {/* <span className="mypage_profile_good">누적 좋아요👌 : 800</span> */}
             {yourSelf ? (
-              <button onClick={handleProfile}>"프로필 등록/수정"</button>
+              <div>
+                <button onClick={handleProfile}>"프로필 등록/수정"</button>
+                <button onClick={openModal}>"프로필 삭제"</button>
+              </div>
             ) : (
               ""
             )}
