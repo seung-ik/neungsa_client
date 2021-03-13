@@ -23,7 +23,7 @@ function Write({ match }) {
       return { ...prev, type: data };
     });
   };
-  const savePage2 = (tags, coords, title) => {
+  const savePage2 = (tags, coords, title, category) => {
     setSaveWriteData((prev) => {
       return {
         ...prev,
@@ -32,6 +32,7 @@ function Write({ match }) {
         lon: coords.lon,
         region: coords.region,
         title,
+        category,
       };
     });
   };
