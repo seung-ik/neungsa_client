@@ -15,6 +15,7 @@ function WorkTitle({ handleWriteData }) {
   const [errors, setErrors] = useState({});
   const [locationInput, setLocationInput] = useState("");
   const [title, setTitle] = useState("");
+  const [selectCategory, setSelectCategory] = useState("");
 
   useEffect(() => {
     setCoords((prev) => {
@@ -68,8 +69,11 @@ function WorkTitle({ handleWriteData }) {
       },
       () => {
         alert("위치정보 접근을 허용해주세요");
-      }
+      },
+      { timeout: 10000 }
     );
+
+    console.log(2);
   };
 
   const changeHandler = (name, value) => {
@@ -116,6 +120,19 @@ function WorkTitle({ handleWriteData }) {
     }
   };
 
+  const categoryList = [
+    "교육",
+    "육아",
+    "스포츠",
+    "레저",
+    "뷰티",
+    "컴퓨터",
+    "언어",
+    "예체능",
+    "요리",
+    "기타",
+  ];
+
   return (
     <div className="worktitle">
       <div className="worktitle__container">
@@ -160,7 +177,21 @@ function WorkTitle({ handleWriteData }) {
               파인애플이 소개글을 바탕으로 몇 가지 제안을 준비 했어요. 이중에
               원하시는 카테고리가 있나요?
             </p>
-            {/* <div className="job__category__radio"></div> */}
+            <div className="job__category__radio">
+              {categoryList.map((category, idx) => {
+                return (
+                  <div onClick={() => setSelectCategory(category)}>
+                    <input
+                      type="radio"
+                      id={category}
+                      name="category"
+                      value={category}
+                    />
+                    <label for={category}>{category}</label>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
         <div className="tag__container">
@@ -209,9 +240,13 @@ function WorkTitle({ handleWriteData }) {
             </Link>
             <Link
               className="descriptionPage"
-              to="/write/3"
+              to={!title || !locationInput ? "/write/2" : "/write/3"}
               onClick={() => {
-                handleWriteData(tags, coords, title);
+                if (!title || !locationInput) {
+                  alert("제목과 위치를 적어주세요");
+                } else {
+                  handleWriteData(tags, coords, title, selectCategory);
+                }
               }}
             >
               <Next />

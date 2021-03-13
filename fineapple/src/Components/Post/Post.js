@@ -15,6 +15,9 @@ import CallIcon from "@material-ui/icons/Call";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
 import CheckIcon from "@material-ui/icons/Check";
 import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Input } from "@material-ui/core";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -22,14 +25,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Post = ({ match }) => {
+const Post = ({ match, history }) => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const classes = useStyles();
   const refReview = useRef(null);
   const refImage = useRef(null);
   const refProfile = useRef(null);
   const [postData, setPostData] = useState({});
-
+  const [yourself, setYourself] = useState(true);
   const [scrollState, setScrollState] = useState("profile");
+  const [editTitle, setEditTitle] = useState(false);
+  const [inputTitle, setInputTitle] = useState("");
+  const [editContent, setEditContent] = useState(false);
+  const [inputContent, setInputContent] = useState({});
+  const [postEmail, setPostEmail] = useState("");
+  const [writerData, setwriterData] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const deletePost = () => {
+    axios
+      .post("https://localhost:3000/postPagedelete", {
+        email: user.email,
+        feedid: match.params.id,
+      })
+      .then((res) => {
+        history.push("/feed");
+      });
+    openModal();
+  };
+  const openModal = () => {
+    setModalOpen((prev) => !prev);
+  };
 
   const moveScroll = (e, refName) => {
     if (refName === refProfile) setScrollState("profile");
@@ -38,23 +64,112 @@ const Post = ({ match }) => {
     window.scrollTo(0, refName.current.offsetTop - 100);
   };
 
+  const editComplete = (where) => {
+    if (where === "content") {
+      console.log(user.email, inputContent.content);
+      axios
+        .post("https://localhost:3000/postPagecontentmodify", {
+          email: user.email,
+          content: inputContent.content,
+          feedid: match.params.id,
+          cost: inputContent.cost,
+        })
+        .then((res) => console.log("3", res));
+      setEditContent((prev) => !prev);
+    } else if (where === "title") {
+      console.log(user.email, inputTitle);
+      axios
+        .post("https://localhost:3000/postPagetitlemodify", {
+          email: user.email,
+          title: inputTitle,
+          feedid: match.params.id,
+        })
+        .then((res) => console.log("3", res));
+      setEditTitle((prev) => !prev);
+    }
+  };
+
   useEffect(() => {
     axios
       .get(`https://localhost:3000/postPage/${match.params.id}`)
       .then((res) => {
-        console.log(res.data.find_feedid);
-        setPostData(res.data.find_feedid);
+        setwriterData(res.data.feed_postuser);
+        let data = res.data.find_feedid;
+        if (user && data.postemail === user.email) {
+          setPostEmail(user.email);
+          setYourself(true);
+        } else {
+          setPostEmail(data.postemail);
+          setYourself(false);
+        }
+        setPostData(data);
+        setInputTitle(data.title);
+        setInputContent({
+          content: data.content,
+          cost: data.cost,
+        });
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [isAuthenticated]);
+
   return (
     <div>
+      <section
+        className={modalOpen ? "modal-container show" : "modal-container"}
+      >
+        <div className="modal">
+          <button className="close-modal" onClick={openModal}></button>
+          <div className="modal_text_container">
+            <div>글은 삭제 하시겠습니까?</div>
+            <button onClick={deletePost}>삭제</button>
+          </div>
+        </div>
+      </section>
       <div className="post_container">
         <div className="post_content">
           <div className="title_container">
-            <img src={rec4} alt="" className="post_profile_img" />
+            <img
+              src={postData.profileimage ? postData.profileimage : rec4}
+              alt=""
+              className="post_profile_img"
+            />
             <div>
-              <h1>{postData.title}</h1>
+              <div className="post_edit_container">
+                {!editTitle ? (
+                  <h1>{inputTitle}</h1>
+                ) : (
+                  <input
+                    type="text"
+                    value={inputTitle}
+                    onChange={(e) => setInputTitle(e.target.value)}
+                  />
+                )}
+
+                {yourself ? (
+                  !editTitle ? (
+                    <div>
+                      <button
+                        className="edit_btn"
+                        onClick={() => setEditTitle((prev) => !prev)}
+                      >
+                        수정
+                      </button>
+                      <button className="edit_btn" onClick={() => openModal()}>
+                        글 삭제
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      className="edit_btn"
+                      onClick={() => editComplete("title")}
+                    >
+                      완료
+                    </button>
+                  )
+                ) : (
+                  ""
+                )}
+              </div>
               <div className="post_tag_box">
                 {postData.tag &&
                   postData.tag.split(",").map((tagEl, idx) => {
@@ -70,12 +185,12 @@ const Post = ({ match }) => {
             >
               프로필보기
             </button>
-            <button
+            {/* <button
               className={scrollState === "review" ? "click" : ""}
               onClick={(e) => moveScroll(e, refReview)}
             >
               리뷰보기
-            </button>
+            </button> */}
             <button
               className={scrollState === "image" ? "click" : ""}
               onClick={(e) => moveScroll(e, refImage)}
@@ -88,58 +203,93 @@ const Post = ({ match }) => {
               <h2 ref={refProfile}>기본정보</h2>
               <p>
                 <AccountCircleIcon />
-                본인인증
+                {postData.nickname}
               </p>
-              <p>
+              {/* <p>
                 <FaceIcon />
                 30회 누적사용
-              </p>
+              </p> */}
               <p>
                 <ExploreIcon />
-                서울시 강남구
+                {postData.location}
               </p>
               <p>
                 <CallIcon />
-                연락가능 시간:1시
+                연락가능 시간:{writerData.ContactTime}
               </p>
               <p>
                 <LocalAtmIcon />
-                계좌이체&현금가능
+                {writerData.trade}
               </p>
             </div>
             <div>
               <h2>추가정보</h2>
               <p>
-                <CheckIcon />
-                사업자
+                <AddCircleOutlineIcon />
+                사업자:{writerData.Entrepreneur}
               </p>
               <p>
-                <CheckIcon />
-                자격증
+                <AddCircleOutlineIcon />
+                자격증:{writerData.Certificate}
               </p>
               <p>
-                <CheckIcon />
-                직장
+                <AddCircleOutlineIcon />
+                {writerData.Job}
               </p>
               <p>
-                <CheckIcon />
-                학교
-              </p>
-              <p>
-                <CheckIcon />
-                경력
+                <AddCircleOutlineIcon />
+                {writerData.school}
               </p>
             </div>
           </div>
           <div className="text_container">
-            <h2>서비스 상세설명</h2>
-            <p>{postData.content}</p>
+            <div>
+              <h2>서비스 상세설명</h2>
+              {yourself ? (
+                !editContent ? (
+                  <button
+                    className="edit_btn"
+                    onClick={() => setEditContent((prev) => !prev)}
+                  >
+                    수정
+                  </button>
+                ) : (
+                  <button
+                    className="edit_btn"
+                    onClick={() => editComplete("content")}
+                  >
+                    완료
+                  </button>
+                )
+              ) : (
+                ""
+              )}
+            </div>
+
+            {!editContent ? (
+              <p>{inputContent.content}</p>
+            ) : (
+              <textarea
+                value={inputContent.content}
+                onChange={(e) =>
+                  setInputContent({ ...inputContent, content: e.target.value })
+                }
+              />
+            )}
+
             <h2>비용</h2>
-            <p>
-              {postData.cost === 0 || !postData.cost
-                ? "무료"
-                : `${postData.cost} 원 /1H`}
-            </p>
+            {!editContent ? (
+              <p>{`${!inputContent.cost ? "0" : inputContent.cost}원/H`}</p>
+            ) : (
+              <input
+                type="text"
+                value={inputContent.cost}
+                onChange={(e) =>
+                  setInputContent({ ...inputContent, cost: e.target.value })
+                }
+              />
+            )}
+
             <h2 ref={refImage}>사진 및 동영상</h2>
             <div className="post_img_container">
               {postData.images &&
@@ -160,24 +310,40 @@ const Post = ({ match }) => {
           </div>
         </div>
         <div className="message_side">
-          <div className="for_message_box">
-            작성자에게 메시지를 보내보세요
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              endIcon={
-                <SendIcon onClick={() => console.log("okok")}>send</SendIcon>
-              }
-            >
-              Send
-            </Button>
-          </div>
+          {yourself ? (
+            ""
+          ) : (
+            <div className="for_message_box">
+              작성자에게 메시지를 보내보세요
+              <Button
+                onClick={() => {
+                  console.log("chat send Click");
+                  console.log(user.email, match.params.id);
+                  if (user && user.email) {
+                    axios
+                      .post("https://localhost:3000/chatroom", {
+                        email: user.email,
+                        feedid: match.params.id,
+                      })
+                      .then((res) => console.log("chat", res));
+                  } else {
+                    alert("login이후 이용가능합니다.");
+                  }
+                }}
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                endIcon={<SendIcon>send</SendIcon>}
+              >
+                Send
+              </Button>
+            </div>
+          )}
         </div>
         <div className="post_comments">
-          <div>
+          {/* <div>
             <h2 ref={refReview}>Review</h2>
-          </div>
+          </div> */}
           {/* <ul>
             <Comment />
             <Comment />

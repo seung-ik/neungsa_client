@@ -5,7 +5,7 @@ import WorkIcon from "@material-ui/icons/Work";
 import GroupIcon from "@material-ui/icons/Group";
 import Next from "./BtnNext";
 import Prev from "./BtnPrev";
-function GettingStarted({ handleWriteData }) {
+function GettingStarted({ handleWriteData, history }) {
   const [select, setSelect] = useState("");
   const handleSelect = (target) => {
     setSelect(target);
@@ -47,8 +47,14 @@ function GettingStarted({ handleWriteData }) {
           </Link>
           <Link
             className="writePage"
-            to="/write/2"
-            onClick={() => handleWriteData(select)}
+            to={!select ? "/write/1" : "/write/2"}
+            onClick={() => {
+              if (!select) {
+                alert("항목을 선택해주세요");
+              } else {
+                handleWriteData(select);
+              }
+            }}
           >
             <Next />
           </Link>
