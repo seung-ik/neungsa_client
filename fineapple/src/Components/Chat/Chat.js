@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Chat.css";
+import { Link } from "react-router-dom";
 import socketio from "socket.io-client";
+import { Avatar } from "@material-ui/core";
+import cho from './chu.png'
+import dong from './dong.png'
+import SendIcon from '@material-ui/icons/Send';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import CloseSharpIcon from '@material-ui/icons/CloseSharp';
 
 const Chat = ({ handleChat }) => {
-  const socket = socketio.connect("http://localhost:4000");
+  const socket = socketio.connect("http://localhost:3000");
   const [state, setState] = useState({ message: "", name: "tmddlr" });
   const [chat, setChat] = useState([]);
 
@@ -25,122 +32,104 @@ const Chat = ({ handleChat }) => {
   };
   return (
     <div className="chatting_box">
+
       <div className="chat_header">
-        <h4>김동현</h4>
-        <button onClick={handleChat}>X</button>
+        <div className="chat_header_name_container">
+        <Link to='/Chatlist' > 
+            <ArrowBackIosIcon className="chat_header_arrow" />
+          </Link>
+          <Avatar style={{ height: "40px", width: "40px" }} src={cho} />
+          <h4>추성훈</h4>
+
+        </div>
+        <CloseSharpIcon onClick={handleChat} className="chat_header_close" />
       </div>
+
       <div className="conversation">
         <ul>
           <li className="chat_you">
             <div className="chat_profile">
-              <img
-                src="https://lh3.googleusercontent.com/proxy/efq1JEAnVpcHW5V6QO12O9vwZ6_nOJ_1pUvJ67h1DWTOAZ2ZyZW5IppRrGH1Fa9fl_h1JNsMiJgWxlURerbPVaQvUa0le_Spe4pewYY-NGedJ4whFs8GHUYowciINL3T1RRPaYH5ZExj7pVVeK4SWGzcM4-FEGulQEjujPGnOQ"
-                alt=""
-                style={{ width: "40px", height: "40px", borderRadius: "50%" }}
-              />
-              <span>추성훈</span>
+              {/* <img src={cho} alt=""/> */}
+              <Avatar style={{ height: "25px", width: "25px" }} src={cho} />
+              <div className="chat_profile_name">추성훈</div>
+              <div className="chat_profile_sent">2:20 PM</div>
             </div>
             <div className="chat_you_text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis.
-              </p>
-              <span>오전 10:10</span>
+              <div className="chat_you_text_content">
+                안녕하세요 💪🏿 <br></br> 실전형 태권도 알려드립니다.
+              </div>
+
             </div>
           </li>
           <li className="chat_you">
             <div className="chat_profile">
-              <img
-                src="https://lh3.googleusercontent.com/proxy/efq1JEAnVpcHW5V6QO12O9vwZ6_nOJ_1pUvJ67h1DWTOAZ2ZyZW5IppRrGH1Fa9fl_h1JNsMiJgWxlURerbPVaQvUa0le_Spe4pewYY-NGedJ4whFs8GHUYowciINL3T1RRPaYH5ZExj7pVVeK4SWGzcM4-FEGulQEjujPGnOQ"
-                alt=""
-                style={{ width: "40px", height: "40px", borderRadius: "50%" }}
-              />
-              <span>추성훈</span>
+              <Avatar style={{ height: "25px", width: "25px" }} src={cho} />
+              <div className="chat_profile_name">추성훈</div>
+              <div className="chat_profile_sent">2:20 PM</div>
             </div>
             <div className="chat_you_text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis.
-              </p>
-              <span>오전 10:10</span>
+              <div className="chat_you_text_content">무기 앞에 장사 없는거 아시죠?</div>
+
+
+
             </div>
           </li>
           <li className="chat_i">
             <div className="chat_profile">
-              <img
-                src="https://lh3.googleusercontent.com/proxy/efq1JEAnVpcHW5V6QO12O9vwZ6_nOJ_1pUvJ67h1DWTOAZ2ZyZW5IppRrGH1Fa9fl_h1JNsMiJgWxlURerbPVaQvUa0le_Spe4pewYY-NGedJ4whFs8GHUYowciINL3T1RRPaYH5ZExj7pVVeK4SWGzcM4-FEGulQEjujPGnOQ"
-                alt=""
-                style={{ width: "40px", height: "40px", borderRadius: "50%" }}
-              />
-              <span>김동현</span>
+              <div className="chat_profile_sent">2:34 PM</div>
             </div>
-            <div className="chat_you_text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis.
-              </p>
-              <span>오전 10:10</span>
+            <div className="chat_me_text">
+              <div className="chat_me_text_content">
+                안녕하세요 시간당 얼마인가여 🤔
+                </div>
+
+
+
             </div>
           </li>
           <li className="chat_you">
             <div className="chat_profile">
-              <img
-                src="https://lh3.googleusercontent.com/proxy/efq1JEAnVpcHW5V6QO12O9vwZ6_nOJ_1pUvJ67h1DWTOAZ2ZyZW5IppRrGH1Fa9fl_h1JNsMiJgWxlURerbPVaQvUa0le_Spe4pewYY-NGedJ4whFs8GHUYowciINL3T1RRPaYH5ZExj7pVVeK4SWGzcM4-FEGulQEjujPGnOQ"
-                alt=""
-                style={{ width: "40px", height: "40px", borderRadius: "50%" }}
-              />
-              <span>추성훈</span>
+              <Avatar style={{ height: "25px", width: "25px" }} src={cho} />
+              <div className="chat_profile_name">추성훈</div>
+              <div className="chat_profile_sent">2:32 PM</div>
             </div>
             <div className="chat_you_text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis.
-              </p>
-              <span>오전 10:10</span>
+              <div className="chat_you_text_content"> 삼만원이요</div>
+
+
             </div>
           </li>
+
           <li className="chat_i">
             <div className="chat_profile">
-              <img
-                src="https://lh3.googleusercontent.com/proxy/efq1JEAnVpcHW5V6QO12O9vwZ6_nOJ_1pUvJ67h1DWTOAZ2ZyZW5IppRrGH1Fa9fl_h1JNsMiJgWxlURerbPVaQvUa0le_Spe4pewYY-NGedJ4whFs8GHUYowciINL3T1RRPaYH5ZExj7pVVeK4SWGzcM4-FEGulQEjujPGnOQ"
-                alt=""
-                style={{ width: "40px", height: "40px", borderRadius: "50%" }}
-              />
-              <span>김동현</span>
+              <div className="chat_profile_sent">2:34 PM</div>
             </div>
-            <div className="chat_you_text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis.
-              </p>
-              <span>오전 10:10</span>
+            <div className="chat_me_text">
+              <div className="chat_me_text_content"> 너무 비싼데 😂 만원 갑시다</div>
+
+
+
             </div>
           </li>
           <li className="chat_you">
             <div className="chat_profile">
-              <img
-                src="https://lh3.googleusercontent.com/proxy/efq1JEAnVpcHW5V6QO12O9vwZ6_nOJ_1pUvJ67h1DWTOAZ2ZyZW5IppRrGH1Fa9fl_h1JNsMiJgWxlURerbPVaQvUa0le_Spe4pewYY-NGedJ4whFs8GHUYowciINL3T1RRPaYH5ZExj7pVVeK4SWGzcM4-FEGulQEjujPGnOQ"
-                alt=""
-                style={{ width: "40px", height: "40px", borderRadius: "50%" }}
-              />
-              <span>추성훈</span>
+              <Avatar style={{ height: "25px", width: "25px" }} src={cho} />
+              <div className="chat_profile_name">추성훈</div>
+              <div className="chat_profile_sent">2:34 PM</div>
             </div>
             <div className="chat_you_text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis.
-              </p>
-              <span>오전 10:10</span>
+              <div className="chat_you_text_content">만원 괜찮아요 내일 우성아파트 사거리에서 만날까요 </div>
+
+
+
             </div>
           </li>
           <li className="chat_i">
             <div className="chat_profile">
-              <img
-                src="https://lh3.googleusercontent.com/proxy/efq1JEAnVpcHW5V6QO12O9vwZ6_nOJ_1pUvJ67h1DWTOAZ2ZyZW5IppRrGH1Fa9fl_h1JNsMiJgWxlURerbPVaQvUa0le_Spe4pewYY-NGedJ4whFs8GHUYowciINL3T1RRPaYH5ZExj7pVVeK4SWGzcM4-FEGulQEjujPGnOQ"
-                alt=""
-                style={{ width: "40px", height: "40px", borderRadius: "50%" }}
-              />
-              <span>김동현</span>
+              <div className="chat_profile_sent">2:34 PM</div>
             </div>
-            <div className="chat_you_text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis.
-              </p>
-              <span>오전 10:10</span>
+            <div className="chat_me_text">
+              <div className="chat_me_text_content">넵 내일 봐요</div>
             </div>
           </li>
         </ul>
@@ -149,10 +138,11 @@ const Chat = ({ handleChat }) => {
         <input
           name="message"
           type="text"
+          placeholder='메세지를 입력해주세요.'
           value={state.message}
           onChange={(e) => onTextChange(e)}
         />
-        <button onClick={() => onMessageSubmit}>전송</button>
+        <SendIcon className="input_send_btn" onClick={() => onMessageSubmit} />
       </div>
     </div>
   );
