@@ -151,7 +151,7 @@ function WorkReview({ writeData, handlecomplete, history }) {
               <Prev />
             </Link>
             <div className="writePage" onClick={() => handleSubmit(writeData)}>
-              <Next />
+              <Next onClick={() => handleSubmit(writeData)} />
             </div>
           </div>
         </div>

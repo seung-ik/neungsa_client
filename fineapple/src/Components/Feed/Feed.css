@@ -19,6 +19,7 @@ li {
   display: flex;
   justify-content: center;
   background: #f1f2f4;
+ 
 }
 
 .feed_cards {
@@ -419,3 +420,41 @@ li {
   background-color: #f1f1f1;
 }
 
+.noresults {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.noresults__img__fine {
+  width: 140%;
+}
+
+.noresults__text {
+  font-weight: 500;
+}
+
+
+/* ! cancle  */
+input[type = 'search']::-webkit-search-cancel-button{
+
+	/* background-color: red; */
+	-webkit-appearance: none;	
+	height: 10px;
+	width: 10px;
+/* 	position: absolute;
+	right: 0; */
+	border-radius: 50%;
+  background-image: url(./adImg/cancel.png);
+
+}
+
+
+.loading__fade {
+  display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 40px;
+}

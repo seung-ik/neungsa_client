@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Lady from "../../img/mockup/lady.png";
 import "./Landing.css";
@@ -9,6 +9,7 @@ const thirdColor = "linear-gradient(90deg, #e2eb84 0%, #eaf0ac 90%)";
 
 function Landing() {
   const [bgColor, setBgColor] = useState(firstColor);
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,11 +38,14 @@ function Landing() {
         <div className="input__container box animate fadeInLeft three">
           <input
             type="search"
+            onChange={e => setSearch(e.target.value)} 
             placeholder="어떤 분야의 전문가를 찾으시나요?"
             className="form__control"
             autoComplete="off"
+            onKeyPress={(event) =>
+              event.key === "Enter" && setSearch(event.target.value)}
           />
-          <div className="btn__search">SEARCH</div>
+          <Link to={{ pathname: "/feed", query: { search } }} className="btn__search">SEARCH</Link>
         </div>
         <div className="popular__container box animate fadeInLeft three">
           <p className="popular">
