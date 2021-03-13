@@ -25,8 +25,13 @@ function Header({ handleLogin, Login }) {
         })
         .then((res) => {})
         .catch((err) => {
-          logout({ returnTo: "https://localhost:8000" });
-          alert("이미 가입된 상태 입니다.");
+          if (!err.response) {
+            logout({ returnTo: "https://localhost:8000" });
+            alert("서버가 불안정합니다.");
+          } else if (err.response.status === 500) {
+            logout({ returnTo: "https://localhost:8000" });
+            alert("이미 가입된 상태 입니다.");
+          }
         });
     }
   });

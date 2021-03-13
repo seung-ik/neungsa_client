@@ -51,7 +51,7 @@ function WorkReview({ writeData, handlecomplete, history }) {
       group_category: data.type,
       profileimage: "profileimage",
       title: data.title,
-      category: "뷰티",
+      category: data.category,
       tag: data.tags,
       content: data.content,
       images: s3 || [],

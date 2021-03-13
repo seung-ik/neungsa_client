@@ -175,8 +175,6 @@
   outline: none;
 }
 
-
-
 .container__btns {
   display: flex;
   border-top: solid 1px #d1d1d1;
@@ -195,4 +193,23 @@
 
 .write_location_button:focus {
   outline: none;
+}
+
+/* category */
+
+.job__category__radio {
+  display: flex;
+  width: 600px;
+  height: auto;
+  flex-wrap: wrap;
+}
+
+.job__category__radio > div {
+  /* border: 1px solid black; */
+  width: 100px;
+  margin: 10px 20px 10px 0;
+}
+.job__category__radio > div > label {
+  width: 60px;
+  margin-left: 5px;
 }

@@ -110,28 +110,8 @@ const Post = ({ match, history }) => {
         });
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [isAuthenticated]);
 
-  // useEffect(() => {
-  //   if (postEmail) {
-  //     axios
-  //       .post("https://localhost:3000/myPage", {
-  //         email: postEmail,
-  //       })
-  //       .then((res) => {
-  //         console.log("2");
-  //         let data = res.data.mypagepost;
-  //         console.log(res);
-  //         setwriterData({
-  //           image: data.image,
-  //           nickName: data.nickName,
-  //           location: data.location,
-  //           trade: data.trade,
-  //           contactTime: data.ContactTime,
-  //         });
-  //       });
-  //   }
-  // }, [postEmail]);
   return (
     <div>
       <section
@@ -250,15 +230,15 @@ const Post = ({ match, history }) => {
               </p>
               <p>
                 <AddCircleOutlineIcon />
-                자격증
+                자격증:{writerData.Certificate}
               </p>
               <p>
                 <AddCircleOutlineIcon />
-                기타
+                {writerData.Job}
               </p>
               <p>
                 <AddCircleOutlineIcon />
-                기타
+                {writerData.school}
               </p>
             </div>
           </div>
@@ -289,8 +269,7 @@ const Post = ({ match, history }) => {
             {!editContent ? (
               <p>{inputContent.content}</p>
             ) : (
-              <input
-                type="text"
+              <textarea
                 value={inputContent.content}
                 onChange={(e) =>
                   setInputContent({ ...inputContent, content: e.target.value })
