@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, brouserHistory } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, browserHistory } from "react-router-dom";
 import {createBrowserHistory} from 'history';
 import Header from "./Components/Header/Header";
 import Header_dark from "./Components/Header/DarkHeader";
@@ -42,8 +42,10 @@ function App() {
   };
 
   return (
-    <Router history={history}>
-      {window.location.pathname === '/' ? <Header /> : <Header_dark/> }
+    // <Router history={history}>
+    //   {window.location.pathname === '/' ? <Header /> : <Header_dark/> }
+    <Router>
+      <Header />
       <Switch>
         <Route path="/" exact component={Main} />
         <Route path="/Login" exact component={Login} />

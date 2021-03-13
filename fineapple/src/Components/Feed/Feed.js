@@ -213,7 +213,7 @@ function Feed(props) {
           </div>}
           {feedsLoading && <div className="loading__fade">
              <FadeLoader color={color} loading={loading} css={override} size={150} /> </div>}
-          <div className="see__more__container">더보기</div>
+          {/* <div className="see__more__container">더보기</div> */}
         </div>
       </div>
       <Advertise />
