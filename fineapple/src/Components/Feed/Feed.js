@@ -7,11 +7,25 @@ import Advertise from "./Advertise";
 import FeedSideBar from "./FeedSideBar";
 import { Avatar } from "@material-ui/core";
 import axios from "axios";
-import MapContents from "../Main/MapContents";
+import { css } from "@emotion/core";
+import FadeLoader from "react-spinners/FadeLoader";
+import Bounce from '../../img/bounce.gif'
 
-function Feed() {
+
+const override = css`
+display: block;
+margin: 0 auto;
+border-color: yellow;
+height: 15px;
+width: 5px;
+radius: 5px;
+margin: 5px;
+`;
+
+function Feed(props) {
   const inputRef = useRef(null);
   const [feeds, setFeeds] = useState([]);
+  const [feedsLoading, setFeedsLoading] = useState(false);
   const [filtredFeeds, setFiltredFeeds] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -19,27 +33,14 @@ function Feed() {
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [searchLocation, setSearchLocation] = useState(null);
 
-  //location
-  const [location, setLocation] = useState(null);
-  const [defaultLocation, setDefaultLocation] = useState(-780);
-  const handleButton = (move) => {
-    // console.log(move);
-    if (move === "left") {
-      setDefaultLocation((prev) => {
-        if (prev - 260 === -1820) {
-          return -780;
-        }
-        return prev - 260;
-      });
-    } else if (move === "right") {
-      setDefaultLocation((prev) => {
-        if (prev + 260 === 260) {
-          return -780;
-        }
-        return prev + 260;
-      });
-    }
-  };
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("rgb(251, 216, 110)");
+
+  useEffect(() => {
+    const search = props.location?.query?.search || '';
+    setInputValue(search);
+  }, [])
+
 
   useEffect(
     function () {
@@ -87,39 +88,55 @@ function Feed() {
 
   useEffect(
     function () {
-      const query = selectedCategory ? `?category=${selectedCategory}` : "";
-      axios.get(`https://localhost:3000/feedpage${query}`).then((response) => {
-        setFeeds(response.data.find_feed);
+      const query = new URLSearchParams(''); 
+      if (selectedCategory) {
+        query.append('category', selectedCategory) 
+      }
+      if (selectedGroup) {
+        query.append('group_category', selectedGroup)
+      }
+      if (searchLocation) {
+        query.append(`search`, searchLocation) 
+      }
+      setFeedsLoading(true)
+      console.log(query.toString())
+      axios.get(`https://localhost:3000/feedpage?${query}`)
+        .then((response) => {
+        setFeeds(response.data.find_feed.reverse());
+        setFeedsLoading(false)
+        }).catch(e => {
+          setFeedsLoading(false)
       });
     },
-    [selectedCategory]
+    [selectedCategory, selectedGroup, searchLocation]
   );
 
-  useEffect(
-    function () {
-      const queryGroup = selectedGroup
-        ? `?group_category=${selectedGroup}`
-        : "";
-      axios
-        .get(`https://localhost:3000/feedpage${queryGroup}`)
-        .then((response) => {
-          setFeeds(response.data.find_feed);
-        });
-    },
-    [selectedGroup]
-  );
+  // useEffect(
+  //   function () {
+      
+  //     const queryGroup = selectedGroup
+  //       ? `?group_category=${selectedGroup}`
+  //       : "";
+  //     axios
+  //       .get(`https://localhost:3000/feedpage${queryGroup}`)
+  //       .then((response) => {
+  //         setFeeds(response.data.find_feed);
+  //       });
+  //   },
+  //   [selectedGroup]
+  // );
 
-  useEffect(
-    function () {
-      const queryGroup = searchLocation ? `?search=${searchLocation}` : "";
-      axios
-        .get(`https://localhost:3000/feedpage${queryGroup}`)
-        .then((response) => {
-          setFeeds(response.data.find_feed);
-        });
-    },
-    [searchLocation]
-  );
+  // useEffect(
+  //   function () {
+  //     const queryGroup = searchLocation ? `?search=${searchLocation}` : "";
+  //     axios
+  //       .get(`https://localhost:3000/feedpage${queryGroup}`)
+  //       .then((response) => {
+  //         setFeeds(response.data.find_feed);
+  //       });
+  //   },
+  //   [searchLocation]
+  // );
 
   return (
     <div className="feed">
@@ -142,13 +159,13 @@ function Feed() {
         />
         <div className="feed__wrapper">
           <div className="feed__wrapper__header">
-            <h2> {location ? location : "파인애플"}에는 이런일이 있어요!</h2>
+            <h2> 파인애플에는 이런일이 있어요!</h2>
 
             <div className="feed__wrapper__top__container">
               <div className="feed__wrapper__search">
                 <input
                   ref={inputRef}
-                  type="text"
+                  type="search"
                   placeholder="e.g. 딸기농장 일손구함"
                   className="feed__wrapper__search__input"
                   onKeyPress={(event) =>
@@ -166,12 +183,16 @@ function Feed() {
                 글 작성
               </Link>
             </div>
+            
           </div>
+         
+          {!feedsLoading && <div className="feed_posts">
+          
 
-          <div className="feed_posts">
             {filtredFeeds.length > 0 ? (
               filtredFeeds.map((feed) => (
                 <Link
+                  
                   className="writePage"
                   key={feed.id}
                   to={`/feed/${feed.id}`}
@@ -180,10 +201,18 @@ function Feed() {
                 </Link>
               ))
             ) : (
-              <div className="noresults">no results</div>
+              <div className="noresults">
+                <div className="noresults__img">
+                  <img src={Bounce} alt="" className="noresults__img__fine" />
+                </div>
+                <h4 className="noresults__text">
+                  검색결과가 없어요. 다른것을 검색해보세요!
+                  </h4>
+              </div>
             )}
-          </div>
-
+          </div>}
+          {feedsLoading && <div className="loading__fade">
+             <FadeLoader color={color} loading={loading} css={override} size={150} /> </div>}
           <div className="see__more__container">더보기</div>
         </div>
       </div>
