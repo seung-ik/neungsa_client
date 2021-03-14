@@ -29,7 +29,7 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "export PORT=8000 && HTTPS=true SSL_CRT_FILE=../../../auth/cert.pem SSL_KEY_FILE=../../../auth/key.pem react-scripts start",
+    "start": "export PORT=8000 && HTTPS=true SSL_CRT_FILE=/Users/emily/Desktop/CS/auth-master/cert.pem SSL_KEY_FILE=/Users/emily/Desktop/CS/auth-master/key.pem react-scripts start",
     "build": "refact-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
