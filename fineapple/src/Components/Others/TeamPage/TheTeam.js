@@ -7,6 +7,8 @@ import seung_front from "../../../img/Team/seung_front.png";
 import seung_back from "../../../img/Team/seung_back.png";
 import go_front from "../../../img/Team/go_front.png";
 import go_back from "../../../img/Team/go_back.jpg";
+import nick_front from "../../../img/Team/nick_front.png";
+import nick_back from "../../../img/Team/nick_back.png";
 
 function TheTeam() {
   return (
@@ -41,7 +43,7 @@ function TheTeam() {
                   <div className="team-member__body">
                     <h3 className="team-member__title">윤어진</h3>
                     <span className="team-member__subtitle">
-                      Wanted to be a psychiatrist
+                      Wanted to be a Psychiatrist
                     </span>
                   </div>
                 </div>
@@ -84,7 +86,7 @@ function TheTeam() {
                 <div className="card-front">
                   <div className="team-member__image">
                     <figure className="img-holder">
-                      <img src={seung_back} alt="" />
+                      <img src={nick_front} alt="" />
                     </figure>
                   </div>
                   <div className="team-member__body">
@@ -97,13 +99,13 @@ function TheTeam() {
                 <div className="card-back">
                   <div className="team-member__image">
                     <figure className="img-holder">
-                      <img src={seung_back} alt="" />
+                      <img src={nick_back} alt="" />
                     </figure>
                   </div>
                   <div className="team-member__body">
                     <h3 className="team-member__title">현승환</h3>
                     <span className="team-member__subtitle">
-                      Wanted to be a pilot
+                      Wanted to be a President
                     </span>
                   </div>
                 </div>
@@ -134,7 +136,7 @@ function TheTeam() {
                   <div className="team-member__body">
                     <h3 className="team-member__title">최고훈</h3>
                     <span className="team-member__subtitle">
-                      Wanted to be a detective
+                      Wanted to be a Mathematician
                     </span>
                   </div>
                 </div>
