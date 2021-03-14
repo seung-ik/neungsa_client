@@ -6,7 +6,7 @@ const ServiceItem = ({ feedData }) => {
     <li className="service_list_item">
       <Link to={`/feed/${feedData.id}`} className="service_list_item_link">
         <p>
-          {feedData.created_at.slice(0, 10)} : {feedData.title}
+          {feedData.created_at.slice(0, 10)}  {feedData.title}
         </p>
       </Link>
     </li>

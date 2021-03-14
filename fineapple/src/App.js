@@ -92,7 +92,6 @@ function App() {
         <Route path="/mypage" exact component={Mypage} />
         <Route path="/theteam" exact component={Team} />
         <Route path="/business" exact component={Business} />
-        <Route path="/Chatlist" component={ChatList} />
       </Switch>
       {whatComponent()}
     </Router>
