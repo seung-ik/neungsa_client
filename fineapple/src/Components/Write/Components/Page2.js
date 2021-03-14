@@ -40,15 +40,15 @@ function WorkTitle({ handleWriteData }) {
 
   const submitLocation = (e) => {
     e.preventDefault();
-    console.log("1");
+    // console.log("1");
     setIsLoading(true);
     navigator.geolocation.getCurrentPosition(
       (position) => {
         setIsLoading(true);
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
-        console.log("2");
-        console.log(lat, lon);
+        // console.log("2");
+        // console.log(lat, lon);
         axios
           .get(
             `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lon}&y=${lat}`,
@@ -90,7 +90,7 @@ function WorkTitle({ handleWriteData }) {
       },
       { timeout: 10000 }
     );
-    console.log(2);
+    // console.log(2);
   };
 
   const changeHandler = (name, value) => {
@@ -132,7 +132,7 @@ function WorkTitle({ handleWriteData }) {
     }
 
     if (tags.length > 0 && emails.length > 0) {
-      console.log(tags, emails);
+      // console.log(tags, emails);
       // Submit form
     }
   };
@@ -197,7 +197,10 @@ function WorkTitle({ handleWriteData }) {
             <div className="job__category__radio">
               {categoryList.map((category, idx) => {
                 return (
-                  <div onClick={() => setSelectCategory(category)}>
+                  <div
+                    key={category}
+                    onClick={() => setSelectCategory(category)}
+                  >
                     <input
                       type="radio"
                       id={category}

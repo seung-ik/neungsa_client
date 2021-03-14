@@ -100,7 +100,7 @@ function Feed(props) {
         query.append(`search`, searchLocation);
       }
       setFeedsLoading(true);
-      console.log(query.toString());
+      // console.log(query.toString());
       axios
         .get(`https://localhost:3000/feedpage?${query}`)
         .then((response) => {
@@ -113,8 +113,10 @@ function Feed(props) {
     },
     [selectedCategory, selectedGroup, searchLocation, num]
   );
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    return () => setFeedsLoading(false);
   }, []);
 
   return (

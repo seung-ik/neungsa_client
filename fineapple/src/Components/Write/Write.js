@@ -59,7 +59,7 @@ function Write({ match }) {
   };
 
   useEffect(() => {
-    console.log(saveWriteData);
+    // console.log(saveWriteData);
     if (saveWriteData.region && saveWriteData.title) setCompletePage2(true);
     else setCompletePage2(false);
 

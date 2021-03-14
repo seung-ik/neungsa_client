@@ -46,7 +46,6 @@ function WorkReview({ writeData, handlecomplete, history }) {
 
     for (let file of uploadS3Files) {
       await ReactS3.uploadFile(file, config).then((data) => {
-        console.log(1);
         s3Objects.push(data.location);
       });
     }
@@ -55,7 +54,6 @@ function WorkReview({ writeData, handlecomplete, history }) {
   }
 
   async function handleSubmit(data) {
-    console.log(1);
     setSubmitLoading(true);
     if (!user) {
       loginWithRedirect();
@@ -86,13 +84,11 @@ function WorkReview({ writeData, handlecomplete, history }) {
         url: "https://localhost:3000/write/friend",
         data: submitObj,
       })
-        .then((res) => {
-          console.log(2);
-        })
+        .then((res) => {})
         .catch((err) => {
           console.log(err);
         });
-      console.log(3);
+
       handlecomplete();
       history.push("/feed");
       return () => setSubmitLoading(false);

@@ -45,7 +45,6 @@
   font-size: 16px;
   border: none;
   background-color: #8ab77b;
-;
   border-radius: 10px;
   color: white;
   outline: none;
@@ -65,7 +64,7 @@
   font-weight: 700;
   font-size: 16px;
   border: none;
-  background-color: #f54028;
+  background-color: #854941;
   border-radius: 10px;
   color: white;
   outline: none;
@@ -73,7 +72,7 @@
 }
 
 .mypage_profile > div > div > button:last-child:hover {
-  background-color: #ff4800fd;
+  background-color: #f85f23fd;
   color: rgb(236, 236, 236);
 }
 .mypage_profile_name {
@@ -144,7 +143,7 @@
   margin-left: 30px;
 }
 
-.service_list_item_link >p:hover {
+.service_list_item_link > p:hover {
   color: rgb(80, 80, 73);
 }
 /* 
@@ -165,7 +164,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(229, 236, 126, 0.356);
+  background: rgba(228, 235, 141, 0.219);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease-in-out;
@@ -182,11 +181,18 @@
   z-index: 999;
 }
 .modal_text_container {
-  width: 100%;
+  width: 80%;
   height: 280px;
   display: flex;
   justify-content: center;
+  font-size: 24px;
   align-items: center;
+  flex-direction: column;
+}
+.modal_text_container > button {
+  margin-top: 20px;
+  background-color: #c0e7b6;
+  padding: 7px 14px;
 }
 .close-modal {
   width: 80px;
