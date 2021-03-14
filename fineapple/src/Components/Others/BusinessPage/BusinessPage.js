@@ -11,7 +11,7 @@ const Business = () => {
           <div className="business_marketor_header">
             <img src={pine} alt="" />
             <div className="business_marketor_header_container">
-                          <div>파인애플의 비지니스</div>
+                          <div>파인애플의 비지니스 🍍</div>
             </div>
 
           </div>
@@ -19,7 +19,7 @@ const Business = () => {
             <p>
               “파인애플의 비즈니스모델은 지역 기반 광고입니다. 카카오, 네이버 등
               포털은 온라인 전체를 광고 대상으로 삼지만 동네 주민을 타깃으로 한
-              광고는 파인애플과 당근마켓에서만 할 수 있습니다.”
+              광고는 <b>파인애플</b>과 <b>당근마켓</b>에서만 할 수 있습니다.”
             </p>
             <br />
             <p>

@@ -8,7 +8,7 @@ import FeedSideBar from "./FeedSideBar";
 import { Avatar } from "@material-ui/core";
 import axios from "axios";
 import { css } from "@emotion/core";
-import FadeLoader from "react-spinners/FadeLoader";
+import PropagateLoader from "react-spinners/PropagateLoader";
 import Bounce from '../../img/bounce.gif'
 
 
@@ -16,10 +16,8 @@ const override = css`
 display: block;
 margin: 0 auto;
 border-color: yellow;
-height: 15px;
-width: 5px;
-radius: 5px;
-margin: 5px;
+
+
 `;
 
 function Feed(props) {
@@ -212,7 +210,7 @@ function Feed(props) {
             )}
           </div>}
           {feedsLoading && <div className="loading__fade">
-             <FadeLoader color={color} loading={loading} css={override} size={150} /> </div>}
+             <PropagateLoader color={color} loading={loading} css={override} size={15} /> </div>}
           {/* <div className="see__more__container">더보기</div> */}
         </div>
       </div>

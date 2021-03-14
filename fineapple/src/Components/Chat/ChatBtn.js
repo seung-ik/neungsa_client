@@ -4,12 +4,12 @@ import "./Chat.css";
 import Fineapple from "../../img/fineapple.png";
 import Fine from "../../img/chat_fine.png";
 
-const ChatBtn = ({ handleChat }) => {
+const ChatBtn = ({ handleChatList }) => {
   return (
     // <div className="chatting_btn">
     //   <button onClick={handleChat}>+</button>
     // </div>
-    <div className="chatting_btn" onClick={handleChat} >
+    <div className="chatting_btn" onClick={handleChatList} >
       
       <div className="chatting_btn_cover">
         
