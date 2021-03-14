@@ -11,7 +11,7 @@ function Header({ handleLogin, Login }) {
   const handleClick = () => setClick(!click);
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
-  const [tryLogin, setTryLogin] = useState(false);
+  // const [tryLogin, setTryLogin] = useState(false);
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   useEffect(() => {
@@ -50,7 +50,7 @@ function Header({ handleLogin, Login }) {
                 className="header__links"
                 onClick={() => {
                   loginWithRedirect();
-                  setTryLogin((prev) => !prev);
+                  // setTryLogin((prev) => !prev);
                 }}
               >
                 로그인

@@ -1,13 +1,17 @@
 import React, { Component, useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, browserHistory } from "react-router-dom";
-import { createBrowserHistory } from 'history';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  browserHistory,
+} from "react-router-dom";
+import { createBrowserHistory } from "history";
 import Header from "./Components/Header/Header";
 import Header_dark from "./Components/Header/DarkHeader";
 import Main from "./Components/Main/Main";
 import Login from "./Components/Login/Login";
-import Chat from "./Components/Chat/Chat";
-import ChatList from './Components/Chat/ChatContainer'
-import ChatRoom from './Components/Chat/ChatRoom'
+import ChatList from "./Components/Chat/Chat";
+import ChatRoom from "./Components/Chat/ChatContainer";
 import ChatBtn from "./Components/Chat/ChatBtn";
 import Write from "./Components/Write/Write";
 import Mypage from "./Components/Mypage/Mypage";
@@ -18,6 +22,7 @@ import Business from "./Components/Others/BusinessPage/BusinessPage";
 
 const history = createBrowserHistory();
 // import WorkTitle from './Components/Write/Components/WorkTitle'
+
 function App() {
   // const [loading, setLoading] = useState(false);
 
@@ -27,29 +32,51 @@ function App() {
   //     setLoading(false)
   //   }, 4000)
   // },[])
-  const [onChatList, setOnChatList] = useState(false);
-  const [onChatRoom, setOnChatRoom] = useState(false);
+  const [chatRoom, setChatRoom] = useState(false);
+  const [chatList, setChatList] = useState(false);
 
-
-  // useEffect(() => {
-  //   window.historyReatc = history;
-  //   history.listen(location => {
-  //     console.log(location);
-  //   })
-  // }, [])
-
-
-  // 꺼지고 켜지고 (뱃지)
-  const handleChatRoom = () => {
-    console.log("ok");
-    setOnChatRoom((prev) => !prev) && setOnChatList((prev) => !prev);
+  const openChatRoom = () => {
+    console.log("openRoom");
+    setChatRoom(true);
+    setChatList(false);
+  };
+  const closeChatRoomAndList = () => {
+    console.log("closeChat");
+    setChatRoom(false);
+    setChatList(false);
+  };
+  const openChatList = () => {
+    console.log("openList");
+    setChatRoom(false);
+    setChatList(true);
   };
 
-  // 룸 - 챗 이동
-  const handleChatList = () => {
-    console.log("ok");
-    setOnChatList((prev) => !prev);
-  };
+  function whatComponent() {
+    if (!chatRoom && !chatList) {
+      return <ChatBtn openChatRoom={openChatRoom} />;
+    } else if (chatRoom && !chatList) {
+      return (
+        <ChatRoom
+          closeChatRoom={closeChatRoomAndList}
+          openChatList={openChatList}
+        />
+      );
+    } else if (!chatRoom && chatList) {
+      return (
+        <ChatList
+          closeChatList={closeChatRoomAndList}
+          backToChatRoom={openChatRoom}
+        />
+      );
+    }
+  }
+
+  useEffect(() => {
+    window.historyReatc = history;
+    history.listen((location) => {
+      console.log(location);
+    });
+  }, []);
 
   return (
     // <Router history={history}>
@@ -65,22 +92,8 @@ function App() {
         <Route path="/mypage" exact component={Mypage} />
         <Route path="/theteam" exact component={Team} />
         <Route path="/business" exact component={Business} />
- 
       </Switch>
-      
-
-      {/* {onChatList ? 
-
-        {onChat ? ( 
-        <Chat handleChat={handleChat} onChat={onChat} />
-      ) : (
-        <ChatBtn handleChat={handleChat} />
-        )}
-       : (
-        <ChatBtn handleChatList={handleChatList} />
-      )} */}
-
-      
+      {whatComponent()}
     </Router>
   );
 }
