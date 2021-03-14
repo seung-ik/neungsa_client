@@ -34,6 +34,8 @@ function App() {
   // },[])
   const [chatRoom, setChatRoom] = useState(false);
   const [chatList, setChatList] = useState(false);
+  const [email, setEmail] = useState("");
+  const [chatId, setChatId] = useState("");
 
   const openChatRoom = () => {
     console.log("openRoom");
@@ -45,8 +47,10 @@ function App() {
     setChatRoom(false);
     setChatList(false);
   };
-  const openChatList = () => {
+  const openChatList  =  (email, chatId) => {
     console.log("openList");
+    setEmail(email);
+    setChatId(chatId);
     setChatRoom(false);
     setChatList(true);
   };
@@ -66,6 +70,8 @@ function App() {
         <ChatList
           closeChatList={closeChatRoomAndList}
           backToChatRoom={openChatRoom}
+          email={email}
+          chatId={chatId}
         />
       );
     }
