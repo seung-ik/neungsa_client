@@ -57,4 +57,9 @@
   color: white;
   text-align: center;
   line-height: 60px;
+  cursor: pointer;
+}
+
+.marketor_email > div:hover {
+  background-color: rgb(107, 107, 107);
 }

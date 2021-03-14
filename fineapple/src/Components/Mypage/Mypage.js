@@ -14,18 +14,18 @@ import axios from "axios";
 import { useHistory, withRouter } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-
+import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
+import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
+import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
 const Mypage = (props) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [onEdit, setOnEdit] = useState(false);
   const [yourSelf, setYourSelf] = useState(true);
   const [myData, setMyData] = useState({});
   const [feedDatas, setFeedDatas] = useState([]);
-
   const [modalOpen, setModalOpen] = useState(false);
   const { logout } = useAuth0();
   const history = useHistory();
-
   const handleProfile = () => {
     props.history.push("/mypage/update");
   };
@@ -43,7 +43,6 @@ const Mypage = (props) => {
   const openModal = () => {
     setModalOpen((prev) => !prev);
   };
-
   useEffect(() => {
     if (isAuthenticated) {
       axios
@@ -57,7 +56,6 @@ const Mypage = (props) => {
         });
     }
   }, [isAuthenticated]);
-
   if (isAuthenticated) {
     return (
       <div>
@@ -88,14 +86,13 @@ const Mypage = (props) => {
               )}
             </div>
           </div>
-
           <div className="mypage_introduction">
             {/* <div className="mypage_introduction_header">소개</div> */}
             <div className="mypage_introduction_container">
               <div>
                 <h2>기본정보</h2>
                 <p>
-                  <AccountCircleIcon />
+                  <VerifiedUserOutlinedIcon />
                   본인인증
                 </p>
                 {/* <p>
@@ -103,27 +100,27 @@ const Mypage = (props) => {
                   30회 누적사용
                 </p> */}
                 <p>
-                  <ExploreIcon />
-                  위치: {myData.location}
+                  <LocationOnOutlinedIcon />
+                  지역: {myData.location}
                 </p>
                 <p>
-                  <CallIcon />
-                  연락시간: {myData.ContactTime}
+                  <WorkOutlineIcon />
+                  직업: {myData.ContactTime}
                 </p>
                 <p>
                   <LocalAtmIcon />
-                  {myData.trade ? myData.trade : "계좌이체&현금가능"}
+                  거래방식: {myData.trade ? myData.trade : "계좌이체&현금가능"}
                 </p>
               </div>
               <div>
                 <h2>추가정보</h2>
                 <p>
                   <AddCircleOutlineIcon />
-                  관련사업: {myData.Entrepreneur}
+                  회사: {myData.Entrepreneur}
                 </p>
                 <p>
                   <AddCircleOutlineIcon />
-                  자격증 : {myData.Certificate}
+                  분야 : {myData.Certificate}
                 </p>
                 <p>
                   <AddCircleOutlineIcon />
@@ -131,7 +128,7 @@ const Mypage = (props) => {
                 </p>
                 <p>
                   <AddCircleOutlineIcon />
-                  {myData.school}
+                  학교 :{myData.school}
                 </p>
               </div>
             </div>
@@ -162,5 +159,4 @@ const Mypage = (props) => {
     return <div>loading</div>;
   }
 };
-
 export default Mypage;

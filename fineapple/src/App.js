@@ -1,12 +1,13 @@
 import React, { Component, useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, browserHistory } from "react-router-dom";
-import {createBrowserHistory} from 'history';
+import { createBrowserHistory } from 'history';
 import Header from "./Components/Header/Header";
 import Header_dark from "./Components/Header/DarkHeader";
 import Main from "./Components/Main/Main";
 import Login from "./Components/Login/Login";
 import Chat from "./Components/Chat/Chat";
 import ChatList from './Components/Chat/ChatContainer'
+import ChatRoom from './Components/Chat/ChatRoom'
 import ChatBtn from "./Components/Chat/ChatBtn";
 import Write from "./Components/Write/Write";
 import Mypage from "./Components/Mypage/Mypage";
@@ -26,19 +27,28 @@ function App() {
   //     setLoading(false)
   //   }, 4000)
   // },[])
-  const [onChat, setOnChat] = useState(false);
-
-  useEffect(() => {
-    window.historyReatc = history;
-    history.listen(location => {
-      console.log(location);
-    })
-  }, [])
+  const [onChatList, setOnChatList] = useState(false);
+  const [onChatRoom, setOnChatRoom] = useState(false);
 
 
-  const handleChat = () => {
+  // useEffect(() => {
+  //   window.historyReatc = history;
+  //   history.listen(location => {
+  //     console.log(location);
+  //   })
+  // }, [])
+
+
+  // 꺼지고 켜지고 (뱃지)
+  const handleChatRoom = () => {
     console.log("ok");
-    setOnChat((prev) => !prev);
+    setOnChatRoom((prev) => !prev) && setOnChatList((prev) => !prev);
+  };
+
+  // 룸 - 챗 이동
+  const handleChatList = () => {
+    console.log("ok");
+    setOnChatList((prev) => !prev);
   };
 
   return (
@@ -55,14 +65,22 @@ function App() {
         <Route path="/mypage" exact component={Mypage} />
         <Route path="/theteam" exact component={Team} />
         <Route path="/business" exact component={Business} />
-        <Route path="/Chatlist" component={ChatList} />
+ 
       </Switch>
+      
 
-      {onChat ? (
+      {/* {onChatList ? 
+
+        {onChat ? ( 
         <Chat handleChat={handleChat} onChat={onChat} />
       ) : (
         <ChatBtn handleChat={handleChat} />
-      )}
+        )}
+       : (
+        <ChatBtn handleChatList={handleChatList} />
+      )} */}
+
+      
     </Router>
   );
 }
