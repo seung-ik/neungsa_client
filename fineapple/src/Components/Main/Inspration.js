@@ -8,6 +8,7 @@ import insp4 from "../../img/mockup/insp4.jpg";
 import insp5 from "../../img/mockup/insp5.png";
 import axios from "axios";
 import ChatBtn from "../Chat/ChatBtn";
+import review_profile from "../../img/mockup/review_profile.png";
 
 function Inspration() {
   const history = useHistory();
@@ -34,7 +35,11 @@ function Inspration() {
           >
             <img src={insp1} alt="" className="insp_slide_img" />
             <div className="insp_profile_container">
-              <img src={insp2} alt="프로필" className="insp_profile_img" />
+              <img
+                src={review_profile}
+                alt="프로필"
+                className="insp_profile_img"
+              />
               <div>
                 <span>창의력이 솟아나요</span>
                 <span className="insp_profile_name">by 최고훈</span>
@@ -50,7 +55,11 @@ function Inspration() {
           >
             <img src={insp2} alt="" className="insp_slide_img" />
             <div className="insp_profile_container">
-              <img src={insp2} alt="프로필" className="insp_profile_img" />
+              <img
+                src={review_profile}
+                alt="프로필"
+                className="insp_profile_img"
+              />
               <div>
                 <span>배울수 있는게 많아요</span>
                 <span className="insp_profile_name">by 현승환</span>
@@ -66,7 +75,11 @@ function Inspration() {
           >
             <img src={insp3} alt="" className="insp_slide_img" />
             <div className="insp_profile_container">
-              <img src={insp2} alt="프로필" className="insp_profile_img" />
+              <img
+                src={review_profile}
+                alt="프로필"
+                className="insp_profile_img"
+              />
               <div>
                 <span>따분하지 않아요</span>
                 <span className="insp_profile_name">by 윤어진</span>
@@ -81,7 +94,11 @@ function Inspration() {
           >
             <img src={insp4} alt="" className="insp_slide_img" />
             <div className="insp_profile_container">
-              <img src={insp2} alt="프로필" className="insp_profile_img" />
+              <img
+                src={review_profile}
+                alt="프로필"
+                className="insp_profile_img"
+              />
               <div>
                 <span>삶이 건강해져요</span>
                 <span className="insp_profile_name">by 오승익</span>
@@ -97,7 +114,11 @@ function Inspration() {
           >
             <img src={insp5} alt="" className="insp_slide_img" />
             <div className="insp_profile_container">
-              <img src={insp2} alt="프로필" className="insp_profile_img" />
+              <img
+                src={review_profile}
+                alt="프로필"
+                className="insp_profile_img"
+              />
               <div>
                 <span>지역경제에 좋아요👌</span>
                 <span className="insp_profile_name">by 김민수</span>

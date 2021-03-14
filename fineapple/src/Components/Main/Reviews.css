@@ -13,6 +13,12 @@
   transition: 1.7s;
 }
 
+.review_content {
+  margin-left: 30px;
+  font-size: 30px;
+  line-height: 45px;
+}
+
 .hidden {
   opacity: 0;
   /* background-color: black; */
@@ -39,13 +45,13 @@
   font-size: 1.5rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .review_listItem {
     display: flex;
     flex-direction: column;
   }
   .review {
-    height: 490px;
+    height: 600px;
   }
   .review_listItem > div > h4 {
     font-size: 1.5rem;
