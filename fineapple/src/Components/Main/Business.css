@@ -8,7 +8,9 @@
   display: flex;
   background-color: #080d4a;
   color: rgb(245, 241, 241);
-  /* height: 90vh; */
+  padding-top: 40px;
+  padding-bottom: 20px;
+  /* height: 80vh; */
 }
 
 .business__left {
@@ -18,7 +20,6 @@
   margin-left: 50px;
   align-items: baseline;
   justify-content: center;
-  
 }
 
 .business__left__header {
@@ -64,9 +65,9 @@
 
 .business__left__details__top {
   font-size: 1.3rem;
-  letter-spacing: 2px;
+  letter-spacing: 1.6px;
   margin-bottom: 2rem;
-  line-height: 2rem;
+  line-height: 1.8rem;
   font-weight: 500;
   width: 480px;
 }
@@ -89,7 +90,7 @@
 .business__left__btn {
   cursor: pointer;
   width: 310px;
-  margin-top: 2rem;
+  margin-top: 2.2rem;
   padding: 15px 44px;
   background-color: #50af70;
   font-weight: 700;
@@ -100,9 +101,11 @@
   outline: none;
 }
 
-a:hover, a:visited, a:link, a:active
-{
-    text-decoration: none;
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
 }
 
 .business__left__btn:hover {

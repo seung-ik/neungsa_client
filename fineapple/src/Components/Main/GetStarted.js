@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import './GetStarted.css'
-import lady from '../../img/Main/gs_br.png'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./GetStarted.css";
+import pineapple from "../../img/getStart/pineapple.png";
 
 function GetStarted() {
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
 
-    const [click, setClick] = useState(false)
-    const handleClick = () => setClick(!click)
+  return (
+    <div className="getstarted">
+      <div className="getstarted__left">
+        <span className="getstarted__left__header">
+          Fine the Talent you need <br />
+          Share the Talent you have <br />
+          In your fineapple
+        </span>
 
-    return (
-        <div className="getstarted">
-
-                <div className="getstarted__left">
-                    <span className="getstarted__left__header">
-                        Fine the
-                    <i> Talent </i>
-                    needed to <br/>get your business 
-                     <i> growing</i>
-                    .
-                    </span>
-                    <Link to='/feed' className="getstarted__left__btn" onClick={handleClick}>
-                        시작하기
-                    </Link>
-                </div>
-                <div className="getstarted__right">
-                    <img src={lady} alt="" className="getstarted__right__img" />
-                </div>
-            </div>
-
-    )
+        <Link
+          to="/feed"
+          className="getstarted__left__btn"
+          onClick={handleClick}
+        >
+          시작하기
+        </Link>
+      </div>
+      <div className="getstarted__right">
+        <img src={pineapple} alt="" className="getstarted__right__img" />
+      </div>
+    </div>
+  );
 }
 
-export default GetStarted
+export default GetStarted;

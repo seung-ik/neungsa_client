@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Rec1 from "../../img/mockup/rec1.png";
-import Rec2 from "../../img/mockup/rec2.png";
-import Rec3 from "../../img/mockup/rec3.png";
-import Rec4 from "../../img/mockup/rec4.png";
-import Rec5 from "../../img/mockup/rec5.png";
+import { Link, useHistory } from "react-router-dom";
+import baby from "../../img/recommandation/baby.jpg";
+import beauty from "../../img/recommandation/beauty.jpg";
+import computer from "../../img/recommandation/computer.jpg";
+import cook from "../../img/recommandation/cook.jpg";
+import edu from "../../img/recommandation/edu.jpg";
+import friends from "../../img/recommandation/friends.jpg";
+import guitar from "../../img/recommandation/guitar.jpg";
+import language from "../../img/recommandation/language.jpg";
+import pet from "../../img/recommandation/pet.jpg";
+import sports from "../../img/recommandation/sports.jpg";
 import "./Recommandation.css";
 
 function Recommandation({ location }) {
+  const history = useHistory();
   const [defaultLocation, setDefaultLocation] = useState(-780);
   const handleButton = (move) => {
     // console.log(move);
@@ -52,37 +58,114 @@ function Recommandation({ location }) {
             style={{ left: `${defaultLocation}px` }}
           >
             <li className="single__slide">
-              <img className="slide__img" src={Rec1} alt="" />
+              <img
+                onClick={() => {
+                  history.push("/feed", "교육");
+                }}
+                className="slide__img"
+                src={edu}
+                alt=""
+              />
             </li>
             <li className="single__slide">
-              <img className="slide__img" src={Rec2} alt="" />
+              <img
+                onClick={() => {
+                  history.push("/feed", "친구");
+                }}
+                className="slide__img"
+                src={friends}
+                alt=""
+              />
             </li>
             <li className="single__slide">
-              <img className="slide__img" src={Rec3} alt="" />
+              <img
+                className="slide__img"
+                onClick={() => {
+                  history.push("/feed", "육아");
+                }}
+                src={baby}
+                alt=""
+              />
             </li>
             <li className="single__slide">
-              <img className="slide__img" src={Rec4} alt="" />
+              <img
+                className="slide__img"
+                onClick={() => {
+                  history.push("/feed", "뷰티");
+                }}
+                src={beauty}
+                alt=""
+              />
             </li>
             <li className="single__slide">
-              <img className="slide__img" src={Rec5} alt="" />
+              <img
+                className="slide__img"
+                onClick={() => {
+                  history.push("/feed", "스포츠 / 레저");
+                }}
+                src={sports}
+                alt=""
+              />
             </li>
             <li className="single__slide">
-              <img className="slide__img" src={Rec1} alt="" />
+              <img
+                className="slide__img"
+                onClick={() => {
+                  history.push("/feed", "반려동물");
+                }}
+                src={pet}
+                alt=""
+              />
             </li>
             <li className="single__slide">
-              <img className="slide__img" src={Rec2} alt="" />
+              <img
+                className="slide__img"
+                onClick={() => {
+                  history.push("/feed", "언어");
+                }}
+                src={language}
+                alt=""
+              />
             </li>
             <li className="single__slide">
-              <img className="slide__img" src={Rec3} alt="" />
+              <img
+                className="slide__img"
+                onClick={() => {
+                  history.push("/feed", "컴퓨터");
+                }}
+                src={computer}
+                alt=""
+              />
             </li>
             <li className="single__slide">
-              <img className="slide__img" src={Rec4} alt="" />
+              <img
+                className="slide__img"
+                onClick={() => {
+                  history.push("/feed", "요리 / 예체능");
+                }}
+                src={cook}
+                alt=""
+              />
             </li>
             <li className="single__slide">
-              <img className="slide__img" src={Rec5} alt="" />
+              <img
+                className="slide__img"
+                onClick={() => {
+                  history.push("/feed", "기타");
+                }}
+                src={guitar}
+                alt=""
+              />
             </li>
             <li className="single__slide">
-              <img className="slide__img" src={Rec1} alt="" />
+              <img
+                className="slide__img"
+                onClick={() => {
+                  history.push("/feed", "교육");
+                }}
+                src={edu}
+                alt=""
+              />
             </li>
           </ul>
         </div>

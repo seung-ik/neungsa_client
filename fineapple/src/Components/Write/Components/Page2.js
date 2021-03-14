@@ -7,6 +7,18 @@ import Prev from "./BtnPrev";
 import "./Tagging.scss";
 import TagsInput from "./TagsInput";
 import axios from "axios";
+import FadeLoader from "react-spinners/FadeLoader";
+import { css } from "@emotion/core";
+
+const override = css`
+  display: block;
+  margin-bottom: 0 auto;
+  border-color: yellow;
+  height: 15px;
+  width: 5px;
+  radius: 5px;
+  margin-bottom: 40px;
+`;
 
 function WorkTitle({ handleWriteData }) {
   const [tags, setTags] = useState([]);
@@ -16,6 +28,9 @@ function WorkTitle({ handleWriteData }) {
   const [locationInput, setLocationInput] = useState("");
   const [title, setTitle] = useState("");
   const [selectCategory, setSelectCategory] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("rgb(251, 216, 110)");
 
   useEffect(() => {
     setCoords((prev) => {
@@ -26,13 +41,14 @@ function WorkTitle({ handleWriteData }) {
   const submitLocation = (e) => {
     e.preventDefault();
     console.log("1");
+    setIsLoading(true);
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        setIsLoading(true);
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
         console.log("2");
         console.log(lat, lon);
-
         axios
           .get(
             `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lon}&y=${lat}`,
@@ -65,14 +81,15 @@ function WorkTitle({ handleWriteData }) {
                 region: locationName,
               });
             }
+            setIsLoading(false);
           });
       },
       () => {
         alert("위치정보 접근을 허용해주세요");
+        setIsLoading(false);
       },
       { timeout: 10000 }
     );
-
     console.log(2);
   };
 
@@ -122,14 +139,14 @@ function WorkTitle({ handleWriteData }) {
 
   const categoryList = [
     "교육",
+    "친구",
     "육아",
-    "스포츠",
-    "레저",
     "뷰티",
-    "컴퓨터",
+    "스포츠 / 레저",
+    "반려동물",
     "언어",
-    "예체능",
-    "요리",
+    "컴퓨터",
+    "요리 / 예체능",
     "기타",
   ];
 
@@ -224,13 +241,31 @@ function WorkTitle({ handleWriteData }) {
             <div className="job__location__inputbox">
               <form>
                 <button onClick={submitLocation}>현재위치</button>
-                <input
-                  className="write_location_button"
-                  type="text"
-                  value={locationInput}
-                  placeholder="ex.서울시 서초구"
-                  onChange={(e) => setLocationInput(e.target.value)}
-                />
+                {!isLoading ? (
+                  <input
+                    className="write_location_button"
+                    type="text"
+                    value={locationInput}
+                    placeholder="ex.서울시 서초구"
+                    onChange={(e) => setLocationInput(e.target.value)}
+                  />
+                ) : (
+                  <>
+                    <input
+                      className="write_location_button"
+                      type="text"
+                      value={locationInput}
+                      placeholder="ex.서울시 서초구"
+                      onChange={(e) => setLocationInput(e.target.value)}
+                    />
+                    <FadeLoader
+                      color={color}
+                      loading={loading}
+                      css={override}
+                      size={100}
+                    />
+                  </>
+                )}
               </form>
             </div>
           </div>
