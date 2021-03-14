@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./GetStarted.css";
-import pineapple5 from "../../img/getStart/pineapple5.png";
+import page from "../../img/getStart/page.png";
 
 function GetStarted() {
   const [click, setClick] = useState(false);
@@ -10,11 +10,12 @@ function GetStarted() {
   return (
     <div className="getstarted">
       <div className="getstarted__left">
-        <span className="getstarted__left__header">
-          Fine the Talent you need <br />
-          Share the Talent you have <br />
-          In your fineapple
-        </span>
+        <div className="getstarted__left__header">
+          혼자하는 것이 능사가 아닙니다. <br />
+          능력사무소 에서 <br />
+          서로의 능력을나눠보세요. <br />
+        </div>
+        <img src={page} alt="" className="getstarted__right__img" />
 
         <Link
           to="/feed"
@@ -23,9 +24,6 @@ function GetStarted() {
         >
           시작하기
         </Link>
-      </div>
-      <div className="getstarted__right">
-        <img src={pineapple5} alt="" className="getstarted__right__img" />
       </div>
     </div>
   );

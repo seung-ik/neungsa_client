@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from '../../img/logo_wite.png'
+import Logo from "../../img/logo_wite.png";
 
 import "./Header.css";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -45,6 +45,16 @@ function Header({ handleLogin, Login }) {
           <img src={Logo} alt="Fineapple logo" />
         </Link>
         <ul className="list">
+          <li className="header__item">
+            <Link to="/feed" className="header__links" onClick={handleClick}>
+              글 목록
+            </Link>
+          </li>
+          <li className="header__item">
+            <Link to="/write/1" className="header__links" onClick={handleClick}>
+              글 쓰기
+            </Link>
+          </li>
           {!isAuthenticated ? (
             <li className="header__item">
               <div
@@ -67,12 +77,6 @@ function Header({ handleLogin, Login }) {
               </div>
             </li>
           )}
-
-          <li className="header__item">
-            <Link to="/feed" className="header__links" onClick={handleClick}>
-              피드
-            </Link>
-          </li>
           <li className="header__item">
             {!isAuthenticated ? (
               <Link

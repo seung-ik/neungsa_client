@@ -17,6 +17,7 @@ const override = css`
   width: 5px;
   radius: 5px;
   margin-bottom: 40px;
+  margin-left: 250px;
 `;
 
 function WorkReview({ writeData, handlecomplete, history }) {
