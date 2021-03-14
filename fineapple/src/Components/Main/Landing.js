@@ -7,6 +7,7 @@ const firstColor = "linear-gradient(90deg, #ffe2d9 0%, #faebe6 90%)";
 const secondColor = "linear-gradient(90deg, #00C49F 0%, #95d4c8 90%)";
 const thirdColor = "linear-gradient(90deg, #e2eb84 0%, #eaf0ac 90%)";
 
+
 function Landing() {
   // const [bgColor, setBgColor] = useState(firstColor);
   const [search, setSearch] = useState('')

@@ -36,9 +36,7 @@ function Main() {
         <section className="recommandation__container">
           <Recommandation location={location} />
         </section>
-        <section className="introduction__container">
-          <Introduction />
-        </section>
+
 
         <section className="business__container">
           <Business />

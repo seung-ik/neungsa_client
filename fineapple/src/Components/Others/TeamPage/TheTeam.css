@@ -1,9 +1,10 @@
 /*  ! SECTION STARTS HERE ! */
 
 .section {
-    padding: 3.75rem 24px 0;
+    padding: 20px 0;
     overflow: hidden;
 }
+
 
 .section, .section>.container, .title-decor, sub, sup {
     position: relative;
@@ -265,7 +266,7 @@ h3 {
 
 .team-member__subtitle {
     font-size: 14px;
-    color: #8ca5c6;
+    color: #8ab77b;
 }
 
 /*  !  CARD BACK  STARTS HERE ! */
