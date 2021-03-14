@@ -73,26 +73,28 @@ function PageUpdateMy({ handleWriteData, history }) {
   }, [locationInput]);
 
   useEffect(() => {
-    axios
-      .post("https://localhost:3000/myPage", {
-        email: user.email,
-      })
-      .then((res) => {
-        let myData = res.data.mypagepost;
-        console.log(myData);
-        setNickName(myData.nickname);
-        if (myData.ContactTime) setContactTime(myData.ContactTime);
-        if (myData.descrition) setTrade(myData.descrition); //descrition > trade 로 벼경 예정
-        if (myData.Entrepreneur) setEntrepreneur(myData.Entrepreneur);
-        if (myData.location) setLocationInput(myData.location);
-        if (myData.trade) setTrade(myData.trade);
-        if (myData.Certificate) setTags(myData.Certificate.split(","));
-        if (myData.Job) setAddOne(myData.Job);
-        if (myData.school) setAddTwo(myData.school);
+    if (isAuthenticated) {
+      axios
+        .post("https://localhost:3000/myPage", {
+          email: user.email,
+        })
+        .then((res) => {
+          let myData = res.data.mypagepost;
+          console.log(myData);
+          setNickName(myData.nickname);
+          if (myData.ContactTime) setContactTime(myData.ContactTime);
+          if (myData.descrition) setTrade(myData.descrition); //descrition > trade 로 벼경 예정
+          if (myData.Entrepreneur) setEntrepreneur(myData.Entrepreneur);
+          if (myData.location) setLocationInput(myData.location);
+          if (myData.trade) setTrade(myData.trade);
+          if (myData.Certificate) setTags(myData.Certificate.split(","));
+          if (myData.Job) setAddOne(myData.Job);
+          if (myData.school) setAddTwo(myData.school);
 
-        // console.log(myData);
-      });
-  }, []);
+          // console.log(myData);
+        });
+    }
+  }, [isAuthenticated]);
 
   const submitLocation = (e) => {
     e.preventDefault();
@@ -163,7 +165,17 @@ function PageUpdateMy({ handleWriteData, history }) {
         console.log("ok");
         history.push("/mypage");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => alert("수정한 내용을 확인해주세요"));
+  };
+
+  const corfirmNickName = () => {
+    axios
+      .post("https://localhost:3000/myPage/nickname", {
+        email: user.email,
+        nickname: nickName,
+      })
+      .then((res) => alert("사용가능한 닉네임 입니다."))
+      .catch((err) => alert("중복된 닉네임 입니다."));
   };
 
   return (
@@ -192,6 +204,7 @@ function PageUpdateMy({ handleWriteData, history }) {
                     value={nickName}
                     onChange={(e) => setNickName(e.target.value)}
                   />
+                  <button onClick={() => corfirmNickName()}>중복확인</button>
                 </div>
                 <div className="update_inner">
                   <h3 className="update__title">연락가능시간</h3>

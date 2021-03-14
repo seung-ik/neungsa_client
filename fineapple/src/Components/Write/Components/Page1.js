@@ -26,7 +26,7 @@ function GettingStarted({ handleWriteData, history }) {
               onClick={() => handleSelect("레슨 찾기")}
             >
               <WorkIcon className="icon" />
-              <h3 className="choice__desc">레슨 구하기</h3>
+              <h3 className="choice__desc">레슨</h3>
             </div>
             <div
               className={

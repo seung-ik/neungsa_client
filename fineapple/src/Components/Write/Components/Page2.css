@@ -206,10 +206,11 @@
 
 .job__category__radio > div {
   /* border: 1px solid black; */
-  width: 100px;
+  width: 120px;
   margin: 10px 20px 10px 0;
 }
 .job__category__radio > div > label {
-  width: 60px;
+  /* border: 1px solid black; */
+  width: 120px;
   margin-left: 5px;
 }

@@ -24,9 +24,9 @@ class BudgetSlider extends React.Component {
         <input
           className="budgetslider__range"
           list="tickmarks"
-          max={100000}
+          max={50000}
           onChange={(e) => this.onUpdate(e)}
-          step={1000}
+          step={500}
           type="range"
           value={this.state.value}
         />

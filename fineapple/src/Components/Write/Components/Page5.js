@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Next from "./BtnNext";
 import Prev from "./BtnPrev";
@@ -6,8 +6,22 @@ import { Link, withRouter } from "react-router-dom";
 import ReactS3 from "react-s3";
 import "./Page5.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import FadeLoader from "react-spinners/FadeLoader";
+import { css } from "@emotion/core";
+
+const override = css`
+  display: block;
+  margin-bottom: 0 auto;
+  border-color: yellow;
+  height: 15px;
+  width: 5px;
+  radius: 5px;
+  margin-bottom: 40px;
+  margin-left: 250px;
+`;
 
 function WorkReview({ writeData, handlecomplete, history }) {
+  const { loginWithRedirect } = useAuth0();
   const { user, isAuthenticated, isLoading } = useAuth0();
   const config = {
     bucketName: process.env.REACT_APP_BUCKETNAME,
@@ -16,7 +30,9 @@ function WorkReview({ writeData, handlecomplete, history }) {
     accessKeyId: process.env.REACT_APP_ACCESSKEYID,
     secretAccessKey: process.env.REACT_APP_SECRETACCESSKEY,
   };
-  console.log(config);
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("rgb(251, 216, 110)");
+  const [submitLoading, setSubmitLoading] = useState(false);
 
   const addCommas = (num) => {
     if (num) {
@@ -39,40 +55,48 @@ function WorkReview({ writeData, handlecomplete, history }) {
   }
 
   async function handleSubmit(data) {
-    const uploadS3Files = data.toForm;
-    let s3;
-    if (uploadS3Files) {
-      s3 = await uploadS3(uploadS3Files);
+    console.log(1);
+    setSubmitLoading(true);
+    if (!user) {
+      loginWithRedirect();
+    } else {
+      const uploadS3Files = data.toForm;
+      let s3;
+      if (uploadS3Files) {
+        s3 = await uploadS3(uploadS3Files);
+      }
+      let submitObj = {
+        email: user.email,
+        group_category: data.type,
+        profileimage: "profileimage",
+        title: data.title,
+        category: data.category,
+        tag: data.tags,
+        content: data.content,
+        images: s3 || [],
+        location: data.region,
+        latitude: data.lat,
+        longitude: data.lon,
+        serviceId: "12312",
+        chatroom: "123123",
+        cost: data.cost,
+      };
+      axios({
+        method: "post",
+        url: "https://localhost:3000/write/friend",
+        data: submitObj,
+      })
+        .then((res) => {
+          console.log(2);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      console.log(3);
+      handlecomplete();
+      history.push("/feed");
+      return () => setSubmitLoading(false);
     }
-    console.log(user);
-
-    let submitObj = {
-      email: user.email,
-      group_category: data.type,
-      profileimage: "profileimage",
-      title: data.title,
-      category: data.category,
-      tag: data.tags,
-      content: data.content,
-      images: s3 || [],
-      location: data.region,
-      latitude: data.lat,
-      longitude: data.lon,
-      serviceId: "12312",
-      chatroom: "123123",
-      cost: data.cost,
-    };
-
-    axios({
-      method: "post",
-      url: "https://localhost:3000/write/friend",
-      data: submitObj,
-    })
-      .then((res) => console.log("2", res))
-      .catch((err) => console.log(err));
-
-    handlecomplete();
-    history.push("/feed");
   }
 
   const renderPhotos = (photos) => {
@@ -102,15 +126,27 @@ function WorkReview({ writeData, handlecomplete, history }) {
               게시글 저장
             </div>
           </div>
+
           <h1 className="workreview__top">글 제목</h1>
           <div className="workreview__container">
             <h1>글 제목</h1>
             <p>{writeData.title}</p>
           </div>
           <div className="workreview__container">
+            {submitLoading ? (
+              <FadeLoader
+                color={color}
+                loading={loading}
+                css={override}
+                size={100}
+              />
+            ) : (
+              ""
+            )}
             <h1>서비스 카테고리</h1>
             <p>교육</p>
           </div>
+
           <div className="workreview__container">
             <h1>서비스 태그</h1>
             <div className="workreview__tag__container">
@@ -134,6 +170,7 @@ function WorkReview({ writeData, handlecomplete, history }) {
         </div>
         <div className="workrevview__budget">
           <h1 className="workreview__top">가격 및 예산</h1>
+
           <div className="workreview__container">
             <h1>결제 방법</h1>
             <p>{writeData.payment === "meet" ? "추후 협의" : "시간당 계산"}</p>
@@ -144,6 +181,16 @@ function WorkReview({ writeData, handlecomplete, history }) {
             <div className="workreview__container">
               <h1>시간당 가격</h1>
               <p>{addCommas(writeData.cost)} 원</p>
+              {submitLoading ? (
+                <FadeLoader
+                  color={color}
+                  loading={loading}
+                  css={override}
+                  size={100}
+                />
+              ) : (
+                ""
+              )}
             </div>
           )}
 
@@ -151,8 +198,9 @@ function WorkReview({ writeData, handlecomplete, history }) {
             <Link className="writePage" to="/write/4">
               <Prev />
             </Link>
+
             <div className="writePage" onClick={() => handleSubmit(writeData)}>
-              <Next />
+              <Next onClick={() => handleSubmit(writeData)} />
             </div>
           </div>
         </div>

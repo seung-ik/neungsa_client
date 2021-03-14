@@ -4,26 +4,28 @@
   padding: 0;
 }
 .mypage_container {
-  margin: 60px 120px;
+  padding: 60px 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #f1f2f4;
 }
-
 /* profile 구역 */
 .mypage_profile {
   display: flex;
   align-items: center;
   width: 65vw;
-  border-radius: 4px;
+  border-radius: 5px;
   min-height: 180px;
-  background-color: #f1f1f1;
+  background: white;
+  border: 1px solid #d1d1d1;
   padding: 32px;
 }
 .mypage_profile > img {
   width: 120px;
   height: 150px;
   flex: 1;
+  border-radius: 20px;
 }
 .mypage_profile > div {
   height: 150px;
@@ -42,11 +44,17 @@
   font-weight: 700;
   font-size: 16px;
   border: none;
-  background-color: #90b06e;
+  background-color: #8ab77b;
+;
   border-radius: 10px;
   color: white;
   outline: none;
   z-index: 1;
+  cursor: pointer;
+}
+
+.mypage_profile > div > div > button:first-child:hover {
+  background-color: rgba(152, 201, 136, 0.897);
 }
 .mypage_profile > div > div > button:last-child {
   position: absolute;
@@ -57,10 +65,16 @@
   font-weight: 700;
   font-size: 16px;
   border: none;
-  background-color: #c9a96d;
+  background-color: #f54028;
   border-radius: 10px;
   color: white;
   outline: none;
+  cursor: pointer;
+}
+
+.mypage_profile > div > div > button:last-child:hover {
+  background-color: #ff4800fd;
+  color: rgb(236, 236, 236);
 }
 .mypage_profile_name {
   font-size: 25px;
@@ -73,24 +87,22 @@
   font-size: 12px;
   color: #727585;
 }
-
 /* 소개구역 */
-
 .mypage_introduction {
   padding: 20px 10px;
   margin-top: 60px;
   width: 65vw;
   height: 320px;
   /* border-top: 1px solid rgb(143, 141, 141); */
-  background-color: #f1f1f1;
+  border-radius: 4px;
+  background: white;
+  border: 1px solid #d1d1d1;
 }
-
 .mypage_introduction_header {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 24px;
 }
-
 .mypage_introduction_container {
   display: flex;
   padding-left: 60px;
@@ -112,17 +124,16 @@
   top: 5px;
   left: -8px;
 }
-
 /* 최근활동구역 */
-
 .mypage_service {
-  background-color: #f1f1f1;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #d1d1d1;
   width: 65vw;
   padding: 20px;
   padding-right: 90px;
   margin-top: 60px;
 }
-
 .service_list_item {
   /* border: 1px solid black;? */
   padding: 5px;
@@ -132,18 +143,19 @@
   margin-bottom: 10px;
   margin-left: 30px;
 }
+
+.service_list_item_link >p:hover {
+  color: rgb(80, 80, 73);
+}
 /* 
 .service_list_item > h3 {
   border-bottom: 0.1px solid rgb(145, 142, 142);
 } */
-
 .service_list_item_link {
   text-decoration: none;
   color: black;
 }
-
 /* ? */
-
 .modal-container {
   position: absolute;
   top: 0;
@@ -158,7 +170,6 @@
   pointer-events: none;
   transition: opacity 0.4s ease-in-out;
 }
-
 .modal {
   width: 460px;
   height: 280px;
@@ -177,7 +188,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .close-modal {
   width: 80px;
   height: 80px;
@@ -192,7 +202,6 @@
   right: -30px;
   top: -30px;
 }
-
 .close-modal::before,
 .close-modal::after {
   content: "";
@@ -205,11 +214,9 @@
   border-radius: 5px;
   background-color: snow;
 }
-
 .close-modal::after {
   transform: rotateZ(-45deg);
 }
-
 .show {
   opacity: 1;
   pointer-events: auto;
