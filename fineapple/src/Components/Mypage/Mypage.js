@@ -14,9 +14,9 @@ import axios from "axios";
 import { useHistory, withRouter } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
-import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
-import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
+import WorkOutlineIcon from "@material-ui/icons/WorkOutline";
+import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
+import VerifiedUserOutlinedIcon from "@material-ui/icons/VerifiedUserOutlined";
 const Mypage = (props) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [onEdit, setOnEdit] = useState(false);
@@ -66,7 +66,7 @@ const Mypage = (props) => {
             <button className="close-modal" onClick={openModal}></button>
             <div className="modal_text_container">
               <div>글목록 및 이용내역이 사라집니다.</div>
-              <button onClick={deleteProfile}>삭제</button>
+              <button onClick={deleteProfile}>확인</button>
             </div>
           </div>
         </section>

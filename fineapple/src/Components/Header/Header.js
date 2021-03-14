@@ -16,8 +16,8 @@ function Header({ handleLogin, Login }) {
 
   useEffect(() => {
     if (isAuthenticated) {
-      console.log(user);
-      localStorage.setItem('email', user.email);
+      // console.log(user);
+      localStorage.setItem("email", user.email);
       axios
         .post("https://localhost:3000", {
           email: user.email,

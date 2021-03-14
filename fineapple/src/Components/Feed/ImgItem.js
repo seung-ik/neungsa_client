@@ -1,22 +1,23 @@
 import React from "react";
-import green from "./adImg/green.png";
-import book from "./adImg/book.png";
-import bakery from "./adImg/bakery.png";
-import barbershop from "./adImg/barbershop.png";
+import cook from "./adImg/cook.png";
+import paris from "./adImg/paris.png";
+import hair from "./adImg/hair.png";
+import golf from "./adImg/golf.png";
+import library from "./adImg/library.png";
 
 const ImgItem = () => {
   return (
     <div className="advertise_list">
-      <img src={bakery} alt="" />
-      <img src={barbershop} alt="" />
-      <img src={green} alt="" />
-      <img src={book} alt="" />
-      <img src="https://www.ezenac.co.kr/images/intro/ci_k_img01.jpg" alt="" />
-      <img src={bakery} alt="" />
-      <img src={barbershop} alt="" />
-      <img src={green} alt="" />
-      <img src={book} alt="" />
-      <img src="https://www.ezenac.co.kr/images/intro/ci_k_img01.jpg" alt="" />
+      <img src={paris} alt="" />
+      <img src={hair} alt="" />
+      <img src={library} alt="" />
+      <img src={cook} alt="" />
+      <img src={golf} alt="" />
+      <img src={paris} alt="" />
+      <img src={hair} alt="" />
+      <img src={library} alt="" />
+      <img src={cook} alt="" />
+      <img src={golf} alt="" />
     </div>
   );
 };

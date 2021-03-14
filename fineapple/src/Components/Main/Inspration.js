@@ -12,15 +12,15 @@ import review_profile from "../../img/mockup/review_profile.png";
 
 function Inspration() {
   const history = useHistory();
-  useEffect(() => {
-    axios
-      .get(`https://localhost:3000/feedpage`)
-      .then((response) => {
-        let data = response.data.find_feed;
-        // console.log(data);
-      })
-      .catch((e) => {});
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://localhost:3000/feedpage`)
+  //     .then((response) => {
+  //       let data = response.data.find_feed;
+  //       // console.log(data);
+  //     })
+  //     .catch((e) => {});
+  // }, []);
   return (
     <div className="insparation">
       {/* <h1>이런 활동 어때요?</h1> */}

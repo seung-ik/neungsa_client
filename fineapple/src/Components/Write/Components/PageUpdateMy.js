@@ -61,7 +61,7 @@ function PageUpdateMy({ handleWriteData, history }) {
     }
 
     if (tags.length > 0 && emails.length > 0) {
-      console.log(tags, emails);
+      // console.log(tags, emails);
       // Submit form
     }
   };
@@ -80,7 +80,7 @@ function PageUpdateMy({ handleWriteData, history }) {
         })
         .then((res) => {
           let myData = res.data.mypagepost;
-          console.log(myData);
+          // console.log(myData);
           setNickName(myData.nickname);
           if (myData.ContactTime) setContactTime(myData.ContactTime);
           if (myData.descrition) setTrade(myData.descrition); //descrition > trade 로 벼경 예정
@@ -139,7 +139,7 @@ function PageUpdateMy({ handleWriteData, history }) {
           });
       },
       () => {
-        console.log("위치정보 접근을 허용해주세요");
+        alert("위치정보 접근을 허용해주세요");
       },
       { timeout: 6000 }
     );
@@ -157,12 +157,12 @@ function PageUpdateMy({ handleWriteData, history }) {
       Job: addOne,
       school: addTwo,
     };
-    console.log(updateObj);
+    // console.log(updateObj);
 
     axios
       .put("https://localhost:3000/myPage/update", updateObj)
       .then((res) => {
-        console.log("ok");
+        // console.log("ok");
         history.push("/mypage");
       })
       .catch((err) => alert("수정한 내용을 확인해주세요"));

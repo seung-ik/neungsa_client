@@ -17,10 +17,6 @@ function WorkDes({ handleWriteData }) {
       return <img src={photo} key={photo} alt="" style={{ width: "70px" }} />;
     });
   };
-  useEffect(() => {
-    console.log(files);
-    console.log(toForm);
-  }, [files]);
 
   const onDrop = (e) => {
     e.preventDefault();
