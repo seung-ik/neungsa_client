@@ -78,6 +78,8 @@
     margin-top: 10px;
   margin-left: 10px;
   color: white;
+  font-size: 22px;
+  line-height: 22px;
 }
 
 .chat_header_name_container {
@@ -140,13 +142,13 @@ flex: 3;
   color: #444444;
 }
 
-.chat_you {
+.chat_i {
   display: flex;
   margin-bottom: 4px;
   flex-direction: column;
   flex: 7;
 }
-.chat_i {
+.chat_you {
   display: flex;
   margin-bottom: 4px;
   align-items: flex-end;
@@ -154,7 +156,7 @@ flex: 3;
   padding-right: 10px;
 }
 
-.chat_you_text {
+.chat_i_text {
 
   background-color: rgba(251, 216, 110, 0.933);
   border-radius: 0px 10px 10px 10px;
@@ -170,13 +172,13 @@ flex: 3;
 
 }
 
-.chat_you_text_content {
+.chat_me_text_content {
   line-height: 20px !important;
   font-size: 15px !important;
   max-width: 260px;
 }
 
-.chat_me_text {
+.chat_you_text {
   background-color: rgb(238, 238, 238);
   border-radius: 8px;
   color: #444444;
@@ -190,7 +192,7 @@ flex: 3;
   border-radius: 10px 0px 10px 10px;
 }
 
-.chat_me_text_content {
+.chat_you_text_content {
   line-height: 20px !important;
   font-size: 15px !important;
   max-width: 260px;
@@ -212,13 +214,13 @@ flex: 3;
   align-items: center;
   margin-bottom: 5px;
 }
-
+/* 
 .chat_profile_name {
   color: rgb(36, 36, 40);
   font-weight: 700;
   font-size: 13px;
   margin-left: 5px;
-}
+} */
 
 .chat_profile_sent {
   margin-left: 5px;

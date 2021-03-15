@@ -106,8 +106,8 @@ const Chat = ({ handleChat, closeChatList, backToChatRoom, email, chatId }) => {
       return (
         <li className="chat_you">
           <div className="chat_profile">
-            <Avatar style={{ height: "25px", width: "25px" }} src={profile.recipientprofileimage} />
-            <div className="chat_profile_name">{profile.recipientnickname}</div>
+            {/* <Avatar style={{ height: "25px", width: "25px" }} src={profile.recipientprofileimage} /> */}
+            {/* <div className="chat_profile_name">{profile.recipientnickname}</div> */}
             <div className="chat_profile_sent">{getTime(created_at)}</div>
           </div>
           <div className="chat_you_text">
@@ -130,8 +130,9 @@ const Chat = ({ handleChat, closeChatList, backToChatRoom, email, chatId }) => {
             className="chat_header_arrow"
           />
 
-          <Avatar style={{ height: "40px", width: "40px" }} src={cho} />
-          <h4>추성훈</h4>
+          {/* <Avatar style={{ height: "40px", width: "40px" }} src={cho} />
+          <h4>추성훈</h4> */}
+          <h4>Message 🎁</h4>
         </div>
         <CloseSharpIcon onClick={closeChatList} className="chat_header_close" />
       </div>
