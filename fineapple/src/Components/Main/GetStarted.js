@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./GetStarted.css";
 import page from "../../img/getStart/page.png";
 
+
+
 function GetStarted() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -10,10 +12,11 @@ function GetStarted() {
   return (
     <div className="getstarted">
       <div className="getstarted__left">
-        <div className="getstarted__left__header">
-          혼자하는 것이 능사가 아닙니다. <br />
-          능력사무소 에서 <br />
-          서로의 능력을나눠보세요. <br />
+
+          <div className="getstarted__left__header" >
+          우리 동네 사람들이 다 모여있는<br />
+          위치기반 재능거래 서비스 파인애플<br />
+          지금 바로 시작해 보세요 😍
         </div>
         <img src={page} alt="" className="getstarted__right__img" />
 

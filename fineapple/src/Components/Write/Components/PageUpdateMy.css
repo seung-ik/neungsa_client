@@ -33,7 +33,7 @@
   border: none;
   background-color: rgb(247, 216, 125);
   padding: 10px;
-  border: 1px solid #d1d1d1;
+  cursor: pointer;
   color: black;
   font-size: 0.8rem;
   margin-left: 10px;
@@ -92,7 +92,7 @@
   font-size: 15px;
 }
 
-.job__hashtag__inputbox {
+.job__hashtag__inputbox_ {
   padding: 10px 15px;
   line-height: 1.42857;
   width: 70%;
@@ -100,7 +100,7 @@
   border-radius: 5px;
   margin-left: 8px;
   margin-bottom: 40px;
-  margin-top: 20px;
+  margin-top: -20px;
 }
 .job__location__inputbox {
   padding: 10px 15px 10px 0;
@@ -126,14 +126,22 @@
 }
 
 .update_finish_btn {
-  padding: 10px 10%;
+  cursor: pointer;
+  padding: 10px 40px;
   border-radius: 5px;
   border: none;
   margin-left: 20px;
   background: #8ab77b;
-  color: beige;
+  color: white;
   text-decoration: none;
   position: absolute;
   bottom: 10px;
+  margin-top: 10px;
   right: 10px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.update_finish_btn:hover {
+  background: #72b45c;
 }

@@ -36,7 +36,7 @@ function Recommandation({ location }) {
   return (
     <div className="recommandation">
       <div className="text__container">
-        <h1 className="rec__header">
+        <h1 className="rec__header box_ animate_ fadeInDown_ two_">
           {location ? location : "파인애플"} 에는 이런 일들이 있어요!
         </h1>
       </div>
@@ -50,6 +50,7 @@ function Recommandation({ location }) {
             src="https://assets.cdn.soomgo.com/icons/slick-arrow-left.svg"
             alt="left"
           />
+ 
         </button>
 
         <div className="slider_wrapper">
@@ -66,6 +67,7 @@ function Recommandation({ location }) {
                 src={edu}
                 alt=""
               />
+              <h4>Education</h4>
             </li>
             <li className="single__slide">
               <img
@@ -76,6 +78,7 @@ function Recommandation({ location }) {
                 src={friends}
                 alt=""
               />
+              <h4>Friends</h4>
             </li>
             <li className="single__slide">
               <img
@@ -86,6 +89,7 @@ function Recommandation({ location }) {
                 src={baby}
                 alt=""
               />
+              <h4>Kids</h4>
             </li>
             <li className="single__slide">
               <img
@@ -96,6 +100,7 @@ function Recommandation({ location }) {
                 src={beauty}
                 alt=""
               />
+<h4>Beauty</h4>
             </li>
             <li className="single__slide">
               <img
@@ -106,6 +111,7 @@ function Recommandation({ location }) {
                 src={sports}
                 alt=""
               />
+              <h4>Recreation</h4>
             </li>
             <li className="single__slide">
               <img
@@ -116,6 +122,7 @@ function Recommandation({ location }) {
                 src={pet}
                 alt=""
               />
+              <h4>Furry Friends</h4>
             </li>
             <li className="single__slide">
               <img
@@ -126,6 +133,7 @@ function Recommandation({ location }) {
                 src={language}
                 alt=""
               />
+              <h4>Global</h4>
             </li>
             <li className="single__slide">
               <img
@@ -136,6 +144,7 @@ function Recommandation({ location }) {
                 src={computer}
                 alt=""
               />
+              <h4>Computer</h4>
             </li>
             <li className="single__slide">
               <img
@@ -146,6 +155,7 @@ function Recommandation({ location }) {
                 src={cook}
                 alt=""
               />
+              <h4>Cooking</h4>
             </li>
             <li className="single__slide">
               <img
@@ -156,6 +166,7 @@ function Recommandation({ location }) {
                 src={guitar}
                 alt=""
               />
+              <h4>Others</h4>
             </li>
             <li className="single__slide">
               <img
@@ -166,6 +177,7 @@ function Recommandation({ location }) {
                 src={edu}
                 alt=""
               />
+              <h4>Education</h4>
             </li>
           </ul>
         </div>
