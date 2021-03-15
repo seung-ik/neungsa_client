@@ -25,6 +25,10 @@
   position: relative;
 }
 
+.githubicon {
+  padding-top: 0px;
+}
+
 .footer__logo {
   justify-self: start;
   margin-top: 20px;
