@@ -30,7 +30,7 @@ function Inspration() {
           <li
             onClick={() => {
               // console.log("ok");
-              history.push("/feed/180");
+              // history.push("/feed/180");
             }}
           >
             <img src={insp1} alt="" className="insp_slide_img" />
@@ -49,7 +49,7 @@ function Inspration() {
           <li
             onClick={() => {
               // console.log("ok");
-              history.push("/feed/182");
+              // history.push("/feed/182");
             }}
             className="insp_l_deg"
           >
@@ -69,7 +69,7 @@ function Inspration() {
           <li
             onClick={() => {
               console.log("ok");
-              history.push("/feed/184");
+              // history.push("/feed/184");
             }}
             className="insp_r_deg"
           >
@@ -89,7 +89,7 @@ function Inspration() {
           <li
             onClick={() => {
               // console.log("ok");
-              history.push("/feed/186");
+              // history.push("/feed/186");
             }}
           >
             <img src={insp4} alt="" className="insp_slide_img" />
@@ -108,7 +108,7 @@ function Inspration() {
           <li
             onClick={() => {
               // console.log("ok");
-              history.push("/feed/190");
+              // history.push("/feed/190");
             }}
             className="insp_r_deg"
           >
