@@ -250,6 +250,7 @@ border: 2px solid #8ab77b;
   line-height: 30px;
   font-weight: 600;
   margin-bottom: -10px;
+  width: 400px;
 }
 .post_edit_container > input {
   padding: 6px;
