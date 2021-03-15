@@ -102,7 +102,7 @@ function Feed(props) {
       setFeedsLoading(true);
       // console.log(query.toString());
       axios
-        .get(`https://localhost:3000/feedpage?${query}`)
+        .get(`https://fineapple.kr/feedpage?${query}`)
         .then((response) => {
           setFeeds(response.data.find_feed.slice(num).reverse());
           setFeedsLoading(false);
@@ -130,7 +130,7 @@ function Feed(props) {
         />
         <div className="feed__wrapper">
           <div className="feed__wrapper__header">
-            <h2 className='box animate fadeInDown two'> 파인애플에는 이런일이 있어요!</h2>
+            <h2 className='box__ animate__ fadeInDown__ two__'> 파인애플에는 이런일이 있어요!</h2>
 
             <div className="feed__wrapper__top__container">
               <div className="feed__wrapper__search">

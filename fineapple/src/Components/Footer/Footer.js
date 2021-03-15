@@ -16,13 +16,13 @@ function Footer() {
           <div className="footer_github_container">
             <div>
               <div>
-                [Front] 윤어진{" "}
-                <a href="https://github.com/seung-ik">
-                  <GitHubIcon style={{ color: "white" }} />
+                    Emily Youn{" "}
+                <a href="https://github.com/emilyoun">
+                  <GitHubIcon style={{ color: "white", paddingTop: '-2px' }} />
                 </a>
               </div>
               <div>
-                [Front] 오승익{" "}
+                Seungik Oh {" "}
                 <a href="https://github.com/seung-ik">
                   <GitHubIcon style={{ color: "white" }} />
                 </a>
@@ -30,14 +30,14 @@ function Footer() {
             </div>
             <div>
               <div>
-                [Back] 최고훈{" "}
-                <a href="https://github.com/seung-ik">
-                  <GitHubIcon style={{ color: "white" }} />
+                Gohun Choi{" "}
+                <a href="https://github.com/cghun94">
+                  <GitHubIcon className='githubicon' style={{ color: "white" }} />
                 </a>
               </div>
               <div>
-                [Back] 현승환{" "}
-                <a href="https://github.com/seung-ik">
+                Seunghwan Hyeon{" "}
+                <a href="https://github.com/hyeon0416">
                   <GitHubIcon style={{ color: "white" }} />
                 </a>
               </div>

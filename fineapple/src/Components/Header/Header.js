@@ -19,7 +19,7 @@ function Header({ handleLogin, Login }) {
       // console.log(user);
       localStorage.setItem("email", user.email);
       axios
-        .post("https://localhost:3000", {
+        .post("https://fineapple.kr", {
           email: user.email,
           nickname: user.nickname,
           image: user.picture,
@@ -28,10 +28,10 @@ function Header({ handleLogin, Login }) {
         .then((res) => {})
         .catch((err) => {
           if (!err.response) {
-            logout({ returnTo: "https://localhost:8000" });
+            logout({ returnTo: "https://fineaple.com" });
             alert("서버가 불안정합니다.");
           } else if (err.response.status === 500) {
-            logout({ returnTo: "https://localhost:8000" });
+            logout({ returnTo: "https://fineaple.com" });
             alert("이미 가입된 상태 입니다.");
           }
         });
@@ -46,7 +46,7 @@ function Header({ handleLogin, Login }) {
         </Link>
         <ul className="list">
           <li className="header__item">
-            <Link to="/feed" className="header__links" onClick={handleClick}>
+            <Link to="/feed" onClick={() => window.location.href="/feed"} className="header__links" >
               글 목록
             </Link>
           </li>
