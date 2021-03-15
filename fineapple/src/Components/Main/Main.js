@@ -36,6 +36,9 @@ function Main() {
         <section className="recommandation__container">
           <Recommandation location={location} />
         </section>
+        <section className="inspration__container">
+          <Reviews />
+        </section>
         {/* <section className="introduction__container">
           <Introduction />
         </section> */}
@@ -44,9 +47,7 @@ function Main() {
           <Business />
         </section>
 
-        <section className="inspration__container">
-          <Reviews />
-        </section>
+
 
         <section className="reviews__container">
           <Inspration />
