@@ -151,9 +151,9 @@ const Chat = ({ handleChat, closeChatList, backToChatRoom, email, chatId }) => {
           onChange={(e) => onTextChange(e)}
           // onKeyPress={(e) => 'enter'}
         />
-        <button className="input_send_btn" onClick={(e) => onMessageSubmit(e)} >
+        <div className="input_send_btn" onClick={(e) => onMessageSubmit(e)} >
           <SendIcon  />
-        </button>
+        </div>
       </div>
     </div>
   );

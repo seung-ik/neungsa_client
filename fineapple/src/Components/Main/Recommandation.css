@@ -20,6 +20,7 @@
   height: 370px;
   /* margin: 20px; */
   border-radius: 10px;
+  position: relative;
 }
 
 .slide__img:hover {
@@ -64,3 +65,73 @@
   float: left;
   margin-right: 30px;
 }
+
+
+
+.single__slide > img {
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 5px 17px -7px rgba(0,0,0,0.75);
+  border-radius: 10px;
+  margin-right: 10px;
+  transition: transform 100ms ease-in;
+  cursor: pointer;
+}
+
+.single__slide > img:hover {
+  transform: scale(1.07);
+}
+.single__slide > h4 {
+    position: relative;
+    bottom: 50px;
+    left: 20px;
+    color: white;
+    font-size: 30px;
+}
+
+
+.animate_ {
+  -webkit-animation-duration: 7s;
+  animation-duration: 7s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.two_ {
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+@-webkit-keyframes fadeInDown_ {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInDown_ {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInDown_ {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+

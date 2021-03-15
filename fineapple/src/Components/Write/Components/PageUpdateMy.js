@@ -207,12 +207,12 @@ function PageUpdateMy({ handleWriteData, history }) {
                   <button onClick={() => corfirmNickName()}>중복확인</button>
                 </div>
                 <div className="update_inner">
-                  <h3 className="update__title">연락가능시간</h3>
+                  <h3 className="update__title">직업</h3>
                   <input
                     type="text"
                     autoComplete="none"
                     className="update_input"
-                    placeholder="ex. 13시~15시 , 무관"
+                    placeholder="e.g. 대학생"
                     value={contactTime}
                     onChange={(e) => setContactTime(e.target.value)}
                   />
@@ -261,7 +261,7 @@ function PageUpdateMy({ handleWriteData, history }) {
               </div>
               <div className="worktitle__typeJob">
                 <div className="update_inner">
-                  <h3 className="update__title">관련 사업정보란</h3>
+                  <h3 className="update__title">회사 및 학교</h3>
                   <input
                     type="text"
                     autoComplete="none"
@@ -272,13 +272,13 @@ function PageUpdateMy({ handleWriteData, history }) {
                   />
                 </div>
                 <div className="job__hashtag__container">
-                  <h3 className="job__hashtag__title">관련 자격증</h3>
+                  <h3 className="job__hashtag__title">분야 및 자격증</h3>
                   <p>
-                    하는 일을 가장 잘 설명해주는 관련된 자격증을 입력해 주세요.
-                    자격증은 쉼표 ( , ) 단위로 구별됩니다.{" "}
+                    하는 일을 가장 잘 설명해주는 단어나 관련된 자격증을 입력해 주세요.
+                    태그는 쉼표 ( , ) 단위로 구별됩니다.{" "}
                   </p>
                   {/* <input className="job__hashtag__inputbox" placeholder="e.g. 영상 디자인" type="text" autoComplete="none" /> */}
-                  <div className="job__hashtag__inputbox">
+                  <div className="job__hashtag__inputbox_">
                     <form onSubmit={submitHandler}>
                       <TagsInput
                         id="tags"
@@ -300,7 +300,7 @@ function PageUpdateMy({ handleWriteData, history }) {
                     autoComplete="none"
                     className="update_input"
                     value={addOne}
-                    placeholder="ex.기타: 개인취향"
+                    placeholder="e.g. 기타: 개인취향"
                     onChange={(e) => setAddOne(e.target.value)}
                   />
                 </div>
@@ -311,7 +311,7 @@ function PageUpdateMy({ handleWriteData, history }) {
                     autoComplete="none"
                     className="update_input"
                     value={addTwo}
-                    placeholder="ex.기타: 관련경험"
+                    placeholder="e.g.기타: 관련경험"
                     onChange={(e) => setAddTwo(e.target.value)}
                   />
                 </div>

@@ -21,7 +21,7 @@ import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(0),
   },
 }));
 
@@ -120,7 +120,8 @@ const Post = ({ match, history }) => {
         <div className="modal">
           <button className="close-modal" onClick={openModal}></button>
           <div className="modal_text_container">
-            <div>글은 삭제 하시겠습니까?</div>
+          <h2 className="delete_account">잠시만요! 🤔</h2>
+            <div>정말로 삭제하시겠어요? 한번 삭제된 글은 복구되지 않습니다.</div>
             <button onClick={deletePost}>삭제</button>
           </div>
         </div>
@@ -149,18 +150,18 @@ const Post = ({ match, history }) => {
                   !editTitle ? (
                     <div>
                       <button
-                        className="edit_btn"
+                        className="edit_btn_"
                         onClick={() => setEditTitle((prev) => !prev)}
                       >
                         수정
                       </button>
-                      <button className="edit_btn" onClick={() => openModal()}>
+                      <button className="edit_btn_delete" onClick={() => openModal()}>
                         글 삭제
                       </button>
                     </div>
                   ) : (
                     <button
-                      className="edit_btn"
+                      className="edit_btn_"
                       onClick={() => editComplete("title")}
                     >
                       완료
@@ -248,14 +249,14 @@ const Post = ({ match, history }) => {
               {yourself ? (
                 !editContent ? (
                   <button
-                    className="edit_btn"
+                    className="edit_btn_"
                     onClick={() => setEditContent((prev) => !prev)}
                   >
                     수정
                   </button>
                 ) : (
                   <button
-                    className="edit_btn"
+                    className="edit_btn_"
                     onClick={() => editComplete("content")}
                   >
                     완료
@@ -267,7 +268,7 @@ const Post = ({ match, history }) => {
             </div>
 
             {!editContent ? (
-              <p>{inputContent.content}</p>
+              <p className="post__p" >{inputContent.content}</p>
             ) : (
               <textarea
                 value={inputContent.content}
@@ -277,9 +278,9 @@ const Post = ({ match, history }) => {
               />
             )}
 
-            <h2>비용</h2>
+            <h2 className="post__price">비용</h2>
             {!editContent ? (
-              <p>{`${!inputContent.cost ? "0" : inputContent.cost}원/H`}</p>
+              <p className="post__p" >{`${!inputContent.cost ? "0" : inputContent.cost}원 / 시간당`}</p>
             ) : (
               <input
                 type="text"
@@ -290,7 +291,7 @@ const Post = ({ match, history }) => {
               />
             )}
 
-            <h2 ref={refImage}>사진 및 동영상</h2>
+            <h2 ref={refImage} className="post__price">사진 및 동영상</h2>
             <div className="post_img_container">
               {postData.images &&
                 postData.images.split(",").map((photo) => {
